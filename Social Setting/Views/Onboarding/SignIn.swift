@@ -67,7 +67,7 @@ struct SignIn: View {
                 
                 HStack(spacing: 10) {
                     MainNavigationLinkView(action: {
-                        signInComplete.toggle()
+                        signInComplete = true
                     }, destionation: SignUp(), title: "Sign In", shouldPush: $signInComplete)
                 
                     AltNavigationLinkView(action: {

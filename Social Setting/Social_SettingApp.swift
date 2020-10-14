@@ -10,6 +10,10 @@ import SwiftUI
 @main
 struct Social_SettingApp: App {
     let persistenceController = PersistenceController.shared
+    
+    init() {
+        UINavigationBar.appearance().tintColor = UIColor(Color.baseColor)
+    }
 
     var body: some Scene {
         WindowGroup {
