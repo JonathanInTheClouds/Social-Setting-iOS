@@ -3,27 +3,32 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		244D93EA25366C4800664444 /* Social_SettingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244D93E925366C4800664444 /* Social_SettingApp.swift */; };
-		244D93EC25366C4800664444 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244D93EB25366C4800664444 /* ContentView.swift */; };
 		244D93EE25366C4800664444 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 244D93ED25366C4800664444 /* Assets.xcassets */; };
 		244D93F125366C4800664444 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 244D93F025366C4800664444 /* Preview Assets.xcassets */; };
 		244D93F325366C4800664444 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244D93F225366C4800664444 /* Persistence.swift */; };
 		244D93F625366C4800664444 /* Social_Setting.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 244D93F425366C4800664444 /* Social_Setting.xcdatamodeld */; };
+		244D940025366D8F00664444 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244D93FF25366D8F00664444 /* SignIn.swift */; };
+		244D940725366FB500664444 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244D940625366FB500664444 /* Color+Theme.swift */; };
+		244D940B253676BE00664444 /* BindingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244D940A253676BE00664444 /* BindingProvider.swift */; };
+		244D941125368CE000664444 /* TextView in Frameworks */ = {isa = PBXBuildFile; productRef = 244D941025368CE000664444 /* TextView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		244D93E625366C4800664444 /* Social Setting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Setting.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		244D93E925366C4800664444 /* Social_SettingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social_SettingApp.swift; sourceTree = "<group>"; };
-		244D93EB25366C4800664444 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		244D93ED25366C4800664444 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		244D93F025366C4800664444 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		244D93F225366C4800664444 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		244D93F525366C4800664444 /* Social_Setting.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Social_Setting.xcdatamodel; sourceTree = "<group>"; };
 		244D93F725366C4800664444 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		244D93FF25366D8F00664444 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
+		244D940625366FB500664444 /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
+		244D940A253676BE00664444 /* BindingProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				244D941125368CE000664444 /* TextView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,9 +62,10 @@
 		244D93E825366C4800664444 /* Social Setting */ = {
 			isa = PBXGroup;
 			children = (
-				244D93E925366C4800664444 /* Social_SettingApp.swift */,
-				244D93EB25366C4800664444 /* ContentView.swift */,
+				244D9409253676B200664444 /* Utils */,
+				244D93FE25366D7300664444 /* Views */,
 				244D93ED25366C4800664444 /* Assets.xcassets */,
+				244D93E925366C4800664444 /* Social_SettingApp.swift */,
 				244D93F225366C4800664444 /* Persistence.swift */,
 				244D93F725366C4800664444 /* Info.plist */,
 				244D93F425366C4800664444 /* Social_Setting.xcdatamodeld */,
@@ -73,6 +80,23 @@
 				244D93F025366C4800664444 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		244D93FE25366D7300664444 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				244D93FF25366D8F00664444 /* SignIn.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		244D9409253676B200664444 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				244D940A253676BE00664444 /* BindingProvider.swift */,
+				244D940625366FB500664444 /* Color+Theme.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -91,6 +115,9 @@
 			dependencies = (
 			);
 			name = "Social Setting";
+			packageProductDependencies = (
+				244D941025368CE000664444 /* TextView */,
+			);
 			productName = "Social Setting";
 			productReference = 244D93E625366C4800664444 /* Social Setting.app */;
 			productType = "com.apple.product-type.application";
@@ -118,6 +145,9 @@
 				Base,
 			);
 			mainGroup = 244D93DD25366C4800664444;
+			packageReferences = (
+				244D940F25368CE000664444 /* XCRemoteSwiftPackageReference "TextView" */,
+			);
 			productRefGroup = 244D93E725366C4800664444 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -144,10 +174,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				244D940725366FB500664444 /* Color+Theme.swift in Sources */,
 				244D93F325366C4800664444 /* Persistence.swift in Sources */,
-				244D93EC25366C4800664444 /* ContentView.swift in Sources */,
 				244D93EA25366C4800664444 /* Social_SettingApp.swift in Sources */,
 				244D93F625366C4800664444 /* Social_Setting.xcdatamodeld in Sources */,
+				244D940B253676BE00664444 /* BindingProvider.swift in Sources */,
+				244D940025366D8F00664444 /* SignIn.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +368,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		244D940F25368CE000664444 /* XCRemoteSwiftPackageReference "TextView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kenmueller/TextView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		244D941025368CE000664444 /* TextView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 244D940F25368CE000664444 /* XCRemoteSwiftPackageReference "TextView" */;
+			productName = TextView;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		244D93F425366C4800664444 /* Social_Setting.xcdatamodeld */ = {
