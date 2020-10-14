@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2439E3DC2536ADF30006993D /* MainNavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439E3DB2536ADF30006993D /* MainNavigationLinkView.swift */; };
 		244D93EA25366C4800664444 /* Social_SettingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244D93E925366C4800664444 /* Social_SettingApp.swift */; };
 		244D93EE25366C4800664444 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 244D93ED25366C4800664444 /* Assets.xcassets */; };
 		244D93F125366C4800664444 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 244D93F025366C4800664444 /* Preview Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2439E3DB2536ADF30006993D /* MainNavigationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationLinkView.swift; sourceTree = "<group>"; };
 		244D93E625366C4800664444 /* Social Setting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Setting.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		244D93E925366C4800664444 /* Social_SettingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social_SettingApp.swift; sourceTree = "<group>"; };
 		244D93ED25366C4800664444 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				244D93FF25366D8F00664444 /* SignIn.swift */,
+				2439E3DB2536ADF30006993D /* MainNavigationLinkView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				244D940725366FB500664444 /* Color+Theme.swift in Sources */,
+				2439E3DC2536ADF30006993D /* MainNavigationLinkView.swift in Sources */,
 				244D93F325366C4800664444 /* Persistence.swift in Sources */,
 				244D93EA25366C4800664444 /* Social_SettingApp.swift in Sources */,
 				244D93F625366C4800664444 /* Social_Setting.xcdatamodeld in Sources */,

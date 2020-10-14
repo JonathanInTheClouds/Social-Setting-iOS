@@ -18,47 +18,55 @@ struct SignIn: View {
     
     @State var passwordEditing: Bool = false
     
+    @State var shouldAttemptSignIn: Bool = false
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            HeadView()
-                .padding(.bottom, 30)
+        NavigationView {
+            VStack(alignment: .leading) {
+                HeadView()
+                    .padding(.bottom, 30)
 
-            TextView(text: $username, isEditing: $userEditing, placeholder: "Username",
-                     textHorizontalPadding: -4, textVerticalPadding: 0,
-                     placeholderHorizontalPadding: -1, placeholderVerticalPadding: 1, returnType: UIReturnKeyType.next, shouldChange: { _, character -> Bool in
-                        let isEntered = character == "\n"
-                        if isEntered {
-                            userEditing.toggle()
-                            passwordEditing.toggle()
-                        }
-                        return isEntered ? false : true
-                     })
-                .frame(height: 21, alignment: .center)
-                .padding()
-                .background(Color.gray19)
-                .cornerRadius(6)
-                .keyboardType(.default)
-                .padding(.bottom, 5)
-            
-            
-            TextView(text: $password, isEditing: $passwordEditing, placeholder: "Password",
-                     textHorizontalPadding: -4, textVerticalPadding: 0,
-                     placeholderHorizontalPadding: -1, placeholderVerticalPadding: 1, returnType: UIReturnKeyType.continue, shouldChange: { _, character -> Bool in
-                        let isEntered = character == "\n"
-                        
-                        
-                        return isEntered ? false : true
-                     })
-                .frame(height: 21, alignment: .center)
-                .padding()
-                .background(Color.gray19)
-                .cornerRadius(6)
-                .keyboardType(.default)
-
-            
-            
+                TextView(text: $username, isEditing: $userEditing, placeholder: "Username",
+                         textHorizontalPadding: -4, textVerticalPadding: 0,
+                         placeholderHorizontalPadding: -1, placeholderVerticalPadding: 1, returnType: UIReturnKeyType.next, shouldChange: { _, character -> Bool in
+                            let isEntered = character == "\n"
+                            if isEntered {
+                                userEditing.toggle()
+                                passwordEditing.toggle()
+                            }
+                            return isEntered ? false : true
+                         })
+                    .frame(height: 21, alignment: .center)
+                    .padding()
+                    .background(Color.gray19)
+                    .cornerRadius(6)
+                    .keyboardType(.default)
+                    .padding(.bottom, 5)
+                
+                
+                TextView(text: $password, isEditing: $passwordEditing, placeholder: "Password",
+                         textHorizontalPadding: -4, textVerticalPadding: 0,
+                         placeholderHorizontalPadding: -1, placeholderVerticalPadding: 1, returnType: UIReturnKeyType.continue, shouldChange: { _, character -> Bool in
+                            let isEntered = character == "\n"
+                            
+                            
+                            return isEntered ? false : true
+                         })
+                    .frame(height: 21, alignment: .center)
+                    .padding()
+                    .background(Color.gray19)
+                    .cornerRadius(6)
+                    .keyboardType(.default)
+                    .padding(.bottom, 10)
+                
+                MainNavigationLinkView(action: {
+                    
+                }, destionation: SignIn(), title: "Sign In", shouldPush: $shouldAttemptSignIn)
+                
+            }
+            .padding(.all, 30)
+            .navigationBarHidden(true)
         }
-        .padding(.all, 30)
     }
 }
 
