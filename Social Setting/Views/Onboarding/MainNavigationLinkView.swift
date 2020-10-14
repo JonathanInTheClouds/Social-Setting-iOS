@@ -18,7 +18,7 @@ struct MainNavigationLinkView<Content: View>: View {
     @Binding var shouldPush: Bool
     
     var body: some View {
-        Button(action: {}, label: {
+        Button(action: action, label: {
             NavigationLink(destination: destionation, isActive: $shouldPush) {
                 HStack {
                     Spacer()

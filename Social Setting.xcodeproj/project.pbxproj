@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2430BC6325377FE300506696 /* AltNavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2430BC6225377FE300506696 /* AltNavigationLinkView.swift */; };
+		2430BC66253783DC00506696 /* DismissingKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2430BC65253783DC00506696 /* DismissingKeyboard.swift */; };
 		2439E3DC2536ADF30006993D /* MainNavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439E3DB2536ADF30006993D /* MainNavigationLinkView.swift */; };
 		244D93EA25366C4800664444 /* Social_SettingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244D93E925366C4800664444 /* Social_SettingApp.swift */; };
 		244D93EE25366C4800664444 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 244D93ED25366C4800664444 /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2430BC6225377FE300506696 /* AltNavigationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltNavigationLinkView.swift; sourceTree = "<group>"; };
+		2430BC65253783DC00506696 /* DismissingKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissingKeyboard.swift; sourceTree = "<group>"; };
 		2439E3DB2536ADF30006993D /* MainNavigationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationLinkView.swift; sourceTree = "<group>"; };
 		244D93E625366C4800664444 /* Social Setting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Setting.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		244D93E925366C4800664444 /* Social_SettingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social_SettingApp.swift; sourceTree = "<group>"; };
@@ -45,6 +49,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2430BC682537843000506696 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				244D93FF25366D8F00664444 /* SignIn.swift */,
+				2439E3DB2536ADF30006993D /* MainNavigationLinkView.swift */,
+				2430BC6225377FE300506696 /* AltNavigationLinkView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		244D93DD25366C4800664444 = {
 			isa = PBXGroup;
 			children = (
@@ -87,8 +101,7 @@
 		244D93FE25366D7300664444 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				244D93FF25366D8F00664444 /* SignIn.swift */,
-				2439E3DB2536ADF30006993D /* MainNavigationLinkView.swift */,
+				2430BC682537843000506696 /* Onboarding */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -98,6 +111,7 @@
 			children = (
 				244D940A253676BE00664444 /* BindingProvider.swift */,
 				244D940625366FB500664444 /* Color+Theme.swift */,
+				2430BC65253783DC00506696 /* DismissingKeyboard.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -177,8 +191,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2430BC6325377FE300506696 /* AltNavigationLinkView.swift in Sources */,
 				244D940725366FB500664444 /* Color+Theme.swift in Sources */,
 				2439E3DC2536ADF30006993D /* MainNavigationLinkView.swift in Sources */,
+				2430BC66253783DC00506696 /* DismissingKeyboard.swift in Sources */,
 				244D93F325366C4800664444 /* Persistence.swift in Sources */,
 				244D93EA25366C4800664444 /* Social_SettingApp.swift in Sources */,
 				244D93F625366C4800664444 /* Social_Setting.xcdatamodeld in Sources */,
