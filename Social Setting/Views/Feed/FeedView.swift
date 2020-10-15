@@ -34,7 +34,7 @@ struct FeedView: View {
                     .foregroundColor(Color.gray99)
             }, trailing: HStack {
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    Image(systemName: "flame.fill")
+                    Image(systemName: "rectangle.fill.badge.plus")
                 })
             })
             .navigationBarTitleDisplayMode(.inline)
