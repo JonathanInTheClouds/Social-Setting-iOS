@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2403664E25380B780067B3E3 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2403664D25380B780067B3E3 /* SearchBar.swift */; };
 		2430BC6325377FE300506696 /* AltNavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2430BC6225377FE300506696 /* AltNavigationLinkView.swift */; };
 		2430BC66253783DC00506696 /* DismissingKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2430BC65253783DC00506696 /* DismissingKeyboard.swift */; };
 		2439E3DC2536ADF30006993D /* MainNavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439E3DB2536ADF30006993D /* MainNavigationLinkView.swift */; };
@@ -20,9 +21,14 @@
 		244D940B253676BE00664444 /* BindingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244D940A253676BE00664444 /* BindingProvider.swift */; };
 		244D941125368CE000664444 /* TextView in Frameworks */ = {isa = PBXBuildFile; productRef = 244D941025368CE000664444 /* TextView */; };
 		244EDB8D25378501006DB2F1 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244EDB8C25378501006DB2F1 /* SignUp.swift */; };
+		2468FDEC2538056E00E6DEC7 /* HideRowSeparatorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2468FDEB2538056E00E6DEC7 /* HideRowSeparatorModifier.swift */; };
+		2468FDF425380A5600E6DEC7 /* ViewControllerResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2468FDF325380A5600E6DEC7 /* ViewControllerResolver.swift */; };
+		2483B7162537C3B9004E6DC0 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483B7152537C3B9004E6DC0 /* FeedView.swift */; };
+		2483B71A2537E3C7004E6DC0 /* PostContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483B7192537E3C7004E6DC0 /* PostContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2403664D25380B780067B3E3 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		2430BC6225377FE300506696 /* AltNavigationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltNavigationLinkView.swift; sourceTree = "<group>"; };
 		2430BC65253783DC00506696 /* DismissingKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissingKeyboard.swift; sourceTree = "<group>"; };
 		2439E3DB2536ADF30006993D /* MainNavigationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationLinkView.swift; sourceTree = "<group>"; };
@@ -37,6 +43,10 @@
 		244D940625366FB500664444 /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Theme.swift"; sourceTree = "<group>"; };
 		244D940A253676BE00664444 /* BindingProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingProvider.swift; sourceTree = "<group>"; };
 		244EDB8C25378501006DB2F1 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		2468FDEB2538056E00E6DEC7 /* HideRowSeparatorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideRowSeparatorModifier.swift; sourceTree = "<group>"; };
+		2468FDF325380A5600E6DEC7 /* ViewControllerResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerResolver.swift; sourceTree = "<group>"; };
+		2483B7152537C3B9004E6DC0 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		2483B7192537E3C7004E6DC0 /* PostContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +114,9 @@
 		244D93FE25366D7300664444 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2468FDF225380A4F00E6DEC7 /* SearchBar */,
 				2430BC682537843000506696 /* Onboarding */,
+				2483B7142537C29F004E6DC0 /* Feed */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -115,8 +127,27 @@
 				244D940A253676BE00664444 /* BindingProvider.swift */,
 				244D940625366FB500664444 /* Color+Theme.swift */,
 				2430BC65253783DC00506696 /* DismissingKeyboard.swift */,
+				2468FDEB2538056E00E6DEC7 /* HideRowSeparatorModifier.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		2468FDF225380A4F00E6DEC7 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				2468FDF325380A5600E6DEC7 /* ViewControllerResolver.swift */,
+				2403664D25380B780067B3E3 /* SearchBar.swift */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		2483B7142537C29F004E6DC0 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				2483B7152537C3B9004E6DC0 /* FeedView.swift */,
+				2483B7192537E3C7004E6DC0 /* PostContentView.swift */,
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,11 +226,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2430BC6325377FE300506696 /* AltNavigationLinkView.swift in Sources */,
+				2468FDF425380A5600E6DEC7 /* ViewControllerResolver.swift in Sources */,
+				2403664E25380B780067B3E3 /* SearchBar.swift in Sources */,
 				244D940725366FB500664444 /* Color+Theme.swift in Sources */,
 				2439E3DC2536ADF30006993D /* MainNavigationLinkView.swift in Sources */,
+				2483B71A2537E3C7004E6DC0 /* PostContentView.swift in Sources */,
 				2430BC66253783DC00506696 /* DismissingKeyboard.swift in Sources */,
+				2483B7162537C3B9004E6DC0 /* FeedView.swift in Sources */,
 				244D93F325366C4800664444 /* Persistence.swift in Sources */,
 				244D93EA25366C4800664444 /* Social_SettingApp.swift in Sources */,
+				2468FDEC2538056E00E6DEC7 /* HideRowSeparatorModifier.swift in Sources */,
 				244D93F625366C4800664444 /* Social_Setting.xcdatamodeld in Sources */,
 				244D940B253676BE00664444 /* BindingProvider.swift in Sources */,
 				244D940025366D8F00664444 /* SignIn.swift in Sources */,
