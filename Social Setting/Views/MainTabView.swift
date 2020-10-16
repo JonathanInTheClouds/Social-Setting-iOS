@@ -12,7 +12,8 @@ struct MainTabView: View {
         TabView {
             FeedView()
                 .tabItem {
-                    Image(systemName: "rectangle.stack.fill")
+                    Image(systemName: "cube.fill")
+                        .offset(y: 5)
                     Text("Feed")
                 }
             FeedView()
@@ -27,7 +28,7 @@ struct MainTabView: View {
                 }
             FeedView()
                 .tabItem {
-                    Image(systemName: "doc.richtext.fill")
+                    Image(systemName: "mail.fill")
                     Text("Profile")
                 }
         }
@@ -37,6 +38,8 @@ struct MainTabView: View {
 
 struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabView()
+        Group {
+            MainTabView()
+        }
     }
 }
