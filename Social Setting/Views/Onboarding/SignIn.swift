@@ -24,61 +24,65 @@ struct SignIn: View {
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
-                HeadView()
-                    .padding(.bottom, 30)
-                    .modifier(DismissingKeyboard())
+            ZStack {
+                Color.tertiarySystemBackground
+                    .ignoresSafeArea()
+                VStack(alignment: .leading) {
+                    HeadView()
+                        .padding(.bottom, 30)
+                        .modifier(DismissingKeyboard())
 
-                TextView(text: $username, isEditing: $userEditing, placeholder: "Username",
-                         textHorizontalPadding: -4, textVerticalPadding: 0,
-                         placeholderHorizontalPadding: -1, placeholderVerticalPadding: 1, returnType: UIReturnKeyType.next, shouldChange: { _, character -> Bool in
-                            let isEntered = character == "\n"
-                            if isEntered {
-                                userEditing.toggle()
-                                passwordEditing.toggle()
-                            }
-                            return isEntered ? false : true
-                         })
-                    .frame(height: 21, alignment: .center)
-                    .padding()
-                    .background(Color.gray19)
-                    .cornerRadius(6)
-                    .keyboardType(.default)
-                    .padding(.bottom, 5)
-                
-                
-                TextView(text: $password, isEditing: $passwordEditing, placeholder: "Password",
-                         textHorizontalPadding: -4, textVerticalPadding: 0,
-                         placeholderHorizontalPadding: -1, placeholderVerticalPadding: 1, returnType: UIReturnKeyType.continue, shouldChange: { _, character -> Bool in
-                            let isEntered = character == "\n"
+                    TextView(text: $username, isEditing: $userEditing, placeholder: "Username",
+                             textHorizontalPadding: -4, textVerticalPadding: 0,
+                             placeholderHorizontalPadding: -1, placeholderVerticalPadding: 1, returnType: UIReturnKeyType.next, shouldChange: { _, character -> Bool in
+                                let isEntered = character == "\n"
+                                if isEntered {
+                                    userEditing.toggle()
+                                    passwordEditing.toggle()
+                                }
+                                return isEntered ? false : true
+                             })
+                        .frame(height: 21, alignment: .center)
+                        .padding()
+                        .background(Color.gray19)
+                        .cornerRadius(6)
+                        .keyboardType(.default)
+                        .padding(.bottom, 5)
+                    
+                    
+                    TextView(text: $password, isEditing: $passwordEditing, placeholder: "Password",
+                             textHorizontalPadding: -4, textVerticalPadding: 0,
+                             placeholderHorizontalPadding: -1, placeholderVerticalPadding: 1, returnType: UIReturnKeyType.continue, shouldChange: { _, character -> Bool in
+                                let isEntered = character == "\n"
+                                
+                                if isEntered {
+                                    passwordEditing.toggle()
+                                }
+                                
+                                return isEntered ? false : true
+                             })
+                        .frame(height: 21, alignment: .center)
+                        .padding()
+                        .background(Color.gray19)
+                        .cornerRadius(6)
+                        .keyboardType(.default)
+                        .padding(.bottom, 15)
+                    
+                    HStack(spacing: 10) {
+                        MainNavigationLinkView(action: {
+                            signInComplete = true
+                        }, destionation: SignUp(), title: "Sign In", shouldPush: $signInComplete)
+                    
+                        AltNavigationLinkView(action: {
                             
-                            if isEntered {
-                                passwordEditing.toggle()
-                            }
-                            
-                            return isEntered ? false : true
-                         })
-                    .frame(height: 21, alignment: .center)
-                    .padding()
-                    .background(Color.gray19)
-                    .cornerRadius(6)
-                    .keyboardType(.default)
-                    .padding(.bottom, 15)
-                
-                HStack(spacing: 10) {
-                    MainNavigationLinkView(action: {
-                        signInComplete = true
-                    }, destionation: SignUp(), title: "Sign In", shouldPush: $signInComplete)
-                
-                    AltNavigationLinkView(action: {
-                        
-                    }, destination: SignUp(), leftText: "Sign Up", rightImage: Image(systemName: "chevron.right"))
+                        }, destination: SignUp(), leftText: "Sign Up", rightImage: Image(systemName: "chevron.right"))
+                    }
+                    
                 }
-                
+                .padding(.all, 30)
+                .navigationBarHidden(true)
+                .modifier(DismissingKeyboard())
             }
-            .padding(.all, 30)
-            .navigationBarHidden(true)
-            .modifier(DismissingKeyboard())
         }
     }
 }
@@ -88,7 +92,13 @@ struct SignIn_Previews: PreviewProvider {
     @State static var field = ""
     
     static var previews: some View {
-        SignIn(username: field)
+        Group {
+            SignIn()
+                .environment(\.colorScheme, .light)
+            
+            SignIn()
+                .environment(\.colorScheme, .dark)
+        }
     }
 }
 
