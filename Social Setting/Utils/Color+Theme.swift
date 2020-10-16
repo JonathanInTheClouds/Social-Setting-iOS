@@ -25,8 +25,8 @@ extension Color {
     }
     
     /// C4CACC
-    static var gra59: Color {
-        return Color("gra59")
+    static var gray59: Color {
+        return Color("gray59")
     }
     
     /// E7EAEB

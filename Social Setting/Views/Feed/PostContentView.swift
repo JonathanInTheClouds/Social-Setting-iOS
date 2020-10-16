@@ -13,9 +13,8 @@ struct PostContentView: View {
         VStack(alignment: .leading) {
             PostHeadView()
             
-            Text("Without music, life would be a mistake.")
+            MainBody()
                 .foregroundColor(Color.gray99)
-                .font(.title)
                 .padding(.bottom, 15)
                 .padding(.top, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             
@@ -34,15 +33,15 @@ struct Post_Previews: PreviewProvider {
     }
 }
 
-struct PostHeadView: View {
+private struct PostHeadView: View {
     var body: some View {
         HStack {
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                 Image("Profile")
                     .resizable()
-                    .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .aspectRatio(contentMode: .fit)
                     .cornerRadius(25)
+                    .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             })
             
             VStack(alignment: .leading) {
@@ -67,21 +66,29 @@ struct PostHeadView: View {
                 }
             })
             .frame(width: 50, height: 50, alignment: .center)
-            
         }
     }
 }
 
-struct ButtonHStack: View {
+private struct ButtonHStack: View {
+    
+    private let likeButtonColor = Color.baseColor
+    private let shareButtonColor = Color(.sRGB, red: 69/255, green: 142/255, blue: 255/255, opacity: 1)
+    
+    @State private var liked = false
+    @State private var shared = false
+    
     var body: some View {
         HStack(spacing: 20) {
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+            Button(action: {
+                likeButtonAction()
+            }, label: {
                 HStack {
                     Image(systemName: "suit.heart.fill")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 25, height: 25, alignment: .center)
-                        .foregroundColor(Color.gray79)
+                        .foregroundColor(liked ? likeButtonColor : .gray79)
                         .padding(.trailing, 5)
                     
                     Text("61")
@@ -105,13 +112,15 @@ struct ButtonHStack: View {
             })
             .frame(height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+            Button(action: {
+                shareButtonAction()
+            }, label: {
                 HStack {
                     Image(systemName: "arrowshape.bounce.right.fill")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 25, height: 25, alignment: .center)
-                        .foregroundColor(Color.gray79)
+                        .foregroundColor(shared ? shareButtonColor : .gray79)
                         .padding(.trailing, 5)
                         
                     
@@ -123,6 +132,47 @@ struct ButtonHStack: View {
         }
         .padding(.top, 5)
     }
+    
+    private func likeButtonAction() {
+        liked.toggle()
+    }
+    
+    private func shareButtonAction() {
+        shared.toggle()
+    }
 }
 
 
+
+private struct MainBody: View {
+    
+    @State private var bodyText = "He turned in the research paper on Friday; otherwise, he would have not passed the class."
+    
+    var body: some View {
+        VStack {
+            Text(bodyText)
+                .font(setFont(text: bodyText))
+            
+            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Image("placeholder-photo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 180, alignment: .center)
+                    .cornerRadius(6)
+                    .clipped()
+            })
+        }
+    }
+    
+    func setFont(text: String) -> Font? {
+        if text.count <= 50 {
+            return .title
+        }
+        
+        if text.count <= 80 {
+            return .title2
+        }
+        
+        return .title3
+    }
+}

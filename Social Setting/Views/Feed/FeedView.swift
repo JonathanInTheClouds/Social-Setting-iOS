@@ -11,6 +11,8 @@ struct FeedView: View {
     
     @State private var searchText : String = ""
     @ObservedObject var searchBar: SearchBar = SearchBar()
+    @Environment(\.colorScheme) var colorScheme
+    
     
     var body: some View {
         NavigationView {
@@ -19,8 +21,13 @@ struct FeedView: View {
                     ForEach(1...10, id: \.self) { value in
                         PostContentView()
                             .padding(.horizontal, 16)
-                            .padding(.top, 5)
-                        Color(.sRGB, red: 247/255, green: 247/255, blue: 247/255, opacity: 1)
+                            .padding(.top, 10)
+                            .padding(.bottom, 10)
+                        if colorScheme == .light {
+                            Color(.sRGB, red: 247/255, green: 247/255, blue: 247/255, opacity: 1)
+                        } else {
+                            Color(.sRGB, red: 25/255, green: 26/255, blue: 27/255, opacity: 1)
+                        }
                     }
                 }
                 .padding(.top, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
@@ -34,7 +41,7 @@ struct FeedView: View {
                     .foregroundColor(Color.gray99)
             }, trailing: HStack {
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    Image(systemName: "rectangle.fill.badge.plus")
+                    Image(systemName: "shippingbox.fill")
                 })
             })
             .navigationBarTitleDisplayMode(.inline)

@@ -11,6 +11,7 @@
 		2430BC6325377FE300506696 /* AltNavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2430BC6225377FE300506696 /* AltNavigationLinkView.swift */; };
 		2430BC66253783DC00506696 /* DismissingKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2430BC65253783DC00506696 /* DismissingKeyboard.swift */; };
 		2439E3DC2536ADF30006993D /* MainNavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439E3DB2536ADF30006993D /* MainNavigationLinkView.swift */; };
+		243C863C253932F400C79654 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243C863B253932F400C79654 /* MainTabView.swift */; };
 		244D93EA25366C4800664444 /* Social_SettingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244D93E925366C4800664444 /* Social_SettingApp.swift */; };
 		244D93EE25366C4800664444 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 244D93ED25366C4800664444 /* Assets.xcassets */; };
 		244D93F125366C4800664444 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 244D93F025366C4800664444 /* Preview Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		2430BC6225377FE300506696 /* AltNavigationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltNavigationLinkView.swift; sourceTree = "<group>"; };
 		2430BC65253783DC00506696 /* DismissingKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissingKeyboard.swift; sourceTree = "<group>"; };
 		2439E3DB2536ADF30006993D /* MainNavigationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationLinkView.swift; sourceTree = "<group>"; };
+		243C863B253932F400C79654 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		244D93E625366C4800664444 /* Social Setting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Setting.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		244D93E925366C4800664444 /* Social_SettingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social_SettingApp.swift; sourceTree = "<group>"; };
 		244D93ED25366C4800664444 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				2468FDF225380A4F00E6DEC7 /* SearchBar */,
 				2430BC682537843000506696 /* Onboarding */,
 				2483B7142537C29F004E6DC0 /* Feed */,
+				243C863B253932F400C79654 /* MainTabView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				2430BC6325377FE300506696 /* AltNavigationLinkView.swift in Sources */,
 				2468FDF425380A5600E6DEC7 /* ViewControllerResolver.swift in Sources */,
 				2403664E25380B780067B3E3 /* SearchBar.swift in Sources */,
+				243C863C253932F400C79654 /* MainTabView.swift in Sources */,
 				244D940725366FB500664444 /* Color+Theme.swift in Sources */,
 				2439E3DC2536ADF30006993D /* MainNavigationLinkView.swift in Sources */,
 				2483B71A2537E3C7004E6DC0 /* PostContentView.swift in Sources */,
