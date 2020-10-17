@@ -113,8 +113,8 @@ struct SignUpView: View {
                     .padding(.bottom, 15)
                 
                 MainNavigationLinkView(action: {
-                    
-                }, destionation: SignUpView(), title: "Continue", shouldPush: $signUpComplete)
+                    signUpComplete = true
+                }, destionation: SecureCodeView(), title: "Continue", shouldPush: $signUpComplete)
                 .padding(.bottom, 50)
             }
             .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, 30)

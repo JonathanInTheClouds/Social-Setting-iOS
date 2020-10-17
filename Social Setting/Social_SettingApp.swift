@@ -17,7 +17,7 @@ struct Social_SettingApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            SignInView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

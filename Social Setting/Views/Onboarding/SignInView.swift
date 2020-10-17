@@ -32,40 +32,16 @@ struct SignInView: View {
                         .padding(.bottom, 30)
                         .modifier(DismissingKeyboard())
 
-                    TextView(text: $username, isEditing: $userEditing, placeholder: "Username",
-                             textHorizontalPadding: -4, textVerticalPadding: 0,
-                             placeholderHorizontalPadding: -1, placeholderVerticalPadding: 1, returnType: UIReturnKeyType.next, shouldChange: { _, character -> Bool in
-                                let isEntered = character == "\n"
-                                if isEntered {
-                                    userEditing.toggle()
-                                    passwordEditing.toggle()
-                                }
-                                return isEntered ? false : true
-                             })
-                        .frame(height: 21, alignment: .center)
-                        .padding()
-                        .background(Color.gray19)
-                        .cornerRadius(6)
-                        .keyboardType(.default)
+                    SSTextView(field: $username, fieldEditing: $userEditing, placeholder: "Username", returnType: .continue, keyboardType: .default, enterAction: {
+                        userEditing.toggle()
+                        passwordEditing.toggle()
+                    })
                         .padding(.bottom, 5)
                     
                     
-                    TextView(text: $password, isEditing: $passwordEditing, placeholder: "Password",
-                             textHorizontalPadding: -4, textVerticalPadding: 0,
-                             placeholderHorizontalPadding: -1, placeholderVerticalPadding: 1, returnType: UIReturnKeyType.continue, shouldChange: { _, character -> Bool in
-                                let isEntered = character == "\n"
-                                
-                                if isEntered {
-                                    passwordEditing.toggle()
-                                }
-                                
-                                return isEntered ? false : true
-                             })
-                        .frame(height: 21, alignment: .center)
-                        .padding()
-                        .background(Color.gray19)
-                        .cornerRadius(6)
-                        .keyboardType(.default)
+                    SSTextView(field: $password, fieldEditing: $passwordEditing, placeholder: "Password", returnType: .done, keyboardType: .default, enterAction: {
+                        passwordEditing.toggle()
+                    })
                         .padding(.bottom, 15)
                     
                     HStack(spacing: 10) {
@@ -102,7 +78,7 @@ struct SignIn_Previews: PreviewProvider {
     }
 }
 
-struct HeadView: View {
+private struct HeadView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .top) {
