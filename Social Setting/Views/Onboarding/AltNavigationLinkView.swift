@@ -39,6 +39,6 @@ struct AltNavigationLinkView<Content: View>: View {
 
 struct AltNavigationLinkView_Previews: PreviewProvider {
     static var previews: some View {
-        AltNavigationLinkView(action: {}, destination: SignIn(), leftText: "Sign Up", rightImage: Image(systemName: "chevron.right"))
+        AltNavigationLinkView(action: {}, destination: SignInView(), leftText: "Sign Up", rightImage: Image(systemName: "chevron.right"))
     }
 }

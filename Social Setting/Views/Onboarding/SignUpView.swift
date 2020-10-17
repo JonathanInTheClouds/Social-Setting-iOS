@@ -8,7 +8,7 @@
 import SwiftUI
 import TextView
 
-struct SignUp: View {
+struct SignUpView: View {
     
     @State var email: String = ""
     
@@ -36,7 +36,7 @@ struct SignUp: View {
             VStack {
                 AltNavigationLinkView(action: {
                     
-                }, destination: SignUp(), leftText: "Sign Up With Facebook", rightImage: Image(systemName: "chevron.right"))
+                }, destination: SignUpView(), leftText: "Sign Up With Facebook", rightImage: Image(systemName: "chevron.right"))
                 .padding(.bottom, 5)
                 
                 Text("or sign up with Email")
@@ -114,7 +114,7 @@ struct SignUp: View {
                 
                 MainNavigationLinkView(action: {
                     
-                }, destionation: SignUp(), title: "Continue", shouldPush: $signUpComplete)
+                }, destionation: SignUpView(), title: "Continue", shouldPush: $signUpComplete)
                 .padding(.bottom, 50)
             }
             .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, 30)
@@ -126,10 +126,10 @@ struct SignUp: View {
 struct SignUp_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SignUp()
+            SignUpView()
                 .environment(\.colorScheme, .light)
             
-            SignUp()
+            SignUpView()
                 .environment(\.colorScheme, .dark)
         }
     }

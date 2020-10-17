@@ -8,7 +8,7 @@
 import SwiftUI
 import TextView
 
-struct SignIn: View {
+struct SignInView: View {
     
     @State var username: String = ""
     
@@ -71,11 +71,11 @@ struct SignIn: View {
                     HStack(spacing: 10) {
                         MainNavigationLinkView(action: {
                             signInComplete = true
-                        }, destionation: SignUp(), title: "Sign In", shouldPush: $signInComplete)
+                        }, destionation: SignUpView(), title: "Sign In", shouldPush: $signInComplete)
                     
                         AltNavigationLinkView(action: {
                             
-                        }, destination: SignUp(), leftText: "Sign Up", rightImage: Image(systemName: "chevron.right"))
+                        }, destination: SignUpView(), leftText: "Sign Up", rightImage: Image(systemName: "chevron.right"))
                     }
                     
                 }
@@ -93,10 +93,10 @@ struct SignIn_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            SignIn()
+            SignInView()
                 .environment(\.colorScheme, .light)
             
-            SignIn()
+            SignInView()
                 .environment(\.colorScheme, .dark)
         }
     }

@@ -41,7 +41,7 @@ struct MainNavigationLinkView_Previews: PreviewProvider {
         BindingProvider(false) { bind in
             MainNavigationLinkView(action: {
                 print("Moving Alone")
-            }, destionation: SignIn(), title: "Continue", shouldPush: bind)
+            }, destionation: SignInView(), title: "Continue", shouldPush: bind)
         }
     }
 }
