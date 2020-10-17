@@ -21,7 +21,8 @@ struct FeedView: View {
                     .edgesIgnoringSafeArea(.all)
                 ScrollView {
                     LazyVStack {
-                        ForEach(1...10, id: \.self) { value in
+                        // TODO: - Add Functionality
+                        ForEach(1...20, id: \.self) { value in
                             PostContentView()
                                 .padding(.horizontal, 16)
                                 .padding(.top, 10)
@@ -44,7 +45,10 @@ struct FeedView: View {
                         .foregroundColor(Color.gray99)
                 }, trailing: HStack {
                     Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                        Image(systemName: "shippingbox.fill")
+                        Image(systemName: "rectangle.fill.badge.plus")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 23, height: 23, alignment: .center)
                     })
                 })
                 .navigationBarTitleDisplayMode(.inline)

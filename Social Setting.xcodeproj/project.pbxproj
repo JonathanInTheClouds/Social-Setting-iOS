@@ -26,6 +26,8 @@
 		2468FDF425380A5600E6DEC7 /* ViewControllerResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2468FDF325380A5600E6DEC7 /* ViewControllerResolver.swift */; };
 		2483B7162537C3B9004E6DC0 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483B7152537C3B9004E6DC0 /* FeedView.swift */; };
 		2483B71A2537E3C7004E6DC0 /* PostContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483B7192537E3C7004E6DC0 /* PostContentView.swift */; };
+		249CD7CD253A577500C516A8 /* NormalPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249CD7CC253A577500C516A8 /* NormalPostView.swift */; };
+		249CD7D0253A593700C516A8 /* TopicPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249CD7CF253A593700C516A8 /* TopicPostView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		2468FDF325380A5600E6DEC7 /* ViewControllerResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerResolver.swift; sourceTree = "<group>"; };
 		2483B7152537C3B9004E6DC0 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		2483B7192537E3C7004E6DC0 /* PostContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContentView.swift; sourceTree = "<group>"; };
+		249CD7CC253A577500C516A8 /* NormalPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalPostView.swift; sourceTree = "<group>"; };
+		249CD7CF253A593700C516A8 /* TopicPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicPostView.swift; path = "Social Setting/Views/TopicPostView.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2425B98C253A56490003878B /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				2483B7192537E3C7004E6DC0 /* PostContentView.swift */,
+				249CD7CC253A577500C516A8 /* NormalPostView.swift */,
+				249CD7CF253A593700C516A8 /* TopicPostView.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
 		2430BC682537843000506696 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +133,7 @@
 				2468FDF225380A4F00E6DEC7 /* SearchBar */,
 				2430BC682537843000506696 /* Onboarding */,
 				2483B7142537C29F004E6DC0 /* Feed */,
+				2425B98C253A56490003878B /* Post */,
 				243C863B253932F400C79654 /* MainTabView.swift */,
 			);
 			path = Views;
@@ -148,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				2483B7152537C3B9004E6DC0 /* FeedView.swift */,
-				2483B7192537E3C7004E6DC0 /* PostContentView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -232,9 +246,11 @@
 				2468FDF425380A5600E6DEC7 /* ViewControllerResolver.swift in Sources */,
 				2403664E25380B780067B3E3 /* SearchBar.swift in Sources */,
 				243C863C253932F400C79654 /* MainTabView.swift in Sources */,
+				249CD7CD253A577500C516A8 /* NormalPostView.swift in Sources */,
 				244D940725366FB500664444 /* Color+Theme.swift in Sources */,
 				2439E3DC2536ADF30006993D /* MainNavigationLinkView.swift in Sources */,
 				2483B71A2537E3C7004E6DC0 /* PostContentView.swift in Sources */,
+				249CD7D0253A593700C516A8 /* TopicPostView.swift in Sources */,
 				2430BC66253783DC00506696 /* DismissingKeyboard.swift in Sources */,
 				2483B7162537C3B9004E6DC0 /* FeedView.swift in Sources */,
 				244D93F325366C4800664444 /* Persistence.swift in Sources */,
