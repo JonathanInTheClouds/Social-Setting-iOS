@@ -12,6 +12,7 @@ struct TopicPostView: View {
     var body: some View {
         VStack(alignment: .leading) {
             PostHeadView()
+                .padding(.bottom, 10)
             MainBody()
             Color.gray39
                 .frame(height: 1, alignment: .center)
