@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SecureCodeView: View {
     @State var secureCode: String = ""
-    @State var secureCodeEditing: Bool = true
+    @State var secureCodeEditing: Bool = false
     @State var codeVerified: Bool = false
     
     var body: some View {

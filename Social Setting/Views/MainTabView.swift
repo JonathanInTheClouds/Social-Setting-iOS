@@ -26,7 +26,7 @@ struct MainTabView: View {
                     Image(systemName: "chart.bar.xaxis")
                     Text("Activity")
                 }
-            FeedView()
+            ProfileView()
                 .tabItem {
                     Image(systemName: "mail.fill")
                     Text("Profile")
@@ -40,6 +40,10 @@ struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             MainTabView()
+                .environment(\.colorScheme, .light)
+            
+            MainTabView()
+                .environment(\.colorScheme, .dark)
         }
     }
 }

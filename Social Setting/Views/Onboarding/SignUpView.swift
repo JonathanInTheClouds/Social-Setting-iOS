@@ -18,7 +18,7 @@ struct SignUpView: View {
     
     @State var confirmPassword: String = ""
     
-    @State var emailEditing: Bool = true
+    @State var emailEditing: Bool = false
     
     @State var userEditing: Bool = false
     
@@ -44,72 +44,28 @@ struct SignUpView: View {
                     .foregroundColor(Color.gray79)
                     .padding(.bottom, 5)
                 
-                TextView(text: $email, isEditing: $emailEditing, placeholder: "Email",
-                         textHorizontalPadding: -4, textVerticalPadding: 0,
-                         placeholderHorizontalPadding: -1, placeholderVerticalPadding: 1, returnType: UIReturnKeyType.next, shouldChange: { _, character -> Bool in
-                            let isEntered = character == "\n"
-                            if isEntered {
-                                userEditing.toggle()
-                                passwordEditing.toggle()
-                            }
-                            return isEntered ? false : true
-                         })
-                    .frame(height: 21, alignment: .center)
-                    .padding()
-                    .background(Color.gray19)
-                    .cornerRadius(6)
-                    .keyboardType(.default)
+                SSTextView(field: $email, fieldEditing: $emailEditing, placeholder: "Email", enterAction: {
+                    emailEditing.toggle()
+                    userEditing.toggle()
+                })
                     .padding(.bottom, 5)
                 
                 
-                TextView(text: $username, isEditing: $userEditing, placeholder: "Username",
-                         textHorizontalPadding: -4, textVerticalPadding: 0,
-                         placeholderHorizontalPadding: -1, placeholderVerticalPadding: 1, returnType: UIReturnKeyType.next, shouldChange: { _, character -> Bool in
-                            let isEntered = character == "\n"
-                            if isEntered {
-                                userEditing.toggle()
-                                passwordEditing.toggle()
-                            }
-                            return isEntered ? false : true
-                         })
-                    .frame(height: 21, alignment: .center)
-                    .padding()
-                    .background(Color.gray19)
-                    .cornerRadius(6)
-                    .keyboardType(.default)
+                SSTextView(field: $username, fieldEditing: $userEditing, placeholder: "Username", enterAction: {
+                    userEditing.toggle()
+                    passwordEditing.toggle()
+                })
                     .padding(.bottom, 5)
                 
-                TextView(text: $password, isEditing: $passwordEditing, placeholder: "Password",
-                         textHorizontalPadding: -4, textVerticalPadding: 0,
-                         placeholderHorizontalPadding: -1, placeholderVerticalPadding: 1, returnType: UIReturnKeyType.next, shouldChange: { _, character -> Bool in
-                            let isEntered = character == "\n"
-                            if isEntered {
-                                passwordEditing.toggle()
-                                confirmPasswordEditing.toggle()
-                            }
-                            return isEntered ? false : true
-                         })
-                    .frame(height: 21, alignment: .center)
-                    .padding()
-                    .background(Color.gray19)
-                    .cornerRadius(6)
-                    .keyboardType(.default)
+                SSTextView(field: $password, fieldEditing: $passwordEditing, placeholder: "Password", enterAction: {
+                    passwordEditing.toggle()
+                    confirmPasswordEditing.toggle()
+                })
                     .padding(.bottom, 5)
                 
-                TextView(text: $confirmPassword, isEditing: $confirmPasswordEditing, placeholder: "Confirm Password",
-                         textHorizontalPadding: -4, textVerticalPadding: 0,
-                         placeholderHorizontalPadding: -1, placeholderVerticalPadding: 1, returnType: UIReturnKeyType.done, shouldChange: { _, character -> Bool in
-                            let isEntered = character == "\n"
-                            if isEntered {
-                                confirmPasswordEditing.toggle()
-                            }
-                            return isEntered ? false : true
-                         })
-                    .frame(height: 21, alignment: .center)
-                    .padding()
-                    .background(Color.gray19)
-                    .cornerRadius(6)
-                    .keyboardType(.default)
+                SSTextView(field: $confirmPassword, fieldEditing: $confirmPasswordEditing, placeholder: "Confirm Password", enterAction: {
+                    confirmPasswordEditing.toggle()
+                })
                     .padding(.bottom, 15)
                 
                 MainNavigationLinkView(action: {
