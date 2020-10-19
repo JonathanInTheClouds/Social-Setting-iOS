@@ -32,13 +32,7 @@ struct PostHeadView: View {
     
     var body: some View {
         HStack {
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                Image("Profile")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(25)
-                    .frame(width: 50, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            })
+            ProfileImage(buttonSize: 50, imageSize: 20)
             
             VStack(alignment: .leading) {
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {

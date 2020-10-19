@@ -27,11 +27,7 @@ struct FeedView: View {
                                 .padding(.horizontal, 16)
                                 .padding(.top, 10)
                                 .padding(.bottom, 10)
-                            if colorScheme == .light {
-                                Color(.sRGB, red: 247/255, green: 247/255, blue: 247/255, opacity: 1)
-                            } else {
-                                Color(.sRGB, red: 25/255, green: 26/255, blue: 27/255, opacity: 1)
-                            }
+                            Separator()
                         }
                     }
                     .padding(.top, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)

@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    
-    
     var body: some View {
         NavigationView {
             ZStack {
@@ -33,7 +31,17 @@ struct ProfileView: View {
                     .padding(.top, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                 }
             }
+            .onAppear(perform: {
+                UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.gray99)]
+            })
             .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("@fcbarcelona")
+            .navigationBarItems(trailing: Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Image(systemName: "ellipsis")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 15, height: 23, alignment: .center)
+            }))
         }
     }
 }
@@ -52,16 +60,7 @@ struct ProfileView_Previews: PreviewProvider {
 private struct HeadView: View {
     var body: some View {
         HStack(spacing: 13) {
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                ZStack {
-                    Color.gray19
-                    Image(systemName: "person.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 28, height: 28, alignment: .center)
-                        .foregroundColor(Color.gray79)
-                }.frame(width: 70, height: 70, alignment: .center)
-            }).clipShape(Circle())
+            ProfileImage()
             
             VStack(alignment: .leading, spacing: 3) {
                 Text("FC Barcelona")
@@ -158,3 +157,4 @@ struct ProfileInfo: View {
         .padding(.horizontal, 16)
     }
 }
+
