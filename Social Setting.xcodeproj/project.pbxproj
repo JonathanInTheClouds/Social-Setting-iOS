@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2403664E25380B780067B3E3 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2403664D25380B780067B3E3 /* SearchBar.swift */; };
 		24087D7B253D3DE80079D83E /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24087D7A253D3DE80079D83E /* ProfileImage.swift */; };
+		241324B2254085BE00CFCD32 /* NetworkResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241324B1254085BE00CFCD32 /* NetworkResponseError.swift */; };
+		241324B625409B6300CFCD32 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241324B525409B6300CFCD32 /* NetworkError.swift */; };
 		2430BC6325377FE300506696 /* AltNavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2430BC6225377FE300506696 /* AltNavigationLinkView.swift */; };
 		2430BC66253783DC00506696 /* DismissingKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2430BC65253783DC00506696 /* DismissingKeyboard.swift */; };
 		2439E3DC2536ADF30006993D /* MainNavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439E3DB2536ADF30006993D /* MainNavigationLinkView.swift */; };
@@ -28,6 +30,8 @@
 		2468FDF425380A5600E6DEC7 /* ViewControllerResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2468FDF325380A5600E6DEC7 /* ViewControllerResolver.swift */; };
 		2483B7162537C3B9004E6DC0 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483B7152537C3B9004E6DC0 /* FeedView.swift */; };
 		2483B71A2537E3C7004E6DC0 /* PostContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483B7192537E3C7004E6DC0 /* PostContentView.swift */; };
+		248B73802542855800244FB9 /* SSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248B737F2542855800244FB9 /* SSTextField.swift */; };
+		24933FA2253F628200E7DEE1 /* ProfileNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24933FA1253F628200E7DEE1 /* ProfileNameView.swift */; };
 		249CD7CD253A577500C516A8 /* NormalPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249CD7CC253A577500C516A8 /* NormalPostView.swift */; };
 		249CD7D0253A593700C516A8 /* TopicPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249CD7CF253A593700C516A8 /* TopicPostView.swift */; };
 		249CD7D5253A993500C516A8 /* SignUpRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249CD7D4253A993500C516A8 /* SignUpRequestModel.swift */; };
@@ -35,12 +39,18 @@
 		249CD7E0253A9ECC00C516A8 /* AuthResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249CD7DF253A9ECC00C516A8 /* AuthResponseModel.swift */; };
 		249CD7E5253AA4F000C516A8 /* SecureCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249CD7E4253AA4F000C516A8 /* SecureCodeView.swift */; };
 		249CD7E9253AAA1D00C516A8 /* SSTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249CD7E8253AAA1D00C516A8 /* SSTextView.swift */; };
+		24A79969253E197E00CC83D1 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 24A79968253E197E00CC83D1 /* SwiftKeychainWrapper */; };
+		24A79998253E29B400CC83D1 /* MainRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A79997253E29B400CC83D1 /* MainRoute.swift */; };
+		24A7999D253E2A7900CC83D1 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A7999C253E2A7900CC83D1 /* AuthViewModel.swift */; };
+		24A799A1253E871100CC83D1 /* AnimationCompletionObserverModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A799A0253E871100CC83D1 /* AnimationCompletionObserverModifier.swift */; };
 		24CEB8CB253B612A0021FA4A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CEB8CA253B612A0021FA4A /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2403664D25380B780067B3E3 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		24087D7A253D3DE80079D83E /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
+		241324B1254085BE00CFCD32 /* NetworkResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseError.swift; sourceTree = "<group>"; };
+		241324B525409B6300CFCD32 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		2430BC6225377FE300506696 /* AltNavigationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltNavigationLinkView.swift; sourceTree = "<group>"; };
 		2430BC65253783DC00506696 /* DismissingKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissingKeyboard.swift; sourceTree = "<group>"; };
 		2439E3DB2536ADF30006993D /* MainNavigationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationLinkView.swift; sourceTree = "<group>"; };
@@ -61,6 +71,8 @@
 		2468FDF325380A5600E6DEC7 /* ViewControllerResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerResolver.swift; sourceTree = "<group>"; };
 		2483B7152537C3B9004E6DC0 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		2483B7192537E3C7004E6DC0 /* PostContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContentView.swift; sourceTree = "<group>"; };
+		248B737F2542855800244FB9 /* SSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTextField.swift; sourceTree = "<group>"; };
+		24933FA1253F628200E7DEE1 /* ProfileNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNameView.swift; sourceTree = "<group>"; };
 		249CD7CC253A577500C516A8 /* NormalPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalPostView.swift; sourceTree = "<group>"; };
 		249CD7CF253A593700C516A8 /* TopicPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicPostView.swift; path = "Social Setting/Views/TopicPostView.swift"; sourceTree = SOURCE_ROOT; };
 		249CD7D4253A993500C516A8 /* SignUpRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequestModel.swift; sourceTree = "<group>"; };
@@ -68,6 +80,9 @@
 		249CD7DF253A9ECC00C516A8 /* AuthResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponseModel.swift; sourceTree = "<group>"; };
 		249CD7E4253AA4F000C516A8 /* SecureCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureCodeView.swift; sourceTree = "<group>"; };
 		249CD7E8253AAA1D00C516A8 /* SSTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTextView.swift; sourceTree = "<group>"; };
+		24A79997253E29B400CC83D1 /* MainRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRoute.swift; sourceTree = "<group>"; };
+		24A7999C253E2A7900CC83D1 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		24A799A0253E871100CC83D1 /* AnimationCompletionObserverModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCompletionObserverModifier.swift; sourceTree = "<group>"; };
 		24CEB8CA253B612A0021FA4A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24A79969253E197E00CC83D1 /* SwiftKeychainWrapper in Frameworks */,
 				244D941125368CE000664444 /* TextView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,8 +102,17 @@
 		24087D78253D3CBF0079D83E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				24A7999C253E2A7900CC83D1 /* AuthViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		241324B425409B5400CFCD32 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				241324B525409B6300CFCD32 /* NetworkError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		2425B98C253A56490003878B /* Post */ = {
@@ -106,8 +131,7 @@
 				244D93FF25366D8F00664444 /* SignInView.swift */,
 				244EDB8C25378501006DB2F1 /* SignUpView.swift */,
 				249CD7E4253AA4F000C516A8 /* SecureCodeView.swift */,
-				2439E3DB2536ADF30006993D /* MainNavigationLinkView.swift */,
-				2430BC6225377FE300506696 /* AltNavigationLinkView.swift */,
+				24933FA1253F628200E7DEE1 /* ProfileNameView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -135,7 +159,9 @@
 				244D93FE25366D7300664444 /* Views */,
 				24087D78253D3CBF0079D83E /* ViewModels */,
 				244D9409253676B200664444 /* Utils */,
+				241324B425409B5400CFCD32 /* Errors */,
 				244D93ED25366C4800664444 /* Assets.xcassets */,
+				24A79997253E29B400CC83D1 /* MainRoute.swift */,
 				244D93E925366C4800664444 /* Social_SettingApp.swift */,
 				244D93F225366C4800664444 /* Persistence.swift */,
 				244D93F725366C4800664444 /* Info.plist */,
@@ -171,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				244D940A253676BE00664444 /* BindingProvider.swift */,
+				24A799A0253E871100CC83D1 /* AnimationCompletionObserverModifier.swift */,
 				244D940625366FB500664444 /* Color+Theme.swift */,
 				2430BC65253783DC00506696 /* DismissingKeyboard.swift */,
 				2468FDEB2538056E00E6DEC7 /* HideRowSeparatorModifier.swift */,
@@ -201,6 +228,7 @@
 				249CD7D4253A993500C516A8 /* SignUpRequestModel.swift */,
 				249CD7D8253A9A6400C516A8 /* SignInRequestModel.swift */,
 				249CD7DF253A9ECC00C516A8 /* AuthResponseModel.swift */,
+				241324B1254085BE00CFCD32 /* NetworkResponseError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -211,6 +239,9 @@
 				249CD7E8253AAA1D00C516A8 /* SSTextView.swift */,
 				24662170253BFC1700A08CBD /* Separator.swift */,
 				24087D7A253D3DE80079D83E /* ProfileImage.swift */,
+				2439E3DB2536ADF30006993D /* MainNavigationLinkView.swift */,
+				2430BC6225377FE300506696 /* AltNavigationLinkView.swift */,
+				248B737F2542855800244FB9 /* SSTextField.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -241,6 +272,7 @@
 			name = "Social Setting";
 			packageProductDependencies = (
 				244D941025368CE000664444 /* TextView */,
+				24A79968253E197E00CC83D1 /* SwiftKeychainWrapper */,
 			);
 			productName = "Social Setting";
 			productReference = 244D93E625366C4800664444 /* Social Setting.app */;
@@ -271,6 +303,7 @@
 			mainGroup = 244D93DD25366C4800664444;
 			packageReferences = (
 				244D940F25368CE000664444 /* XCRemoteSwiftPackageReference "TextView" */,
+				24A79967253E197E00CC83D1 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 			);
 			productRefGroup = 244D93E725366C4800664444 /* Products */;
 			projectDirPath = "";
@@ -298,6 +331,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24933FA2253F628200E7DEE1 /* ProfileNameView.swift in Sources */,
+				241324B625409B6300CFCD32 /* NetworkError.swift in Sources */,
 				2430BC6325377FE300506696 /* AltNavigationLinkView.swift in Sources */,
 				2468FDF425380A5600E6DEC7 /* ViewControllerResolver.swift in Sources */,
 				2403664E25380B780067B3E3 /* SearchBar.swift in Sources */,
@@ -306,6 +341,7 @@
 				249CD7E5253AA4F000C516A8 /* SecureCodeView.swift in Sources */,
 				249CD7D5253A993500C516A8 /* SignUpRequestModel.swift in Sources */,
 				249CD7CD253A577500C516A8 /* NormalPostView.swift in Sources */,
+				248B73802542855800244FB9 /* SSTextField.swift in Sources */,
 				244D940725366FB500664444 /* Color+Theme.swift in Sources */,
 				2439E3DC2536ADF30006993D /* MainNavigationLinkView.swift in Sources */,
 				2483B71A2537E3C7004E6DC0 /* PostContentView.swift in Sources */,
@@ -319,10 +355,14 @@
 				244D93F325366C4800664444 /* Persistence.swift in Sources */,
 				244D93EA25366C4800664444 /* Social_SettingApp.swift in Sources */,
 				2468FDEC2538056E00E6DEC7 /* HideRowSeparatorModifier.swift in Sources */,
+				241324B2254085BE00CFCD32 /* NetworkResponseError.swift in Sources */,
 				244D93F625366C4800664444 /* Social_Setting.xcdatamodeld in Sources */,
+				24A799A1253E871100CC83D1 /* AnimationCompletionObserverModifier.swift in Sources */,
 				244D940B253676BE00664444 /* BindingProvider.swift in Sources */,
 				24662171253BFC1700A08CBD /* Separator.swift in Sources */,
+				24A7999D253E2A7900CC83D1 /* AuthViewModel.swift in Sources */,
 				244D940025366D8F00664444 /* SignInView.swift in Sources */,
+				24A79998253E29B400CC83D1 /* MainRoute.swift in Sources */,
 				244EDB8D25378501006DB2F1 /* SignUpView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,6 +562,14 @@
 				minimumVersion = 1.4.8;
 			};
 		};
+		24A79967253E197E00CC83D1 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -529,6 +577,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 244D940F25368CE000664444 /* XCRemoteSwiftPackageReference "TextView" */;
 			productName = TextView;
+		};
+		24A79968253E197E00CC83D1 /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24A79967253E197E00CC83D1 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
 		};
 /* End XCSwiftPackageProductDependency section */
 

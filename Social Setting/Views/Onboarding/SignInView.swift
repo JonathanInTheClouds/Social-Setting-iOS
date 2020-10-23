@@ -10,6 +10,8 @@ import TextView
 
 struct SignInView: View {
     
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
     @State var username: String = ""
     
     @State var password: String = ""
@@ -20,6 +22,7 @@ struct SignInView: View {
     
     @State var signInComplete: Bool = false
     
+    @State var opacity: Double = 1
     
     
     var body: some View {
@@ -31,24 +34,27 @@ struct SignInView: View {
                     HeadView()
                         .padding(.bottom, 30)
                         .modifier(DismissingKeyboard())
-
-                    SSTextView(field: $username, fieldEditing: $userEditing, placeholder: "Username", returnType: .continue, keyboardType: .default, enterAction: {
-                        userEditing.toggle()
-                        passwordEditing.toggle()
-                    })
+                    
+                    SSTextView(field: $username, fieldEditing: $userEditing,
+                               placeholder: "Username",
+                               returnType: .continue, keyboardType: .default, enterAction: {
+                                userEditing.toggle()
+                                passwordEditing.toggle()
+                               })
                         .padding(.bottom, 5)
                     
                     
-                    SSTextView(field: $password, fieldEditing: $passwordEditing, placeholder: "Password", returnType: .done, keyboardType: .default, enterAction: {
-                        passwordEditing.toggle()
-                    })
+                    SSTextView(field: $password, fieldEditing: $passwordEditing,
+                               placeholder: "Password",
+                               returnType: .done,
+                               keyboardType: .default, isSecure: true, enterAction: {
+                                passwordEditing.toggle()
+                               })
                         .padding(.bottom, 15)
                     
                     HStack(spacing: 10) {
-                        MainNavigationLinkView(action: {
-                            signInComplete = true
-                        }, destionation: SignUpView(), title: "Sign In", shouldPush: $signInComplete)
-                    
+                        MainNavigationLinkView(action: signIn, destionation: SignUpView(), title: "Sign In", shouldPush: $signInComplete)
+                        
                         AltNavigationLinkView(action: {
                             
                         }, destination: SignUpView(), leftText: "Sign Up", rightImage: Image(systemName: "chevron.right"))
@@ -58,6 +64,25 @@ struct SignInView: View {
                 .padding(.all, 30)
                 .navigationBarHidden(true)
                 .modifier(DismissingKeyboard())
+                .opacity(opacity).onAnimationCompleted(for: opacity) {
+                    withAnimation(.easeIn(duration: 0.5)) {
+                        self.authViewModel.validationConfirmed = true
+                    }
+                }
+            }
+        }
+    }
+    
+    func signIn() {
+        let signInRequest = SignInRequestModel(username: username, password: password)
+        authViewModel.signIn(signInRequest: signInRequest) { (result) in
+            switch result {
+            case .success(_):
+                withAnimation {
+                    opacity = 0
+                }
+            case .failure(let error):
+                print(error)
             }
         }
     }

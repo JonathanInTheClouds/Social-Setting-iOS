@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct FeedView: View {
-    
-    @State private var searchText : String = ""
-    @ObservedObject var searchBar: SearchBar = SearchBar()
     @Environment(\.colorScheme) var colorScheme
     
+    @ObservedObject private var searchBar: SearchBar = SearchBar()
+    
+    @State private var searchText : String = ""
     
     var body: some View {
         NavigationView {
@@ -30,7 +30,7 @@ struct FeedView: View {
                             Separator()
                         }
                     }
-                    .padding(.top, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                    .padding(.top, 5        )
                 }
                 .add(self.searchBar)
                 .navigationBarItems(leading: HStack {
@@ -50,10 +50,6 @@ struct FeedView: View {
                 .navigationBarTitleDisplayMode(.inline)
             }
         }
-    }
-    
-    func updateText() {
-        
     }
 }
 

@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct Social_SettingApp: App {
     let persistenceController = PersistenceController.shared
+    var authViewModel = AuthViewModel()
+    
     
     init() {
         UINavigationBar.appearance().tintColor = UIColor(Color.baseColor)
@@ -17,8 +19,9 @@ struct Social_SettingApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            MainRoute()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(authViewModel)
         }
     }
 }

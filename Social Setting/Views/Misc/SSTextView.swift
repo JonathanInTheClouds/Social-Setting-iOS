@@ -20,14 +20,16 @@ struct SSTextView: View {
     
     var keyboardType: UIKeyboardType = .default
     
+    var isSecure: Bool = false
+    
     var enterAction: (() -> ())?
     
     
     var body: some View {
         TextView(text: $field, isEditing: $fieldEditing, placeholder: placeholder,
                  textHorizontalPadding: -4, textVerticalPadding: 0,
-                 placeholderHorizontalPadding: -1, placeholderVerticalPadding: 1, returnType: returnType, shouldChange: { _, character -> Bool in
-                    let isEntered = character == "\n"
+                 placeholderHorizontalPadding: -1, placeholderVerticalPadding: 1, returnType: returnType, isSecure: true, shouldChange: { _, character -> Bool in
+                    let isEntered = (character == "\n" || character == "\t")
                     if isEntered, let enterAction = enterAction {
                         enterAction()
                     }

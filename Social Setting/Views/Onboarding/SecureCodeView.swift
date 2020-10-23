@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct SecureCodeView: View {
+    
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
     @State var secureCode: String = ""
+    
     @State var secureCodeEditing: Bool = false
+    
     @State var codeVerified: Bool = false
     
     var body: some View {
@@ -18,9 +23,7 @@ struct SecureCodeView: View {
                 .ignoresSafeArea()
             VStack(alignment: .leading) {
                 HeadView()
-                SSTextView(field: $secureCode, fieldEditing: $secureCodeEditing, placeholder: "Secure Code", returnType: .send, keyboardType: .decimalPad) {
-                    
-                }
+                SSTextView(field: $secureCode, fieldEditing: $secureCodeEditing, placeholder: "Secure Code", returnType: .send, keyboardType: .decimalPad) {}
                 .padding(.top, 35)
                 .padding(.bottom, 10)
                 
@@ -37,15 +40,31 @@ struct SecureCodeView: View {
                 }
                 .padding(.bottom, 15)
                 
-                MainNavigationLinkView(action: {
-                    
-                }, destionation: SignInView(), title: "Send", shouldPush: $codeVerified)
+                MainNavigationLinkView(action: sendCode, destionation: ProfileNameView(), title: "Send", shouldPush: $codeVerified)
             }
             .padding(.horizontal, 30)
             .padding(.bottom, 30)
             .modifier(DismissingKeyboard())
         }
         .navigationBarBackButtonHidden(true)
+    }
+    
+    func sendCode() {
+        codeVerified = true
+//        let code = Int(secureCode) ?? 0
+//        if code != 0 {
+//            authViewModel.validateSecureCode(code: code) { (result) in
+//                switch result {
+//                case .success(let authResp):
+//                    print(authResp)
+//                    DispatchQueue.main.async {
+//                        codeVerified = true
+//                    }
+//                case .failure(let error):
+//                    print(error)
+//                }
+//            }
+//        }
     }
 }
 
@@ -60,9 +79,12 @@ private struct HeadView: View {
     var body: some View {
         HStack {
             Text("Enter secure \ncode to verify")
-                .fixedSize()
+                .bold()
                 .font(.largeTitle)
                 .foregroundColor(Color.gray99)
+                .fixedSize()
+        
+
             Spacer()
             Image("check-mark")
                 .offset(y: -50)

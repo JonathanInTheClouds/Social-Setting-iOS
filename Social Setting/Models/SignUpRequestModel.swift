@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct SignUpRequestModel: Codable {
+struct SignUpRequestModel: Encodable, Decodable {
     let email: String
     let username: String
     let password: String
-    let profileName: String
+    let profileName: String?
 }
 

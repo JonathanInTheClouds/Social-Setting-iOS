@@ -10,6 +10,8 @@ import TextView
 
 struct SignUpView: View {
     
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
     @State var email: String = ""
     
     @State var username: String = ""
@@ -63,19 +65,31 @@ struct SignUpView: View {
                 })
                     .padding(.bottom, 5)
                 
-                SSTextView(field: $confirmPassword, fieldEditing: $confirmPasswordEditing, placeholder: "Confirm Password", enterAction: {
+                SSTextView(field: $confirmPassword, fieldEditing: $confirmPasswordEditing, placeholder: "Confirm Password", returnType: .done, enterAction: {
                     confirmPasswordEditing.toggle()
                 })
                     .padding(.bottom, 15)
                 
-                MainNavigationLinkView(action: {
-                    signUpComplete = true
-                }, destionation: SecureCodeView(), title: "Continue", shouldPush: $signUpComplete)
+                MainNavigationLinkView(action: signUp, destionation: SecureCodeView(), title: "Continue", shouldPush: $signUpComplete)
                 .padding(.bottom, 50)
             }
             .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, 30)
             .modifier(DismissingKeyboard())
         }
+    }
+    
+    private func signUp() {
+        signUpComplete = true
+        
+//        let signUpRequestModel = SignUpRequestModel(email: email, username: username, password: password, profileName: nil)
+//        authViewModel.signUp(signUpRequest: signUpRequestModel) { (result) in
+//            switch (result) {
+//            case .success():
+//                signUpComplete = true
+//            case .failure(let authError):
+//                print(authError)
+//            }
+//        }
     }
 }
 
