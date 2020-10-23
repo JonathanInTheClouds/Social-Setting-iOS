@@ -16,6 +16,8 @@ struct SignUpView: View {
     
     @State var username: String = ""
     
+    @State var fullname: String = ""
+    
     @State var password: String = ""
     
     @State var confirmPassword: String = ""
@@ -23,6 +25,8 @@ struct SignUpView: View {
     @State var emailEditing: Bool = false
     
     @State var userEditing: Bool = false
+    
+    @State var fullnameEditing: Bool = false
     
     @State var passwordEditing: Bool = false
     
@@ -46,32 +50,36 @@ struct SignUpView: View {
                     .foregroundColor(Color.gray79)
                     .padding(.bottom, 5)
                 
-                SSTextView(field: $email, fieldEditing: $emailEditing, placeholder: "Email", enterAction: {
-                    emailEditing.toggle()
+                SSTextView(field: $fullname, fieldEditing: $fullnameEditing, placeholder: "Full name", enterAction: {
+                    fullnameEditing.toggle()
                     userEditing.toggle()
                 })
-                    .padding(.bottom, 5)
-                
+                .padding(.bottom, 5)
                 
                 SSTextView(field: $username, fieldEditing: $userEditing, placeholder: "Username", enterAction: {
                     userEditing.toggle()
+                    emailEditing.toggle()
+                })
+                .padding(.bottom, 5)
+                
+                SSTextView(field: $email, fieldEditing: $emailEditing, placeholder: "Email Address", enterAction: {
+                    emailEditing.toggle()
                     passwordEditing.toggle()
                 })
-                    .padding(.bottom, 5)
+                .padding(.bottom, 5)
                 
-                SSTextView(field: $password, fieldEditing: $passwordEditing, placeholder: "Password", enterAction: {
-                    passwordEditing.toggle()
-                    confirmPasswordEditing.toggle()
-                })
-                    .padding(.bottom, 5)
                 
-                SSTextView(field: $confirmPassword, fieldEditing: $confirmPasswordEditing, placeholder: "Confirm Password", returnType: .done, enterAction: {
-                    confirmPasswordEditing.toggle()
+                CustomTextField(text: $password, placeholder: "Password", isSecure: true, isFirstResponder: passwordEditing, onCommit: {
+                    passwordEditing = false
                 })
-                    .padding(.bottom, 15)
+                .frame(height: 21, alignment: .center)
+                .padding()
+                .background(Color.gray19)
+                .cornerRadius(6)
+                .padding(.bottom, 15)
                 
                 MainNavigationLinkView(action: signUp, destionation: SecureCodeView(), title: "Continue", shouldPush: $signUpComplete)
-                .padding(.bottom, 50)
+                    .padding(.bottom, 50)
             }
             .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, 30)
             .modifier(DismissingKeyboard())
@@ -79,17 +87,15 @@ struct SignUpView: View {
     }
     
     private func signUp() {
-        signUpComplete = true
-        
-//        let signUpRequestModel = SignUpRequestModel(email: email, username: username, password: password, profileName: nil)
-//        authViewModel.signUp(signUpRequest: signUpRequestModel) { (result) in
-//            switch (result) {
-//            case .success():
-//                signUpComplete = true
-//            case .failure(let authError):
-//                print(authError)
-//            }
-//        }
+        let signUpRequestModel = SignUpRequestModel(email: email, username: username, password: password, profileName: nil)
+        authViewModel.signUp(signUpRequest: signUpRequestModel) { (result) in
+            switch (result) {
+            case .success():
+                signUpComplete = true
+            case .failure(let authError):
+                print(authError)
+            }
+        }
     }
 }
 

@@ -16,6 +16,13 @@ class AuthViewModel: ObservableObject {
     
     @Published var opacity: Double = 0
     
+    var token: String? {
+        get {
+            return KeychainWrapper.standard.string(forKey: "auth_token")
+        }
+    }
+    
+    
     private let decoder: JSONDecoder = {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")

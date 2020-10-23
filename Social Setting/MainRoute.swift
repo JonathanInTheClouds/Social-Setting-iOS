@@ -13,10 +13,10 @@ struct MainRoute: View {
     
     var body: some View {
         VStack {
-            if !authViewModel.validationConfirmed {
-                SignInView()
-            } else {
+            if authViewModel.validationConfirmed || authViewModel.token != nil {
                 MainTabView()
+            } else {
+                SignInView()
             }
         }
     }

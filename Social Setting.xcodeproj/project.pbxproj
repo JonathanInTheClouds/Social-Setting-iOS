@@ -31,6 +31,8 @@
 		2483B7162537C3B9004E6DC0 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483B7152537C3B9004E6DC0 /* FeedView.swift */; };
 		2483B71A2537E3C7004E6DC0 /* PostContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483B7192537E3C7004E6DC0 /* PostContentView.swift */; };
 		248B73802542855800244FB9 /* SSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248B737F2542855800244FB9 /* SSTextField.swift */; };
+		248B73842542894500244FB9 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 248B73832542894500244FB9 /* Introspect */; };
+		248B738725428BA200244FB9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248B738625428BA200244FB9 /* CustomTextField.swift */; };
 		24933FA2253F628200E7DEE1 /* ProfileNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24933FA1253F628200E7DEE1 /* ProfileNameView.swift */; };
 		249CD7CD253A577500C516A8 /* NormalPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249CD7CC253A577500C516A8 /* NormalPostView.swift */; };
 		249CD7D0253A593700C516A8 /* TopicPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249CD7CF253A593700C516A8 /* TopicPostView.swift */; };
@@ -72,6 +74,7 @@
 		2483B7152537C3B9004E6DC0 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		2483B7192537E3C7004E6DC0 /* PostContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContentView.swift; sourceTree = "<group>"; };
 		248B737F2542855800244FB9 /* SSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTextField.swift; sourceTree = "<group>"; };
+		248B738625428BA200244FB9 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		24933FA1253F628200E7DEE1 /* ProfileNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNameView.swift; sourceTree = "<group>"; };
 		249CD7CC253A577500C516A8 /* NormalPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalPostView.swift; sourceTree = "<group>"; };
 		249CD7CF253A593700C516A8 /* TopicPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicPostView.swift; path = "Social Setting/Views/TopicPostView.swift"; sourceTree = SOURCE_ROOT; };
@@ -92,6 +95,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24A79969253E197E00CC83D1 /* SwiftKeychainWrapper in Frameworks */,
+				248B73842542894500244FB9 /* Introspect in Frameworks */,
 				244D941125368CE000664444 /* TextView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +246,7 @@
 				2439E3DB2536ADF30006993D /* MainNavigationLinkView.swift */,
 				2430BC6225377FE300506696 /* AltNavigationLinkView.swift */,
 				248B737F2542855800244FB9 /* SSTextField.swift */,
+				248B738625428BA200244FB9 /* CustomTextField.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -273,6 +278,7 @@
 			packageProductDependencies = (
 				244D941025368CE000664444 /* TextView */,
 				24A79968253E197E00CC83D1 /* SwiftKeychainWrapper */,
+				248B73832542894500244FB9 /* Introspect */,
 			);
 			productName = "Social Setting";
 			productReference = 244D93E625366C4800664444 /* Social Setting.app */;
@@ -304,6 +310,7 @@
 			packageReferences = (
 				244D940F25368CE000664444 /* XCRemoteSwiftPackageReference "TextView" */,
 				24A79967253E197E00CC83D1 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+				248B73822542894500244FB9 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 244D93E725366C4800664444 /* Products */;
 			projectDirPath = "";
@@ -339,6 +346,7 @@
 				24087D7B253D3DE80079D83E /* ProfileImage.swift in Sources */,
 				243C863C253932F400C79654 /* MainTabView.swift in Sources */,
 				249CD7E5253AA4F000C516A8 /* SecureCodeView.swift in Sources */,
+				248B738725428BA200244FB9 /* CustomTextField.swift in Sources */,
 				249CD7D5253A993500C516A8 /* SignUpRequestModel.swift in Sources */,
 				249CD7CD253A577500C516A8 /* NormalPostView.swift in Sources */,
 				248B73802542855800244FB9 /* SSTextField.swift in Sources */,
@@ -562,6 +570,14 @@
 				minimumVersion = 1.4.8;
 			};
 		};
+		248B73822542894500244FB9 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
+			};
+		};
 		24A79967253E197E00CC83D1 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
@@ -577,6 +593,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 244D940F25368CE000664444 /* XCRemoteSwiftPackageReference "TextView" */;
 			productName = TextView;
+		};
+		248B73832542894500244FB9 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 248B73822542894500244FB9 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
 		};
 		24A79968253E197E00CC83D1 /* SwiftKeychainWrapper */ = {
 			isa = XCSwiftPackageProductDependency;

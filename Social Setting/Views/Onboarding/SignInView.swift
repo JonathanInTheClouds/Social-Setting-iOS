@@ -43,14 +43,14 @@ struct SignInView: View {
                                })
                         .padding(.bottom, 5)
                     
-                    
-                    SSTextView(field: $password, fieldEditing: $passwordEditing,
-                               placeholder: "Password",
-                               returnType: .done,
-                               keyboardType: .default, isSecure: true, enterAction: {
-                                passwordEditing.toggle()
-                               })
-                        .padding(.bottom, 15)
+                    CustomTextField(text: $password, placeholder: "Password", isSecure: true, isFirstResponder: passwordEditing, onCommit: {
+                        passwordEditing.toggle()
+                    })
+                    .frame(height: 21, alignment: .center)
+                    .padding()
+                    .background(Color.gray19)
+                    .cornerRadius(6)
+                    .padding(.bottom, 15)
                     
                     HStack(spacing: 10) {
                         MainNavigationLinkView(action: signIn, destionation: SignUpView(), title: "Sign In", shouldPush: $signInComplete)

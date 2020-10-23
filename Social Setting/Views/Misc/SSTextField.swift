@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Introspect
 
 struct SSTextField: View {
     
@@ -17,10 +18,15 @@ struct SSTextField: View {
     
     var body: some View {
         VStack {
-            SSTextView(field: $username, fieldEditing: $userEditing, placeholder: "Password")
-            SecureField("Password", text: $password) {
-                
+            SSTextView(field: $username, fieldEditing: $userEditing, placeholder: "Username") {
+                passwordEditing.toggle()
+                userEditing.toggle()
             }
+            CustomTextField(text: $password, placeholder: "Password", isSecure: true, isFirstResponder: passwordEditing, onCommit: {
+                passwordEditing.toggle()
+                userEditing.toggle()
+            })
+            .frame(height: 21, alignment: .center)
             .padding()
             .background(Color.gray19)
             .cornerRadius(6)

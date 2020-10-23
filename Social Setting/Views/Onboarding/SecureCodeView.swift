@@ -50,21 +50,20 @@ struct SecureCodeView: View {
     }
     
     func sendCode() {
-        codeVerified = true
-//        let code = Int(secureCode) ?? 0
-//        if code != 0 {
-//            authViewModel.validateSecureCode(code: code) { (result) in
-//                switch result {
-//                case .success(let authResp):
-//                    print(authResp)
-//                    DispatchQueue.main.async {
-//                        codeVerified = true
-//                    }
-//                case .failure(let error):
-//                    print(error)
-//                }
-//            }
-//        }
+        let code = Int(secureCode) ?? 0
+        if code != 0 {
+            authViewModel.validateSecureCode(code: code) { (result) in
+                switch result {
+                case .success(let authResp):
+                    print(authResp)
+                    DispatchQueue.main.async {
+                        codeVerified = true
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
     }
 }
 
