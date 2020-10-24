@@ -1,0 +1,5 @@
+# Social Setting
+[![forthebadge](http://ForTheBadge.com/images/badges/made-with-swift.svg)](https://www.swift.org/)
+[![forthebadge](https://forthebadge.com/images/badges/for-you.svg)](https://forthebadge.com)
+
+Social Setting is a open source social network built from native swift code.
