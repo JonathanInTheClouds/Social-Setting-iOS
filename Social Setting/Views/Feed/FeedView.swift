@@ -10,7 +10,7 @@ import SwiftKeychainWrapper
 
 struct FeedView: View {
     
-    @ObservedObject var feedViewModel: FeedViewModel = FeedViewModel()
+    @StateObject var feedViewModel: FeedViewModel = FeedViewModel()
     
     @EnvironmentObject var authViewModel: AuthViewModel
     
