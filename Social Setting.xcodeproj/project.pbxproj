@@ -31,7 +31,6 @@
 		2483B7162537C3B9004E6DC0 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483B7152537C3B9004E6DC0 /* FeedView.swift */; };
 		2483B71A2537E3C7004E6DC0 /* PostContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483B7192537E3C7004E6DC0 /* PostContentView.swift */; };
 		248B73802542855800244FB9 /* SSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248B737F2542855800244FB9 /* SSTextField.swift */; };
-		248B73842542894500244FB9 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 248B73832542894500244FB9 /* Introspect */; };
 		248B738725428BA200244FB9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248B738625428BA200244FB9 /* CustomTextField.swift */; };
 		24933FA2253F628200E7DEE1 /* ProfileNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24933FA1253F628200E7DEE1 /* ProfileNameView.swift */; };
 		249CD7CD253A577500C516A8 /* NormalPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249CD7CC253A577500C516A8 /* NormalPostView.swift */; };
@@ -41,6 +40,11 @@
 		249CD7E0253A9ECC00C516A8 /* AuthResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249CD7DF253A9ECC00C516A8 /* AuthResponseModel.swift */; };
 		249CD7E5253AA4F000C516A8 /* SecureCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249CD7E4253AA4F000C516A8 /* SecureCodeView.swift */; };
 		249CD7E9253AAA1D00C516A8 /* SSTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249CD7E8253AAA1D00C516A8 /* SSTextView.swift */; };
+		249FA37C25439F1A000453E5 /* String+Etx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249FA37B25439F1A000453E5 /* String+Etx.swift */; };
+		249FA37F2543A2D2000453E5 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249FA37E2543A2D2000453E5 /* FeedViewModel.swift */; };
+		249FA3822543A312000453E5 /* BaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249FA3812543A312000453E5 /* BaseAuth.swift */; };
+		249FA3862543A3B8000453E5 /* PostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249FA3852543A3B8000453E5 /* PostResponseModel.swift */; };
+		249FA38A2543A8BD000453E5 /* PostRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249FA3892543A8BD000453E5 /* PostRequestModel.swift */; };
 		24A79969253E197E00CC83D1 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 24A79968253E197E00CC83D1 /* SwiftKeychainWrapper */; };
 		24A79998253E29B400CC83D1 /* MainRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A79997253E29B400CC83D1 /* MainRoute.swift */; };
 		24A7999D253E2A7900CC83D1 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A7999C253E2A7900CC83D1 /* AuthViewModel.swift */; };
@@ -83,6 +87,11 @@
 		249CD7DF253A9ECC00C516A8 /* AuthResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponseModel.swift; sourceTree = "<group>"; };
 		249CD7E4253AA4F000C516A8 /* SecureCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureCodeView.swift; sourceTree = "<group>"; };
 		249CD7E8253AAA1D00C516A8 /* SSTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTextView.swift; sourceTree = "<group>"; };
+		249FA37B25439F1A000453E5 /* String+Etx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Etx.swift"; sourceTree = "<group>"; };
+		249FA37E2543A2D2000453E5 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		249FA3812543A312000453E5 /* BaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAuth.swift; sourceTree = "<group>"; };
+		249FA3852543A3B8000453E5 /* PostResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponseModel.swift; sourceTree = "<group>"; };
+		249FA3892543A8BD000453E5 /* PostRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequestModel.swift; sourceTree = "<group>"; };
 		24A79997253E29B400CC83D1 /* MainRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRoute.swift; sourceTree = "<group>"; };
 		24A7999C253E2A7900CC83D1 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		24A799A0253E871100CC83D1 /* AnimationCompletionObserverModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCompletionObserverModifier.swift; sourceTree = "<group>"; };
@@ -95,7 +104,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				24A79969253E197E00CC83D1 /* SwiftKeychainWrapper in Frameworks */,
-				248B73842542894500244FB9 /* Introspect in Frameworks */,
 				244D941125368CE000664444 /* TextView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,7 +114,9 @@
 		24087D78253D3CBF0079D83E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				249FA3812543A312000453E5 /* BaseAuth.swift */,
 				24A7999C253E2A7900CC83D1 /* AuthViewModel.swift */,
+				249FA37E2543A2D2000453E5 /* FeedViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -205,6 +215,7 @@
 				244D940625366FB500664444 /* Color+Theme.swift */,
 				2430BC65253783DC00506696 /* DismissingKeyboard.swift */,
 				2468FDEB2538056E00E6DEC7 /* HideRowSeparatorModifier.swift */,
+				249FA37B25439F1A000453E5 /* String+Etx.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -233,6 +244,8 @@
 				249CD7D8253A9A6400C516A8 /* SignInRequestModel.swift */,
 				249CD7DF253A9ECC00C516A8 /* AuthResponseModel.swift */,
 				241324B1254085BE00CFCD32 /* NetworkResponseError.swift */,
+				249FA3852543A3B8000453E5 /* PostResponseModel.swift */,
+				249FA3892543A8BD000453E5 /* PostRequestModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -278,7 +291,6 @@
 			packageProductDependencies = (
 				244D941025368CE000664444 /* TextView */,
 				24A79968253E197E00CC83D1 /* SwiftKeychainWrapper */,
-				248B73832542894500244FB9 /* Introspect */,
 			);
 			productName = "Social Setting";
 			productReference = 244D93E625366C4800664444 /* Social Setting.app */;
@@ -310,7 +322,6 @@
 			packageReferences = (
 				244D940F25368CE000664444 /* XCRemoteSwiftPackageReference "TextView" */,
 				24A79967253E197E00CC83D1 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
-				248B73822542894500244FB9 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 244D93E725366C4800664444 /* Products */;
 			projectDirPath = "";
@@ -348,9 +359,11 @@
 				249CD7E5253AA4F000C516A8 /* SecureCodeView.swift in Sources */,
 				248B738725428BA200244FB9 /* CustomTextField.swift in Sources */,
 				249CD7D5253A993500C516A8 /* SignUpRequestModel.swift in Sources */,
+				249FA38A2543A8BD000453E5 /* PostRequestModel.swift in Sources */,
 				249CD7CD253A577500C516A8 /* NormalPostView.swift in Sources */,
 				248B73802542855800244FB9 /* SSTextField.swift in Sources */,
 				244D940725366FB500664444 /* Color+Theme.swift in Sources */,
+				249FA3822543A312000453E5 /* BaseAuth.swift in Sources */,
 				2439E3DC2536ADF30006993D /* MainNavigationLinkView.swift in Sources */,
 				2483B71A2537E3C7004E6DC0 /* PostContentView.swift in Sources */,
 				249CD7E0253A9ECC00C516A8 /* AuthResponseModel.swift in Sources */,
@@ -358,16 +371,19 @@
 				249CD7D9253A9A6400C516A8 /* SignInRequestModel.swift in Sources */,
 				249CD7D0253A593700C516A8 /* TopicPostView.swift in Sources */,
 				2430BC66253783DC00506696 /* DismissingKeyboard.swift in Sources */,
+				249FA37C25439F1A000453E5 /* String+Etx.swift in Sources */,
 				2483B7162537C3B9004E6DC0 /* FeedView.swift in Sources */,
 				24CEB8CB253B612A0021FA4A /* ProfileView.swift in Sources */,
 				244D93F325366C4800664444 /* Persistence.swift in Sources */,
 				244D93EA25366C4800664444 /* Social_SettingApp.swift in Sources */,
 				2468FDEC2538056E00E6DEC7 /* HideRowSeparatorModifier.swift in Sources */,
+				249FA37F2543A2D2000453E5 /* FeedViewModel.swift in Sources */,
 				241324B2254085BE00CFCD32 /* NetworkResponseError.swift in Sources */,
 				244D93F625366C4800664444 /* Social_Setting.xcdatamodeld in Sources */,
 				24A799A1253E871100CC83D1 /* AnimationCompletionObserverModifier.swift in Sources */,
 				244D940B253676BE00664444 /* BindingProvider.swift in Sources */,
 				24662171253BFC1700A08CBD /* Separator.swift in Sources */,
+				249FA3862543A3B8000453E5 /* PostResponseModel.swift in Sources */,
 				24A7999D253E2A7900CC83D1 /* AuthViewModel.swift in Sources */,
 				244D940025366D8F00664444 /* SignInView.swift in Sources */,
 				24A79998253E29B400CC83D1 /* MainRoute.swift in Sources */,
@@ -570,14 +586,6 @@
 				minimumVersion = 1.4.8;
 			};
 		};
-		248B73822542894500244FB9 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.1;
-			};
-		};
 		24A79967253E197E00CC83D1 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
@@ -593,11 +601,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 244D940F25368CE000664444 /* XCRemoteSwiftPackageReference "TextView" */;
 			productName = TextView;
-		};
-		248B73832542894500244FB9 /* Introspect */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 248B73822542894500244FB9 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
-			productName = Introspect;
 		};
 		24A79968253E197E00CC83D1 /* SwiftKeychainWrapper */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -17,6 +17,8 @@ struct SecureCodeView: View {
     
     @State var codeVerified: Bool = false
     
+    @State var opacity: Double = 1
+    
     var body: some View {
         ZStack {
             Color.tertiarySystemBackground
@@ -47,6 +49,11 @@ struct SecureCodeView: View {
             .modifier(DismissingKeyboard())
         }
         .navigationBarBackButtonHidden(true)
+        .opacity(opacity).onAnimationCompleted(for: opacity) {
+            withAnimation(.easeIn(duration: 0.5)) {
+                self.authViewModel.validationConfirmed = true
+            }
+        }
     }
     
     func sendCode() {
@@ -57,7 +64,9 @@ struct SecureCodeView: View {
                 case .success(let authResp):
                     print(authResp)
                     DispatchQueue.main.async {
-                        codeVerified = true
+                        withAnimation {
+                            opacity = 0
+                        }
                     }
                 case .failure(let error):
                     print(error)

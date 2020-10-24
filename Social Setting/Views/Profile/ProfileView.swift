@@ -21,10 +21,18 @@ struct ProfileView: View {
                             .padding(.top, 10)
                         Separator()
                         ForEach(1...20, id: \.self) { value in
-                            PostContentView()
+                            PostContentView(post: .constant(PostResponseModel(id: 1,
+                                                                              publicUserId: "",
+                                                                              postName: "Openly admit that you don't know something", url: nil,
+                                                                              description: "If you don't have any knowledge about the topic, admit it openly that you don't know.",
+                                                                              userName: "MettaworldJ", subSettingName: "", duration: "just not", upVote: true, downVote: false,
+                                                                              voteCount: 61, commentCount: 147)))
                                 .padding(.horizontal, 16)
                                 .padding(.top, 10)
                                 .padding(.bottom, 10)
+                                .onAppear(perform: {
+                                    print(value)
+                                })
                             Separator()
                         }
                     }

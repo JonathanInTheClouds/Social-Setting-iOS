@@ -8,27 +8,37 @@
 import SwiftUI
 
 struct NormalPostView: View {
+    
+    @Binding var post: PostResponseModel
+    
     var body: some View {
         VStack(alignment: .leading) {
-            PostHeadView()
-            MainBody()
+            PostHeadView(username: post.userName, timeAgo: post.duration)
+            MainBody(bodyText: post.description)
                 .foregroundColor(Color.gray99)
                 .padding(.bottom, 15)
                 .padding(.top, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             Color.gray39
                 .frame(height: 1, alignment: .center)
-            ButtonHStack()
+            ButtonHStack(post: $post)
         }
     }
 }
 
 struct NormalPostView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        NormalPostView()
+        NormalPostView(post: .constant(PostResponseModel(id: 1, publicUserId: "", postName: "Openly admit that you don't know something", url: nil,
+                                                         description: "If you don't have any knowledge about the topic, admit it openly that you don't know.", userName: "MettaworldJ", subSettingName: "", duration: "just not", upVote: true, downVote: false, voteCount: 61, commentCount: 147)))
     }
 }
 
 struct PostHeadView: View {
+    
+    var username: String
+    
+    var timeAgo: String
+    
     
     var body: some View {
         HStack {
@@ -36,11 +46,11 @@ struct PostHeadView: View {
             
             VStack(alignment: .leading) {
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    Text("Eliza Sanchez")
+                    Text(username)
                         .foregroundColor(Color.gray99)
                         .font(.callout)
                 })
-                Text("2 min ago")
+                Text(timeAgo)
                     .foregroundColor(Color.gray79)
                     .font(.caption)
             }
@@ -60,90 +70,19 @@ struct PostHeadView: View {
     }
 }
 
-struct ButtonHStack: View {
-    
-    private let likeButtonColor = Color.baseColor
-    private let shareButtonColor = Color(.sRGB, red: 69/255, green: 142/255, blue: 255/255, opacity: 1)
-    
-    @State private var liked = false
-    @State private var shared = false
-    
-    var body: some View {
-        HStack(spacing: 20) {
-            Button(action: {
-                likeButtonAction()
-            }, label: {
-                HStack {
-                    Image(systemName: "suit.heart.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 25, height: 25, alignment: .center)
-                        .foregroundColor(liked ? likeButtonColor : .gray79)
-                        .padding(.trailing, 5)
-                    
-                    Text("61")
-                        .foregroundColor(Color.gray79)
-                }
-            })
-            .frame(height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                HStack {
-                    Image(systemName: "bubble.left.and.bubble.right.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 25, height: 25, alignment: .center)
-                        .foregroundColor(Color.gray79)
-                        .padding(.trailing, 5)
-                    
-                    Text("147")
-                        .foregroundColor(Color.gray79)
-                }
-            })
-            .frame(height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            
-            Button(action: {
-                shareButtonAction()
-            }, label: {
-                HStack {
-                    Image(systemName: "arrowshape.bounce.right.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 25, height: 25, alignment: .center)
-                        .foregroundColor(shared ? shareButtonColor : .gray79)
-                        .padding(.trailing, 5)
-                        
-                    
-                    Text("1")
-                        .foregroundColor(Color.gray79)
-                }
-            })
-            .frame(height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-        }
-        .padding(.top, 5)
-    }
-    
-    private func likeButtonAction() {
-        liked.toggle()
-    }
-    
-    private func shareButtonAction() {
-        shared.toggle()
-    }
-}
-
-
-
 private struct MainBody: View {
     
-    @State private var bodyText = "He turned in the research paper on Friday; otherwise, he would have not passed the class."
+    var bodyText: String
+    
+    var photoURL: String?
+    
     
     var body: some View {
         VStack {
             Text(bodyText)
                 .font(setFont(text: bodyText))
             // TODO: - Remove Range Block
-            if (Int.random(in: 0..<10)) % 2 == 0 { // Temp
+            if let _ = photoURL { // Temp
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                     Image("placeholder-photo")
                         .resizable()
@@ -168,3 +107,81 @@ private struct MainBody: View {
         return .title3
     }
 }
+
+struct ButtonHStack: View {
+    
+    @Binding var post: PostResponseModel
+    
+    private let likeButtonColor = Color.baseColor
+    private let shareButtonColor = Color(.sRGB, red: 69/255, green: 142/255, blue: 255/255, opacity: 1)
+    
+    
+    var body: some View {
+        HStack(spacing: 20) {
+            Button(action: {
+                likeButtonAction()
+            }, label: {
+                HStack {
+                    Image(systemName: "suit.heart.fill")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 25, height: 25, alignment: .center)
+                        .foregroundColor(post.upVote ? likeButtonColor : .gray79)
+                        .padding(.trailing, 5)
+                    
+                    Text("\(post.voteCount)")
+                        .foregroundColor(Color.gray79)
+                }
+            })
+            .frame(height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            
+            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                HStack {
+                    Image(systemName: "bubble.left.and.bubble.right.fill")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 25, height: 25, alignment: .center)
+                        .foregroundColor(Color.gray79)
+                        .padding(.trailing, 5)
+                    
+                    Text("\(post.commentCount)")
+                        .foregroundColor(Color.gray79)
+                }
+            })
+            .frame(height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            
+            Button(action: {
+                shareButtonAction()
+            }, label: {
+                HStack {
+                    Image(systemName: "arrowshape.bounce.right.fill")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 25, height: 25, alignment: .center)
+                        .foregroundColor(post.downVote ? shareButtonColor : .gray79)
+                        .padding(.trailing, 5)
+                        
+                    
+                    Text("1")
+                        .foregroundColor(Color.gray79)
+                }
+            })
+            .frame(height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        }
+        .padding(.top, 5)
+    }
+    
+    private func likeButtonAction() {
+        post.upVote.toggle()
+        if post.upVote {
+            post.voteCount += 1
+        } else {
+            post.voteCount -= 1
+        }
+    }
+    
+    private func shareButtonAction() {
+        
+    }
+}
+

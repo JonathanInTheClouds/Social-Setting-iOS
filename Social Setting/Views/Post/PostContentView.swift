@@ -9,20 +9,26 @@ import SwiftUI
 
 struct PostContentView: View {
     
+    @Binding var post: PostResponseModel
     
     var body: some View {
-        // TODO: - Remove Range Block
-        if Int.random(in: 1...10) % 2 == 0 {
-            NormalPostView()
+        if post.postName.isEmpty {
+            NormalPostView(post: $post)
         } else {
-            TopicPostView()
+            TopicPostView(post: $post)
         }
     }
 }
 
 struct Post_Previews: PreviewProvider {
+    
     static var previews: some View {
-        PostContentView()
+        PostContentView(post: .constant(PostResponseModel(id: 1,
+                                                          publicUserId: "",
+                                                          postName: "Openly admit that you don't know something", url: nil,
+                                                          description: "If you don't have any knowledge about the topic, admit it openly that you don't know.",
+                                                          userName: "MettaworldJ", subSettingName: "", duration: "just not", upVote: true, downVote: false,
+                                                          voteCount: 61, commentCount: 147)))
     }
 }
 

@@ -8,29 +8,13 @@
 import Foundation
 import SwiftKeychainWrapper
 
-class AuthViewModel: ObservableObject {
+class AuthViewModel: BaseAuth, ObservableObject {
     
     @Published var secureCodeValidated: Bool = false
     
     @Published var validationConfirmed: Bool = false
     
     @Published var opacity: Double = 0
-    
-    var token: String? {
-        get {
-            return KeychainWrapper.standard.string(forKey: "auth_token")
-        }
-    }
-    
-    
-    private let decoder: JSONDecoder = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .formatted(dateFormatter)
-        return decoder
-    }()
     
     func signIn(signInRequest: SignInRequestModel, completion: @escaping (Result<AuthResponseModel, NetworkError>) -> ()) {
         guard let url = URL(string: "http://localhost:8086/api/auth/signin") else {
@@ -173,7 +157,7 @@ class AuthViewModel: ObservableObject {
     }
     
     func sendProfileData(profileName: String, completion: @escaping (Result<Void, NetworkError>) -> ()) {
-        guard let authToken = KeychainWrapper.standard.string(forKey: "auth_token") else {
+        guard let authToken = token else {
             completion(.failure(.invalidToken))
             return
         }
@@ -244,8 +228,13 @@ class AuthViewModel: ObservableObject {
     }
 
     private func saveTokens(authResponse: AuthResponseModel) -> Bool {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        let expiryDate = df.string(from: authResponse.expiresAt)
         let didSaveAuthToken = KeychainWrapper.standard.set(authResponse.authenticationToken, forKey: "auth_token")
         let didSaveRefreshToken = KeychainWrapper.standard.set(authResponse.refreshToken, forKey: "refresh_token")
-        return didSaveAuthToken && didSaveRefreshToken
+        let didSaveExpireDate = KeychainWrapper.standard.set(expiryDate, forKey: "expires_At")
+        return didSaveAuthToken && didSaveRefreshToken && didSaveExpireDate
     }
+    
 }

@@ -20,8 +20,6 @@ struct SignUpView: View {
     
     @State var password: String = ""
     
-    @State var confirmPassword: String = ""
-    
     @State var emailEditing: Bool = false
     
     @State var userEditing: Bool = false
@@ -29,8 +27,6 @@ struct SignUpView: View {
     @State var fullnameEditing: Bool = false
     
     @State var passwordEditing: Bool = false
-    
-    @State var confirmPasswordEditing: Bool = false
     
     @State var signUpComplete: Bool = false
     
@@ -87,7 +83,7 @@ struct SignUpView: View {
     }
     
     private func signUp() {
-        let signUpRequestModel = SignUpRequestModel(email: email, username: username, password: password, profileName: nil)
+        let signUpRequestModel = SignUpRequestModel(email: email, username: username, password: password, profileName: fullname)
         authViewModel.signUp(signUpRequest: signUpRequestModel) { (result) in
             switch (result) {
             case .success():
