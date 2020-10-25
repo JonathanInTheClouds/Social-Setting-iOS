@@ -23,6 +23,14 @@ class BaseAuth {
         }
     }
     
+    var component: URLComponents = {
+        var component = URLComponents()
+        component.scheme = "http"
+        component.host = "localhost"
+        component.port = 8086
+        return component
+    }()
+    
     let decoder: JSONDecoder = {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
@@ -31,4 +39,5 @@ class BaseAuth {
         decoder.dateDecodingStrategy = .formatted(dateFormatter)
         return decoder
     }()
+    
 }

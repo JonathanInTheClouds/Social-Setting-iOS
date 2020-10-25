@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainTabView: View {
+    
     var body: some View {
         TabView {
             FeedView()
@@ -16,12 +17,12 @@ struct MainTabView: View {
                         .offset(y: 5)
                     Text("Feed")
                 }
-            FeedView()
+            Color.tertiarySystemBackground.ignoresSafeArea()
                 .tabItem {
                     Image(systemName: "quote.bubble.fill")
                     Text("Messages")
                 }
-            FeedView()
+            Color.tertiarySystemBackground.ignoresSafeArea()
                 .tabItem {
                     Image(systemName: "chart.bar.xaxis")
                     Text("Activity")

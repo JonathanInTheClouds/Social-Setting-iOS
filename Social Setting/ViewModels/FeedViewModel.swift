@@ -7,61 +7,55 @@
 
 import Foundation
 import SwiftKeychainWrapper
+import Combine
 
 class FeedViewModel: BaseAuth, ObservableObject {
     
     @Published var postFeed:[PostResponseModel] = [PostResponseModel]()
     
+    private var feedService: FeedService = FeedService()
+    
     private var currentPage: Int = 1
+    
+    private var feedCancellable: Cancellable? {
+        didSet { oldValue?.cancel() }
+    }
     
     override init() {
         super.init()
         fetchFeed()
     }
     
+    deinit {
+        feedCancellable?.cancel()
+    }
+    
     func fetchFeed() {
         guard let authToken = token else { return }
-        guard let url = URL(string: "http://localhost:8086/api/post/feed?page=\(currentPage)") else { return }
-        
+        component.path = "/api/post/feed"
+        component.queryItems = [URLQueryItem(name: "page", value: "\(currentPage)")]
+        guard let url = component.url else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
-        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.allHTTPHeaderFields = ["Bearer": authToken, "Accept":"application/json", "Content-Type":"application/json"]
         
-        let headers = [
-            "Bearer": authToken
-        ]
-        
-        request.allHTTPHeaderFields = headers
-        
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            
-            guard let data = data,
-                let response = response as? HTTPURLResponse,
-                error == nil else {
-                print("error", error ?? "Unknown error")
-                return
-            }
-            
-            guard (200 ... 299) ~= response.statusCode else {
-                print("StatusCode should be 2xx, but is \(response.statusCode)")
-                print("Response = \(response)")
-                return
-            }
-            
-            guard let posts = try? self.decoder.decode([PostResponseModel].self, from: data) else { return }
-            
-            DispatchQueue.main.async {
-                if !posts.isEmpty {
-                    self.postFeed.append(contentsOf: posts)
+        feedCancellable = URLSession.shared.dataTaskPublisher(for: request)
+            .tryMap({ (element) -> Data in
+                guard let httpResponse = element.response as? HTTPURLResponse,
+                      httpResponse.statusCode == 200 else { throw URLError(.badServerResponse) }
+                return element.data
+            })
+            .decode(type: [PostResponseModel].self, decoder: decoder)
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+            .sink { response in
+                print(response)
+            } receiveValue: { (newPost) in
+                if !newPost.isEmpty {
+                    self.postFeed.append(contentsOf: newPost)
                     self.currentPage += 1
                 }
             }
-            
-        }
-        
-        task.resume()
-        
     }
     
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftKeychainWrapper
 
+
 struct FeedView: View {
     
     @StateObject var feedViewModel: FeedViewModel = FeedViewModel()
@@ -16,9 +17,9 @@ struct FeedView: View {
     
     @Environment(\.colorScheme) var colorScheme
     
-    @ObservedObject private var searchBar: SearchBar = SearchBar()
+    @State private var searchText : String? = ""
     
-    @State private var searchText : String = ""
+    @State private var isSearching : Bool = false
     
     fileprivate func fetchMoreIfNecessary(current: Int) {
         let lastIndex = feedViewModel.postFeed.count - 1
@@ -46,34 +47,34 @@ struct FeedView: View {
                         }
                     }
                     .padding(.top, 5)
-                }
-                .add(self.searchBar)
-                .navigationBarItems(leading: HStack {
-                    Image("large-logo")
-                        .resizable()
-                        .frame(width: 24, height: 24, alignment: .center)
-                    Text("Social Setting")
-                        .foregroundColor(Color.gray99)
-                }, trailing: HStack {
-                    Button(action: {
-                        withAnimation(.easeOut(duration: 0.3)) {
-                            KeychainWrapper.standard.remove(forKey: "auth_token")
-                            authViewModel.validationConfirmed = false
-                        }
-                    }, label: {
-                        Image(systemName: "rectangle.fill.badge.plus")
+                    .navigationBarItems(leading: HStack {
+                        Image("large-logo")
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 23, height: 23, alignment: .center)
+                            .frame(width: 24, height: 24, alignment: .center)
+                        Text("Social Setting")
+                            .foregroundColor(Color.gray99)
+                    }, trailing: HStack {
+                        Button(action: {
+                            withAnimation(.easeOut(duration: 0.3)) {
+                                KeychainWrapper.standard.remove(forKey: "auth_token")
+                                authViewModel.validationConfirmed = false
+                            }
+                        }, label: {
+                            Image(systemName: "rectangle.fill.badge.plus")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 23, height: 23, alignment: .center)
+                        })
                     })
-                })
-                .navigationBarTitleDisplayMode(.inline)
+                    .navigationBarTitleDisplayMode(.inline)
+                }
             }
         }
     }
 }
 
 struct Feed_Previews: PreviewProvider {
+    
     static var previews: some View {
         Group {
             FeedView()

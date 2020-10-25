@@ -13,6 +13,8 @@
 		241324B625409B6300CFCD32 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241324B525409B6300CFCD32 /* NetworkError.swift */; };
 		2430BC6325377FE300506696 /* AltNavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2430BC6225377FE300506696 /* AltNavigationLinkView.swift */; };
 		2430BC66253783DC00506696 /* DismissingKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2430BC65253783DC00506696 /* DismissingKeyboard.swift */; };
+		243589EC254495E700C62EB2 /* SearchControllerProviderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243589EB254495E700C62EB2 /* SearchControllerProviderModifier.swift */; };
+		24358A092544D7ED00C62EB2 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24358A082544D7ED00C62EB2 /* FeedService.swift */; };
 		2439E3DC2536ADF30006993D /* MainNavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2439E3DB2536ADF30006993D /* MainNavigationLinkView.swift */; };
 		243C863C253932F400C79654 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243C863B253932F400C79654 /* MainTabView.swift */; };
 		244D93EA25366C4800664444 /* Social_SettingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244D93E925366C4800664444 /* Social_SettingApp.swift */; };
@@ -59,6 +61,8 @@
 		241324B525409B6300CFCD32 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		2430BC6225377FE300506696 /* AltNavigationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltNavigationLinkView.swift; sourceTree = "<group>"; };
 		2430BC65253783DC00506696 /* DismissingKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissingKeyboard.swift; sourceTree = "<group>"; };
+		243589EB254495E700C62EB2 /* SearchControllerProviderModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerProviderModifier.swift; sourceTree = "<group>"; };
+		24358A082544D7ED00C62EB2 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		2439E3DB2536ADF30006993D /* MainNavigationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationLinkView.swift; sourceTree = "<group>"; };
 		243C863B253932F400C79654 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		244D93E625366C4800664444 /* Social Setting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Setting.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +154,14 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		24358A072544D7DC00C62EB2 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				24358A082544D7ED00C62EB2 /* FeedService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		244D93DD25366C4800664444 = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +181,7 @@
 		244D93E825366C4800664444 /* Social Setting */ = {
 			isa = PBXGroup;
 			children = (
+				24358A072544D7DC00C62EB2 /* Networking */,
 				249CD7D3253A98E400C516A8 /* Models */,
 				244D93FE25366D7300664444 /* Views */,
 				24087D78253D3CBF0079D83E /* ViewModels */,
@@ -225,6 +238,7 @@
 			children = (
 				2468FDF325380A5600E6DEC7 /* ViewControllerResolver.swift */,
 				2403664D25380B780067B3E3 /* SearchBar.swift */,
+				243589EB254495E700C62EB2 /* SearchControllerProviderModifier.swift */,
 			);
 			path = SearchBar;
 			sourceTree = "<group>";
@@ -354,6 +368,7 @@
 				2430BC6325377FE300506696 /* AltNavigationLinkView.swift in Sources */,
 				2468FDF425380A5600E6DEC7 /* ViewControllerResolver.swift in Sources */,
 				2403664E25380B780067B3E3 /* SearchBar.swift in Sources */,
+				243589EC254495E700C62EB2 /* SearchControllerProviderModifier.swift in Sources */,
 				24087D7B253D3DE80079D83E /* ProfileImage.swift in Sources */,
 				243C863C253932F400C79654 /* MainTabView.swift in Sources */,
 				249CD7E5253AA4F000C516A8 /* SecureCodeView.swift in Sources */,
@@ -371,6 +386,7 @@
 				249CD7D9253A9A6400C516A8 /* SignInRequestModel.swift in Sources */,
 				249CD7D0253A593700C516A8 /* TopicPostView.swift in Sources */,
 				2430BC66253783DC00506696 /* DismissingKeyboard.swift in Sources */,
+				24358A092544D7ED00C62EB2 /* FeedService.swift in Sources */,
 				249FA37C25439F1A000453E5 /* String+Etx.swift in Sources */,
 				2483B7162537C3B9004E6DC0 /* FeedView.swift in Sources */,
 				24CEB8CB253B612A0021FA4A /* ProfileView.swift in Sources */,
