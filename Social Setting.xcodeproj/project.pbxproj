@@ -51,7 +51,6 @@
 		24C11A5E254689C700B5B362 /* iTextField in Frameworks */ = {isa = PBXBuildFile; productRef = 24C11A5D254689C700B5B362 /* iTextField */; };
 		24CEB8CB253B612A0021FA4A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CEB8CA253B612A0021FA4A /* ProfileView.swift */; };
 		24EAAD372547440E00479152 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAAD362547440E00479152 /* CreatePostView.swift */; };
-		24EAAD8025475DD000479152 /* SwipeCell in Frameworks */ = {isa = PBXBuildFile; productRef = 24EAAD7F25475DD000479152 /* SwipeCell */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,7 +107,6 @@
 			files = (
 				24C11A5E254689C700B5B362 /* iTextField in Frameworks */,
 				24A79969253E197E00CC83D1 /* SwiftKeychainWrapper in Frameworks */,
-				24EAAD8025475DD000479152 /* SwipeCell in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +302,6 @@
 			packageProductDependencies = (
 				24A79968253E197E00CC83D1 /* SwiftKeychainWrapper */,
 				24C11A5D254689C700B5B362 /* iTextField */,
-				24EAAD7F25475DD000479152 /* SwipeCell */,
 			);
 			productName = "Social Setting";
 			productReference = 244D93E625366C4800664444 /* Social Setting.app */;
@@ -336,7 +333,6 @@
 			packageReferences = (
 				24A79967253E197E00CC83D1 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 				24C11A5C254689C700B5B362 /* XCRemoteSwiftPackageReference "iTextField" */,
-				24EAAD7E25475DD000479152 /* XCRemoteSwiftPackageReference "SwipeCell" */,
 			);
 			productRefGroup = 244D93E725366C4800664444 /* Products */;
 			projectDirPath = "";
@@ -610,14 +606,6 @@
 				minimumVersion = 0.0.3;
 			};
 		};
-		24EAAD7E25475DD000479152 /* XCRemoteSwiftPackageReference "SwipeCell" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/fatbobman/SwipeCell.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -630,11 +618,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 24C11A5C254689C700B5B362 /* XCRemoteSwiftPackageReference "iTextField" */;
 			productName = iTextField;
-		};
-		24EAAD7F25475DD000479152 /* SwipeCell */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 24EAAD7E25475DD000479152 /* XCRemoteSwiftPackageReference "SwipeCell" */;
-			productName = SwipeCell;
 		};
 /* End XCSwiftPackageProductDependency section */
 
