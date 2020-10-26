@@ -8,7 +8,6 @@
 import SwiftUI
 import SwiftKeychainWrapper
 
-
 struct FeedView: View {
     
     @StateObject var feedViewModel: FeedViewModel = FeedViewModel()
