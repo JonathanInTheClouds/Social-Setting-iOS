@@ -21,6 +21,8 @@ struct FeedView: View {
     
     @State private var isSearching : Bool = false
     
+    @State private var createPostIsPresented: Bool = false
+    
     fileprivate func fetchMoreIfNecessary(current: Int) {
         let lastIndex = feedViewModel.postFeed.count - 1
         let shouldLoadMore = lastIndex == current
@@ -48,23 +50,30 @@ struct FeedView: View {
                     }
                     .padding(.top, 5)
                     .navigationBarItems(leading: HStack {
-                        Image("large-logo")
-                            .resizable()
-                            .frame(width: 24, height: 24, alignment: .center)
-                        Text("Social Setting")
-                            .foregroundColor(Color.gray99)
-                    }, trailing: HStack {
-                        Button(action: {
+                        Button {
                             withAnimation(.easeOut(duration: 0.3)) {
                                 KeychainWrapper.standard.remove(forKey: "auth_token")
                                 authViewModel.validationConfirmed = false
                             }
-                        }, label: {
+                        } label: {
+                            Image("large-logo")
+                                .resizable()
+                                .frame(width: 24, height: 24, alignment: .center)
+                            Text("Social Setting")
+                                .foregroundColor(Color.gray99)
+                        }
+                    }, trailing: HStack {
+                        Button {
+                            createPostIsPresented = true
+                        } label: {
                             Image(systemName: "rectangle.fill.badge.plus")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 23, height: 23, alignment: .center)
-                        })
+                        }
+                        .sheet(isPresented: $createPostIsPresented) {
+                            CreatePostView()
+                        }
                     })
                     .navigationBarTitleDisplayMode(.inline)
                 }

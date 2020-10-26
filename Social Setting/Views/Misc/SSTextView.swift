@@ -22,6 +22,10 @@ struct SSTextView: View {
     
     var isSecure: Bool = false
     
+    var autoCorrection: Bool = false
+    
+    var autoCap: Bool = true
+    
     var enterAction: (() -> ())?
     
     
@@ -31,6 +35,8 @@ struct SSTextView: View {
             .keyboardType(keyboardType)
             .returnKeyType(returnType)
             .isSecure(isSecure)
+            .disableAutocorrection(autoCorrection)
+            .disableAutocorrection(autoCap)
             .frame(height: 21, alignment: .center)
             .padding()
             .background(Color.gray19)

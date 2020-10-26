@@ -35,13 +35,13 @@ struct SignInView: View {
                         .padding(.bottom, 30)
                         .modifier(DismissingKeyboard())
                     
-                    SSTextView(field: $username, fieldEditing: $userEditing,placeholder: "Username", returnType: .next, keyboardType: .default) {
+                    SSTextView(field: $username, fieldEditing: $userEditing,placeholder: "Username", returnType: .next) {
                         userEditing.toggle()
                         passwordEditing.toggle()
                     }
                         .padding(.bottom, 5)
                     
-                    SSTextView(field: $password, fieldEditing: $passwordEditing,placeholder: "Password", returnType: .next, keyboardType: .default) {
+                    SSTextView(field: $password, fieldEditing: $passwordEditing,placeholder: "Password", returnType: .next, keyboardType: .default, isSecure: true) {
                         passwordEditing = false
                     }
                     .padding(.bottom, 15)

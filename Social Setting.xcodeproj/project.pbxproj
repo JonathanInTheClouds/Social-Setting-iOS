@@ -50,6 +50,7 @@
 		24A799A1253E871100CC83D1 /* AnimationCompletionObserverModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A799A0253E871100CC83D1 /* AnimationCompletionObserverModifier.swift */; };
 		24C11A5E254689C700B5B362 /* iTextField in Frameworks */ = {isa = PBXBuildFile; productRef = 24C11A5D254689C700B5B362 /* iTextField */; };
 		24CEB8CB253B612A0021FA4A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CEB8CA253B612A0021FA4A /* ProfileView.swift */; };
+		24EAAD372547440E00479152 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAAD362547440E00479152 /* CreatePostView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		24A7999C253E2A7900CC83D1 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		24A799A0253E871100CC83D1 /* AnimationCompletionObserverModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCompletionObserverModifier.swift; sourceTree = "<group>"; };
 		24CEB8CA253B612A0021FA4A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		24EAAD362547440E00479152 /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				2483B7192537E3C7004E6DC0 /* PostContentView.swift */,
 				249CD7CC253A577500C516A8 /* NormalPostView.swift */,
 				249CD7CF253A593700C516A8 /* TopicPostView.swift */,
+				24EAAD362547440E00479152 /* CreatePostView.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				249CD7E9253AAA1D00C516A8 /* SSTextView.swift in Sources */,
 				249CD7D9253A9A6400C516A8 /* SignInRequestModel.swift in Sources */,
 				249CD7D0253A593700C516A8 /* TopicPostView.swift in Sources */,
+				24EAAD372547440E00479152 /* CreatePostView.swift in Sources */,
 				2430BC66253783DC00506696 /* DismissingKeyboard.swift in Sources */,
 				24358A092544D7ED00C62EB2 /* FeedService.swift in Sources */,
 				249FA37C25439F1A000453E5 /* String+Etx.swift in Sources */,
