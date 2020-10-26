@@ -9,14 +9,25 @@ import SwiftUI
 
 struct CreatePostView: View {
     var body: some View {
-        ZStack {
-            Color.tertiarySystemBackground.ignoresSafeArea()
+        NavigationView {
+            ZStack {
+                Color.tertiarySystemBackground.ignoresSafeArea()
+            }
+            .navigationTitle(Text("Create Post"))
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(trailing: Button(action: {
+                
+            }, label: {
+                Image(systemName: "shippingbox.fill")
+            }))
         }
     }
 }
 
 struct CreatePostView_Previews: PreviewProvider {
     static var previews: some View {
-        CreatePostView()
+        Group {
+            CreatePostView()
+        }
     }
 }
