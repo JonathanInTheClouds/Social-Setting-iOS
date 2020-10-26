@@ -17,7 +17,9 @@ class AuthViewModel: BaseAuth, ObservableObject {
     @Published var opacity: Double = 0
     
     func signIn(signInRequest: SignInRequestModel, completion: @escaping (Result<AuthResponseModel, NetworkError>) -> ()) {
-        guard let url = URL(string: "http://localhost:8086/api/auth/signin") else {
+        component.path = "/api/auth/signin"
+        
+        guard let url = component.url else {
             completion(.failure(.badURL))
             return
         }
@@ -67,8 +69,9 @@ class AuthViewModel: BaseAuth, ObservableObject {
     }
     
     func signUp(signUpRequest: SignUpRequestModel, completion: @escaping (Result<Void, NetworkError>) -> ()) {
+        component.path = "/api/auth/signup"
         
-        guard let url = URL(string: "http://localhost:8086/api/auth/signup") else { fatalError("Invalid URL") }
+        guard let url = component.url else { fatalError("Invalid URL") }
         
         var request = URLRequest(url: url)
         
@@ -111,7 +114,8 @@ class AuthViewModel: BaseAuth, ObservableObject {
     }
     
     func validateSecureCode(code: Int, completion: @escaping (Result<AuthResponseModel, NetworkError>) -> ()) {
-        guard let url = URL(string: "http://localhost:8086/api/auth/token/secureCodeVerification") else { fatalError("Invalid URL") }
+        component.path = "/api/auth/token/secureCodeVerification"
+        guard let url = component.url else { fatalError("Invalid URL") }
         
         var request = URLRequest(url: url)
         
@@ -161,8 +165,8 @@ class AuthViewModel: BaseAuth, ObservableObject {
             completion(.failure(.invalidToken))
             return
         }
-        
-        guard let url = URL(string: "http://localhost:8086/api/user/update") else {
+        component.path = "/api/user/update"
+        guard let url = component.url else {
             completion(.failure(.badURL))
             return
         }

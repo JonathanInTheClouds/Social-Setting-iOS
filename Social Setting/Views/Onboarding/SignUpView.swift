@@ -58,20 +58,15 @@ struct SignUpView: View {
                 })
                 .padding(.bottom, 5)
                 
-                SSTextView(field: $email, fieldEditing: $emailEditing, placeholder: "Email Address", enterAction: {
+                SSTextView(field: $email, fieldEditing: $emailEditing, placeholder: "Email Address", keyboardType: .emailAddress, enterAction: {
                     emailEditing.toggle()
                     passwordEditing.toggle()
                 })
                 .padding(.bottom, 5)
                 
-                
-                CustomTextField(text: $password, placeholder: "Password", isSecure: true, isFirstResponder: passwordEditing, onCommit: {
+                SSTextView(field: $password, fieldEditing: $passwordEditing, placeholder: "Password", returnType: .done, isSecure: true, enterAction: {
                     passwordEditing = false
                 })
-                .frame(height: 21, alignment: .center)
-                .padding()
-                .background(Color.gray19)
-                .cornerRadius(6)
                 .padding(.bottom, 15)
                 
                 MainNavigationLinkView(action: signUp, destionation: SecureCodeView(), title: "Continue", shouldPush: $signUpComplete)

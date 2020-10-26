@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import TextView
+import iTextField
 
 struct SSTextView: View {
     
@@ -26,20 +26,16 @@ struct SSTextView: View {
     
     
     var body: some View {
-        TextView(text: $field, isEditing: $fieldEditing, placeholder: placeholder,
-                 textHorizontalPadding: -4, textVerticalPadding: 0,
-                 placeholderHorizontalPadding: -0.3, placeholderVerticalPadding: 1, returnType: returnType, isSecure: true, shouldChange: { _, character -> Bool in
-                    let isEntered = (character == "\n" || character == "\t")
-                    if isEntered, let enterAction = enterAction {
-                        enterAction()
-                    }
-                    return isEntered ? false : true
-                 })
+        iTextField(placeholder, text: $field, isEditing: $fieldEditing)
+            .onReturn(perform: enterAction)
+            .keyboardType(keyboardType)
+            .returnKeyType(returnType)
+            .isSecure(isSecure)
             .frame(height: 21, alignment: .center)
             .padding()
             .background(Color.gray19)
             .cornerRadius(6)
-            .keyboardType(keyboardType)
+            
     }
 }
 

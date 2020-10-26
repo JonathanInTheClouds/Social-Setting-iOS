@@ -35,21 +35,15 @@ struct SignInView: View {
                         .padding(.bottom, 30)
                         .modifier(DismissingKeyboard())
                     
-                    SSTextView(field: $username, fieldEditing: $userEditing,
-                               placeholder: "Username",
-                               returnType: .continue, keyboardType: .default, enterAction: {
-                                userEditing.toggle()
-                                passwordEditing.toggle()
-                               })
+                    SSTextView(field: $username, fieldEditing: $userEditing,placeholder: "Username", returnType: .next, keyboardType: .default) {
+                        userEditing.toggle()
+                        passwordEditing.toggle()
+                    }
                         .padding(.bottom, 5)
                     
-                    CustomTextField(text: $password, placeholder: "Password", isSecure: true, isFirstResponder: passwordEditing, onCommit: {
-                        passwordEditing.toggle()
-                    })
-                    .frame(height: 21, alignment: .center)
-                    .padding()
-                    .background(Color.gray19)
-                    .cornerRadius(6)
+                    SSTextView(field: $password, fieldEditing: $passwordEditing,placeholder: "Password", returnType: .next, keyboardType: .default) {
+                        passwordEditing = false
+                    }
                     .padding(.bottom, 15)
                     
                     HStack(spacing: 10) {

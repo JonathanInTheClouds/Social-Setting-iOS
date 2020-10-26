@@ -25,7 +25,9 @@ struct SecureCodeView: View {
                 .ignoresSafeArea()
             VStack(alignment: .leading) {
                 HeadView()
-                SSTextView(field: $secureCode, fieldEditing: $secureCodeEditing, placeholder: "Secure Code", returnType: .send, keyboardType: .decimalPad) {}
+                SSTextView(field: $secureCode, fieldEditing: $secureCodeEditing, placeholder: "Secure Code", returnType: .send, keyboardType: .decimalPad, enterAction: {
+                    secureCodeEditing = false
+                })
                 .padding(.top, 35)
                 .padding(.bottom, 10)
                 

@@ -26,7 +26,7 @@ class BaseAuth {
     var component: URLComponents = {
         var component = URLComponents()
         component.scheme = "http"
-        component.host = "localhost"
+        component.host = "192.168.1.36"
         component.port = 8086
         return component
     }()
