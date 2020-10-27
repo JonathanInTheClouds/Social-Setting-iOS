@@ -13,8 +13,6 @@ class FeedViewModel: BaseAuth, ObservableObject {
     
     @Published var postFeed:[PostResponseModel] = [PostResponseModel]()
     
-    private var feedService: FeedService = FeedService()
-    
     private var currentPage: Int = 1
     
     private var feedCancellable: Cancellable? {

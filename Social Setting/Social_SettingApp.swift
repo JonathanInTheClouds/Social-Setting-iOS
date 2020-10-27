@@ -22,6 +22,9 @@ struct Social_SettingApp: App {
             MainRoute()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(authViewModel)
+                .onAppear(perform: {
+                    UITextView.appearance().backgroundColor = .clear
+                })
         }
     }
 }

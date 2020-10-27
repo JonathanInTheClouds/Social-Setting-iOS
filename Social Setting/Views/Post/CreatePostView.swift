@@ -6,28 +6,117 @@
 //
 
 import SwiftUI
+import iTextField
+import TextView
 
 struct CreatePostView: View {
+    
+    @State private var selection: Int = 0
+    
+    @State private var titleText: String = ""
+    
+    @State private var titleEditing: Bool = false
+    
+    @State private var bodyText: String = ""
+    
+    @State private var bodyEditing: Bool = false
+    
+    
     var body: some View {
         NavigationView {
-            ZStack {
-                Color.tertiarySystemBackground.ignoresSafeArea()
+            VStack {
+                HeaderView(selection: $selection)
+                
+                if selection != 2 {
+                    BodyView(titleText: $titleText, titleEditing: $titleEditing, bodyText: $bodyText, bodyEditing: $bodyEditing)
+                } else {
+                    PostPreview(post: createPost())
+                }
+                
+                Spacer()
             }
             .navigationTitle(Text("Create Post"))
-            .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing: Button(action: {
                 
             }, label: {
-                Image(systemName: "shippingbox.fill")
+                Image(systemName: "paperplane.fill")
             }))
         }
     }
+    
+    func createPost() -> Binding<PostResponseModel> {
+        return Binding<PostResponseModel>(get: {
+            PostResponseModel(localId: nil, id: 1, publicUserId: "", postName: titleText, url: nil, description: bodyText, userName: "MettaworldJ", subSettingName: "", duration: "just now", upVote: true, downVote: false, voteCount: 24, commentCount: 12)
+        }, set: {_ in
+            
+        })
+    }
 }
+
+private struct HeaderView: View {
+    @Binding var selection: Int
+    
+    var body: some View {
+        
+        Picker(selection: Binding<Int>(
+            get: { selection }, set: { tag in
+                withAnimation(.easeIn(duration: 0.3)) {
+                    selection = tag
+                }
+            }
+        ), label: Text("What type of post?")) {
+            Text("Post").tag(0)
+            Text("Article").tag(1)
+            Text("Preview").tag(2)
+        }
+        .pickerStyle(SegmentedPickerStyle())
+        .pickerStyle(SegmentedPickerStyle())
+        .padding(.horizontal)
+        .padding(.top)
+    }
+}
+
+private struct BodyView: View {
+    
+    @Binding var titleText: String
+    
+    @Binding var titleEditing: Bool
+    
+    @Binding var bodyText: String
+    
+    @Binding var bodyEditing: Bool
+    
+    var body: some View {
+        PlainTextView("Title", text: $titleText, isEditing: $titleEditing)
+            .fontFromUIFont(.preferredFont(forTextStyle: .largeTitle))
+            .padding(.horizontal)
+            .padding(.vertical)
+        TextView(text: $bodyText, isEditing: $bodyEditing, placeholder: "Whats on your mind?", textHorizontalPadding: 16, placeholderHorizontalPadding: 20, font: .systemFont(ofSize: 18))
+    }
+}
+
+private struct PostPreview: View {
+    
+    @Binding var post: PostResponseModel
+    
+    var body: some View {
+        TopicPostView(post: $post)
+            .padding(.all)
+            .background(Color.tertiarySystemBackground)
+            .cornerRadius(8)
+            .padding(.all)
+    }
+}
+
 
 struct CreatePostView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             CreatePostView()
+                .environment(\.colorScheme, .light)
+            
+            CreatePostView()
+                .environment(\.colorScheme, .dark)
         }
     }
 }

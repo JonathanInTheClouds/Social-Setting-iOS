@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import iTextField
 
 struct MainRoute: View {
     
@@ -27,3 +28,5 @@ struct MainRoute_Previews: PreviewProvider {
         MainRoute()
     }
 }
+
+typealias PlainTextView = iTextField

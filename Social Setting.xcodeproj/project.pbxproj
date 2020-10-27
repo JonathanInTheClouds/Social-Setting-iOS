@@ -51,6 +51,11 @@
 		24C11A5E254689C700B5B362 /* iTextField in Frameworks */ = {isa = PBXBuildFile; productRef = 24C11A5D254689C700B5B362 /* iTextField */; };
 		24CEB8CB253B612A0021FA4A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CEB8CA253B612A0021FA4A /* ProfileView.swift */; };
 		24EAAD372547440E00479152 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAAD362547440E00479152 /* CreatePostView.swift */; };
+		24EAAD8E2547783C00479152 /* SSMarkDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAAD8D2547783C00479152 /* SSMarkDownView.swift */; };
+		24EAAD9225477FA700479152 /* SwiftyMarkdown in Frameworks */ = {isa = PBXBuildFile; productRef = 24EAAD9125477FA700479152 /* SwiftyMarkdown */; };
+		24EAADA2254793EA00479152 /* MDPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAADA1254793EA00479152 /* MDPreview.swift */; };
+		24EAADA62547BECF00479152 /* TextView in Frameworks */ = {isa = PBXBuildFile; productRef = 24EAADA52547BECF00479152 /* TextView */; };
+		24EAADA92547D83C00479152 /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAADA82547D83C00479152 /* CreatePostViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +103,9 @@
 		24A799A0253E871100CC83D1 /* AnimationCompletionObserverModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCompletionObserverModifier.swift; sourceTree = "<group>"; };
 		24CEB8CA253B612A0021FA4A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		24EAAD362547440E00479152 /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
+		24EAAD8D2547783C00479152 /* SSMarkDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkDownView.swift; sourceTree = "<group>"; };
+		24EAADA1254793EA00479152 /* MDPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDPreview.swift; sourceTree = "<group>"; };
+		24EAADA82547D83C00479152 /* CreatePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +113,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24EAADA62547BECF00479152 /* TextView in Frameworks */,
 				24C11A5E254689C700B5B362 /* iTextField in Frameworks */,
 				24A79969253E197E00CC83D1 /* SwiftKeychainWrapper in Frameworks */,
+				24EAAD9225477FA700479152 /* SwiftyMarkdown in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +129,7 @@
 				249FA3812543A312000453E5 /* BaseAuth.swift */,
 				24A7999C253E2A7900CC83D1 /* AuthViewModel.swift */,
 				249FA37E2543A2D2000453E5 /* FeedViewModel.swift */,
+				24EAADA82547D83C00479152 /* CreatePostViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -138,6 +149,7 @@
 				249CD7CC253A577500C516A8 /* NormalPostView.swift */,
 				249CD7CF253A593700C516A8 /* TopicPostView.swift */,
 				24EAAD362547440E00479152 /* CreatePostView.swift */,
+				24EAADA1254793EA00479152 /* MDPreview.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -271,6 +283,7 @@
 				24087D7A253D3DE80079D83E /* ProfileImage.swift */,
 				2439E3DB2536ADF30006993D /* MainNavigationLinkView.swift */,
 				2430BC6225377FE300506696 /* AltNavigationLinkView.swift */,
+				24EAAD8D2547783C00479152 /* SSMarkDownView.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -302,6 +315,8 @@
 			packageProductDependencies = (
 				24A79968253E197E00CC83D1 /* SwiftKeychainWrapper */,
 				24C11A5D254689C700B5B362 /* iTextField */,
+				24EAAD9125477FA700479152 /* SwiftyMarkdown */,
+				24EAADA52547BECF00479152 /* TextView */,
 			);
 			productName = "Social Setting";
 			productReference = 244D93E625366C4800664444 /* Social Setting.app */;
@@ -333,6 +348,8 @@
 			packageReferences = (
 				24A79967253E197E00CC83D1 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 				24C11A5C254689C700B5B362 /* XCRemoteSwiftPackageReference "iTextField" */,
+				24EAAD9025477FA700479152 /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */,
+				24EAADA42547BECF00479152 /* XCRemoteSwiftPackageReference "TextView" */,
 			);
 			productRefGroup = 244D93E725366C4800664444 /* Products */;
 			projectDirPath = "";
@@ -367,12 +384,14 @@
 				2403664E25380B780067B3E3 /* SearchBar.swift in Sources */,
 				243589EC254495E700C62EB2 /* SearchControllerProviderModifier.swift in Sources */,
 				24087D7B253D3DE80079D83E /* ProfileImage.swift in Sources */,
+				24EAADA2254793EA00479152 /* MDPreview.swift in Sources */,
 				243C863C253932F400C79654 /* MainTabView.swift in Sources */,
 				249CD7E5253AA4F000C516A8 /* SecureCodeView.swift in Sources */,
 				249CD7D5253A993500C516A8 /* SignUpRequestModel.swift in Sources */,
 				249FA38A2543A8BD000453E5 /* PostRequestModel.swift in Sources */,
 				249CD7CD253A577500C516A8 /* NormalPostView.swift in Sources */,
 				244D940725366FB500664444 /* Color+Theme.swift in Sources */,
+				24EAADA92547D83C00479152 /* CreatePostViewModel.swift in Sources */,
 				249FA3822543A312000453E5 /* BaseAuth.swift in Sources */,
 				2439E3DC2536ADF30006993D /* MainNavigationLinkView.swift in Sources */,
 				2483B71A2537E3C7004E6DC0 /* PostContentView.swift in Sources */,
@@ -396,6 +415,7 @@
 				244D940B253676BE00664444 /* BindingProvider.swift in Sources */,
 				24662171253BFC1700A08CBD /* Separator.swift in Sources */,
 				249FA3862543A3B8000453E5 /* PostResponseModel.swift in Sources */,
+				24EAAD8E2547783C00479152 /* SSMarkDownView.swift in Sources */,
 				24A7999D253E2A7900CC83D1 /* AuthViewModel.swift in Sources */,
 				244D940025366D8F00664444 /* SignInView.swift in Sources */,
 				24A79998253E29B400CC83D1 /* MainRoute.swift in Sources */,
@@ -606,6 +626,22 @@
 				minimumVersion = 0.0.3;
 			};
 		};
+		24EAAD9025477FA700479152 /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimonFairbairn/SwiftyMarkdown.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.3;
+			};
+		};
+		24EAADA42547BECF00479152 /* XCRemoteSwiftPackageReference "TextView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kenmueller/TextView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.8;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -618,6 +654,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 24C11A5C254689C700B5B362 /* XCRemoteSwiftPackageReference "iTextField" */;
 			productName = iTextField;
+		};
+		24EAAD9125477FA700479152 /* SwiftyMarkdown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24EAAD9025477FA700479152 /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */;
+			productName = SwiftyMarkdown;
+		};
+		24EAADA52547BECF00479152 /* TextView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24EAADA42547BECF00479152 /* XCRemoteSwiftPackageReference "TextView" */;
+			productName = TextView;
 		};
 /* End XCSwiftPackageProductDependency section */
 
