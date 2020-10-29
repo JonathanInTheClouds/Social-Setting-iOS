@@ -63,15 +63,15 @@ struct FeedView: View {
                         }
                     }, trailing: HStack {
                         Button {
-                            createPostIsPresented = true
+                            feedViewModel.createPostIsPresented = true
                         } label: {
                             Image(systemName: "rectangle.fill.badge.plus")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 23, height: 23, alignment: .center)
                         }
-                        .sheet(isPresented: $createPostIsPresented) {
-                            CreatePostView()
+                        .sheet(isPresented: $feedViewModel.createPostIsPresented) {
+                            CreatePostView(feedViewModel: feedViewModel)
                         }
                     })
                     .navigationBarTitleDisplayMode(.inline)

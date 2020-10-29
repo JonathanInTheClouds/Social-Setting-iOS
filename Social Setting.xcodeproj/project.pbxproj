@@ -53,7 +53,6 @@
 		24EAAD372547440E00479152 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAAD362547440E00479152 /* CreatePostView.swift */; };
 		24EAAD8E2547783C00479152 /* SSMarkDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAAD8D2547783C00479152 /* SSMarkDownView.swift */; };
 		24EAAD9225477FA700479152 /* SwiftyMarkdown in Frameworks */ = {isa = PBXBuildFile; productRef = 24EAAD9125477FA700479152 /* SwiftyMarkdown */; };
-		24EAADA2254793EA00479152 /* MDPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAADA1254793EA00479152 /* MDPreview.swift */; };
 		24EAADA62547BECF00479152 /* TextView in Frameworks */ = {isa = PBXBuildFile; productRef = 24EAADA52547BECF00479152 /* TextView */; };
 		24EAADA92547D83C00479152 /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAADA82547D83C00479152 /* CreatePostViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -104,7 +103,6 @@
 		24CEB8CA253B612A0021FA4A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		24EAAD362547440E00479152 /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
 		24EAAD8D2547783C00479152 /* SSMarkDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkDownView.swift; sourceTree = "<group>"; };
-		24EAADA1254793EA00479152 /* MDPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDPreview.swift; sourceTree = "<group>"; };
 		24EAADA82547D83C00479152 /* CreatePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,7 +147,6 @@
 				249CD7CC253A577500C516A8 /* NormalPostView.swift */,
 				249CD7CF253A593700C516A8 /* TopicPostView.swift */,
 				24EAAD362547440E00479152 /* CreatePostView.swift */,
-				24EAADA1254793EA00479152 /* MDPreview.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -384,7 +381,6 @@
 				2403664E25380B780067B3E3 /* SearchBar.swift in Sources */,
 				243589EC254495E700C62EB2 /* SearchControllerProviderModifier.swift in Sources */,
 				24087D7B253D3DE80079D83E /* ProfileImage.swift in Sources */,
-				24EAADA2254793EA00479152 /* MDPreview.swift in Sources */,
 				243C863C253932F400C79654 /* MainTabView.swift in Sources */,
 				249CD7E5253AA4F000C516A8 /* SecureCodeView.swift in Sources */,
 				249CD7D5253A993500C516A8 /* SignUpRequestModel.swift in Sources */,

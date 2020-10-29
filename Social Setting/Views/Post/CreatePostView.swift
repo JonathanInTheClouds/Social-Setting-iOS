@@ -11,6 +11,10 @@ import TextView
 
 struct CreatePostView: View {
     
+    @StateObject var createPostViewModel: CreatePostViewModel = CreatePostViewModel()
+    
+    @StateObject var feedViewModel: FeedViewModel
+    
     @State private var selection: Int = 0
     
     @State private var titleText: String = ""
@@ -21,7 +25,6 @@ struct CreatePostView: View {
     
     @State private var bodyEditing: Bool = false
     
-    
     var body: some View {
         NavigationView {
             VStack {
@@ -30,21 +33,30 @@ struct CreatePostView: View {
                 if selection != 2 {
                     BodyView(titleText: $titleText, titleEditing: $titleEditing, bodyText: $bodyText, bodyEditing: $bodyEditing)
                 } else {
-                    PostPreview(post: createPost())
+                    PostPreview(post: previewPostModel())
                 }
                 
                 Spacer()
             }
             .navigationTitle(Text("Create Post"))
-            .navigationBarItems(trailing: Button(action: {
-                
-            }, label: {
+            .navigationBarItems(trailing: Button(action: createPost, label: {
                 Image(systemName: "paperplane.fill")
             }))
         }
     }
     
-    func createPost() -> Binding<PostResponseModel> {
+}
+
+extension CreatePostView {
+    private func createPost() {
+        let postRequest = PostRequestModel(postName: titleText, description: bodyText, isProfilePost: true)
+        createPostViewModel.createPost(postRequest: postRequest, completion: { createdPost in
+            feedViewModel.createPostIsPresented = false
+            feedViewModel.postFeed.insert(createdPost, at: 0)
+        })
+    }
+    
+    func previewPostModel() -> Binding<PostResponseModel> {
         return Binding<PostResponseModel>(get: {
             PostResponseModel(localId: nil, id: 1, publicUserId: "", postName: titleText, url: nil, description: bodyText, userName: "MettaworldJ", subSettingName: "", duration: "just now", upVote: true, downVote: false, voteCount: 24, commentCount: 12)
         }, set: {_ in
@@ -112,10 +124,10 @@ private struct PostPreview: View {
 struct CreatePostView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CreatePostView()
+            CreatePostView(feedViewModel: FeedViewModel())
                 .environment(\.colorScheme, .light)
             
-            CreatePostView()
+            CreatePostView(feedViewModel: FeedViewModel())
                 .environment(\.colorScheme, .dark)
         }
     }

@@ -44,7 +44,7 @@ struct PostHeadView: View {
         HStack {
             ProfileImage(buttonSize: 50, imageSize: 20)
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 2) {
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                     Text(username)
                         .foregroundColor(Color.gray99)
