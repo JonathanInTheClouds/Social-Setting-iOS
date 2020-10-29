@@ -10,7 +10,7 @@ Social Setting is a open source social network built from native swift code.
 
 Social Setting was created to demostrate and explore the programming language of swift.
 
-Things like:
+### What does it demostrate?
 
 * SwiftUI
 * MVVM
