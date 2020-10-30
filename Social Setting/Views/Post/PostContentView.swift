@@ -12,10 +12,20 @@ struct PostContentView: View {
     @Binding var post: PostResponseModel
     
     var body: some View {
-        if post.postName.isEmpty {
-            NormalPostView(post: $post)
-        } else {
-            TopicPostView(post: $post)
+        ZStack {
+            Color.clear
+                .contentShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+            Group {
+                if post.postName.isEmpty {
+                    NormalPostView(post: $post)
+                } else {
+                    TopicPostView(post: $post)
+                }
+            }
+            .padding(.horizontal, 16)
+            .padding(.top, 10)
+            .padding(.bottom, 10)
+            
         }
     }
 }

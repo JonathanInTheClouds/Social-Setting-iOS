@@ -11,6 +11,8 @@ import SwiftUI
 struct Social_SettingApp: App {
     let persistenceController = PersistenceController.shared
     var authViewModel = AuthViewModel()
+    var postViewModel = PostViewModel()
+    var feedViewModel = FeedViewModel()
     
     
     init() {
@@ -22,6 +24,8 @@ struct Social_SettingApp: App {
             MainRoute()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(authViewModel)
+                .environmentObject(postViewModel)
+                .environmentObject(feedViewModel)
                 .onAppear(perform: {
                     UITextView.appearance().backgroundColor = .clear
                 })

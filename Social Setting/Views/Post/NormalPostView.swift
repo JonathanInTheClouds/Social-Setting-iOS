@@ -25,15 +25,9 @@ struct NormalPostView: View {
     }
 }
 
-struct NormalPostView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        NormalPostView(post: .constant(PostResponseModel(id: 1, publicUserId: "", postName: "Openly admit that you don't know something", url: nil,
-                                                         description: "If you don't have any knowledge about the topic, admit it openly that you don't know.", userName: "MettaworldJ", subSettingName: "", duration: "just not", upVote: true, downVote: false, voteCount: 61, commentCount: 147)))
-    }
-}
-
 struct PostHeadView: View {
+    
+    @EnvironmentObject private var feedViewModel: FeedViewModel
     
     var username: String
     
@@ -57,7 +51,9 @@ struct PostHeadView: View {
             
             Spacer()
             
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+            Button(action: {
+                feedViewModel.showingActionSheet = true
+            }, label: {
                 HStack {
                     Spacer()
                     Image(systemName: "ellipsis")
@@ -82,7 +78,7 @@ private struct MainBody: View {
             Text(bodyText)
                 .font(setFont(text: bodyText))
             // TODO: - Remove Range Block
-            if let _ = photoURL { // Temp
+            if photoURL == nil { // Temp
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                     Image("placeholder-photo")
                         .resizable()
@@ -110,6 +106,7 @@ private struct MainBody: View {
 
 struct ButtonHStack: View {
     
+    @EnvironmentObject private var postViewModel: PostViewModel
     @Binding var post: PostResponseModel
     
     private let likeButtonColor = Color.baseColor
@@ -118,9 +115,7 @@ struct ButtonHStack: View {
     
     var body: some View {
         HStack(spacing: 20) {
-            Button(action: {
-                likeButtonAction()
-            }, label: {
+            Button(action: likeButtonAction, label: {
                 HStack {
                     Image(systemName: "suit.heart.fill")
                         .resizable()
@@ -158,7 +153,7 @@ struct ButtonHStack: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 25, height: 25, alignment: .center)
-                        .foregroundColor(post.downVote ? shareButtonColor : .gray79)
+                        .foregroundColor(Color.gray79)
                         .padding(.trailing, 5)
                         
                     
@@ -173,6 +168,7 @@ struct ButtonHStack: View {
     
     private func likeButtonAction() {
         post.upVote.toggle()
+        postViewModel.likePost(post: post)
         if post.upVote {
             post.voteCount += 1
         } else {
@@ -185,3 +181,10 @@ struct ButtonHStack: View {
     }
 }
 
+struct NormalPostView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        NormalPostView(post: .constant(PostResponseModel(id: 1, publicUserId: "", postName: "Openly admit that you don't know something", url: nil,
+                                                         description: "If you don't have any knowledge about the topic, admit it openly that you don't know.", userName: "MettaworldJ", subSettingName: "", duration: "just not", upVote: true, downVote: false, voteCount: 61, commentCount: 147)))
+    }
+}

@@ -12,14 +12,18 @@ struct TopicPostView: View {
     @Binding var post: PostResponseModel
     
     var body: some View {
-        VStack(alignment: .leading) {
-            PostHeadView(username: post.userName, timeAgo: post.duration)
-                .padding(.bottom, 10)
-            MainBody(post: $post)
-            Color.gray39
-                .frame(height: 1, alignment: .center)
-                .padding(.top, 15)
-            ButtonHStack(post: $post)
+        ZStack {
+            Color.clear
+                .cornerRadius(8)
+            VStack(alignment: .leading) {
+                PostHeadView(username: post.userName, timeAgo: post.duration)
+                    .padding(.bottom, 10)
+                MainBody(post: $post)
+                Color.gray39
+                    .frame(height: 1, alignment: .center)
+                    .padding(.top, 15)
+                ButtonHStack(post: $post)
+            }
         }
     }
 }

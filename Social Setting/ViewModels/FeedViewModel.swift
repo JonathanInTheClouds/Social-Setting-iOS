@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import SwiftKeychainWrapper
 import Combine
 
@@ -15,6 +16,8 @@ class FeedViewModel: BaseAuth, ObservableObject {
     
     @Published var createPostIsPresented: Bool = false
     
+    @Published var showingActionSheet: Bool = false
+    
     private var currentPage: Int = 1
     
     private var feedCancellable: Cancellable? {
@@ -23,7 +26,6 @@ class FeedViewModel: BaseAuth, ObservableObject {
     
     override init() {
         super.init()
-        fetchFeed()
     }
     
     deinit {
@@ -52,8 +54,10 @@ class FeedViewModel: BaseAuth, ObservableObject {
                 print(response)
             } receiveValue: { (newPost) in
                 if !newPost.isEmpty {
-                    self.postFeed.append(contentsOf: newPost)
-                    self.currentPage += 1
+                    withAnimation(.easeIn(duration: 0.2)) {
+                        self.postFeed.append(contentsOf: newPost)
+                        self.currentPage += 1
+                    }
                 }
             }
     }
