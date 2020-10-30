@@ -53,15 +53,15 @@ struct PostHeadView: View {
             
             Button(action: {
                 feedViewModel.showingActionSheet = true
+                print("Clicked")
             }, label: {
                 HStack {
                     Spacer()
                     Image(systemName: "ellipsis")
                         .foregroundColor(Color.gray79)
-                    
                 }
+                .frame(width: 50, height: 50, alignment: .center)
             })
-            .frame(width: 50, height: 50, alignment: .center)
         }
     }
 }

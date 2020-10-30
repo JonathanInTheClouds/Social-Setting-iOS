@@ -10,15 +10,6 @@ import SwiftKeychainWrapper
 
 struct FeedView: View {
     
-    @EnvironmentObject private var feedViewModel: FeedViewModel
-    
-    var actionSheet: ActionSheet {
-        ActionSheet(title: Text("Action Sheet"), message: Text("Choose Option"), buttons: [
-            .default(Text("Save")),
-            .default(Text("Delete")),
-            .destructive(Text("Cancel"))
-        ])
-    }
     
     var body: some View {
         
@@ -30,9 +21,6 @@ struct FeedView: View {
                 .navigationBarItems(leading: LeftHeadingSection(), trailing: RightHeadingSection())
                 .navigationBarTitleDisplayMode(.inline)
             }
-            .actionSheet(isPresented: $feedViewModel.showingActionSheet, content: {
-                self.actionSheet
-            })
         }
     }
     
@@ -92,6 +80,14 @@ private struct MainFeedView: View {
     
     @EnvironmentObject private var feedViewModel: FeedViewModel
     
+    private var actionSheet: ActionSheet {
+        ActionSheet(title: Text("Post Options"), message: Text("Choose Option"), buttons: [
+            .default(Text("Save")),
+            .default(Text("Delete")),
+            .cancel()
+        ])
+    }
+    
     var body: some View {
         ScrollView {
             LazyVStack {
@@ -103,6 +99,9 @@ private struct MainFeedView: View {
                             PostContextMenu(postId: id)
                                 .environmentObject(feedViewModel)
                         }
+                        .actionSheet(isPresented: $feedViewModel.showingActionSheet, content: {
+                            self.actionSheetView(postId: id)
+                        })
                     Separator()
                 }
                 .opacity(feedViewModel.postFeed.isEmpty ? 0 : 1)
@@ -117,6 +116,16 @@ private struct MainFeedView: View {
         if shouldLoadMore {
             feedViewModel.fetchFeed()
         }
+    }
+    
+    
+    fileprivate func actionSheetView(postId: Int) -> ActionSheet {
+        return ActionSheet(title: Text("Post Options"), message: nil, buttons: [
+            .destructive(Text("Report"), action: {
+                print("\(feedViewModel.postFeed[postId].userName) has been reported")
+            }),
+            .cancel()
+        ])
     }
     
 }
