@@ -32,14 +32,14 @@ struct FeedView: View {
 
 
 
-private struct LeftHeadingSection: View {
+struct LeftHeadingSection: View {
     @EnvironmentObject private var authViewModel: AuthViewModel
     
     var body: some View {
         HStack {
             Button {
                 withAnimation(.easeOut(duration: 0.3)) {
-                    KeychainWrapper.standard.remove(forKey: "auth_token")
+                    authViewModel.deleteTokens()
                     authViewModel.validationConfirmed = false
                 }
             } label: {
@@ -54,7 +54,7 @@ private struct LeftHeadingSection: View {
 }
 
 
-private struct RightHeadingSection: View {
+struct RightHeadingSection: View {
     
     @EnvironmentObject private var feedViewModel: FeedViewModel
     
@@ -69,7 +69,7 @@ private struct RightHeadingSection: View {
                     .frame(width: 23, height: 23, alignment: .center)
             }
             .sheet(isPresented: $feedViewModel.createPostIsPresented) {
-                CreatePostView(feedViewModel: feedViewModel)
+                CreatePostView()
             }
         }
     }

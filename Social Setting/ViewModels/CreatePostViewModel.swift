@@ -31,6 +31,7 @@ class CreatePostViewModel: BaseAuth, ObservableObject {
         
         createPostCancellable = URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { (element) -> Data in
+                print(element)
                 guard let httpResponse = element.response as? HTTPURLResponse,
                       httpResponse.statusCode == 201 else { throw URLError(.badServerResponse) }
                 return element.data
@@ -39,7 +40,14 @@ class CreatePostViewModel: BaseAuth, ObservableObject {
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
             .sink { (response) in
-                print(response)
+                switch response {
+                case .finished:
+                    print("Post Sent! 🚀")
+                case .failure(_):
+                    self.refreshAuthToken {
+                        self.createPost(postRequest: postRequest, completion: completion)
+                    }
+                }
             } receiveValue: { (createdPost) in
                 print("Post \(createdPost.id) Created:")
                 print(createdPost)

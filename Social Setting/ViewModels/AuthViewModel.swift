@@ -230,15 +230,5 @@ class AuthViewModel: BaseAuth, ObservableObject {
         }
         return .userConflictError
     }
-
-    private func saveTokens(authResponse: AuthResponseModel) -> Bool {
-        let df = DateFormatter()
-        df.dateFormat = "yyyy-MM-dd hh:mm:ss"
-        let expiryDate = df.string(from: authResponse.expiresAt)
-        let didSaveAuthToken = KeychainWrapper.standard.set(authResponse.authenticationToken, forKey: "auth_token")
-        let didSaveRefreshToken = KeychainWrapper.standard.set(authResponse.refreshToken, forKey: "refresh_token")
-        let didSaveExpireDate = KeychainWrapper.standard.set(expiryDate, forKey: "expires_At")
-        return didSaveAuthToken && didSaveRefreshToken && didSaveExpireDate
-    }
     
 }

@@ -13,7 +13,7 @@ struct CreatePostView: View {
     
     @StateObject var createPostViewModel: CreatePostViewModel = CreatePostViewModel()
     
-    @StateObject var feedViewModel: FeedViewModel
+    @EnvironmentObject var feedViewModel: FeedViewModel
     
     @State private var selection: Int = 0
     
@@ -44,10 +44,7 @@ struct CreatePostView: View {
             }))
         }
     }
-    
-}
-
-extension CreatePostView {
+ 
     private func createPost() {
         let postRequest = PostRequestModel(postName: titleText, description: bodyText, isProfilePost: true)
         createPostViewModel.createPost(postRequest: postRequest, completion: { createdPost in
@@ -63,6 +60,7 @@ extension CreatePostView {
             
         })
     }
+
 }
 
 private struct HeaderView: View {
@@ -124,11 +122,13 @@ private struct PostPreview: View {
 struct CreatePostView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CreatePostView(feedViewModel: FeedViewModel())
+            CreatePostView()
                 .environment(\.colorScheme, .light)
+                .environmentObject(FeedViewModel())
             
-            CreatePostView(feedViewModel: FeedViewModel())
+            CreatePostView()
                 .environment(\.colorScheme, .dark)
+                .environmentObject(FeedViewModel())
         }
     }
 }

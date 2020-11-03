@@ -33,6 +33,7 @@ class FeedViewModel: BaseAuth, ObservableObject {
     }
     
     func fetchFeed() {
+        print(isTokenExpired)
         guard let authToken = token else { return }
         component.path = "/api/post/feed"
         component.queryItems = [URLQueryItem(name: "page", value: "\(currentPage)")]
@@ -51,7 +52,12 @@ class FeedViewModel: BaseAuth, ObservableObject {
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
             .sink { response in
-                print(response)
+                switch response {
+                case .finished:
+                    print(response)
+                case .failure(_):
+                    self.refreshAuthToken(then: self.fetchFeed)
+                }
             } receiveValue: { (newPost) in
                 if !newPost.isEmpty {
                     withAnimation(.easeIn(duration: 0.2)) {

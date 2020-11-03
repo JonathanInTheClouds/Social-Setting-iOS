@@ -108,13 +108,15 @@ struct ButtonHStack: View {
     
     @EnvironmentObject private var postViewModel: PostViewModel
     @Binding var post: PostResponseModel
+    var spacing: CGFloat = 20
+    
     
     private let likeButtonColor = Color.baseColor
     private let shareButtonColor = Color(.sRGB, red: 69/255, green: 142/255, blue: 255/255, opacity: 1)
     
     
     var body: some View {
-        HStack(spacing: 20) {
+        HStack(spacing: spacing) {
             Button(action: likeButtonAction, label: {
                 HStack {
                     Image(systemName: "suit.heart.fill")
@@ -167,6 +169,7 @@ struct ButtonHStack: View {
     }
     
     private func likeButtonAction() {
+        UIDevice.vibrate()
         post.upVote.toggle()
         postViewModel.likePost(post: post)
         if post.upVote {

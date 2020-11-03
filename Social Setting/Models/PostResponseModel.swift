@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PostResponseModel: Decodable, Hashable {
+struct PostResponseModel: Decodable, Hashable, Identifiable {
     var localId: UUID? = UUID()
     let id: Int
     let publicUserId: String

@@ -33,6 +33,9 @@
 		2483B71A2537E3C7004E6DC0 /* PostContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483B7192537E3C7004E6DC0 /* PostContentView.swift */; };
 		24933FA2253F628200E7DEE1 /* ProfileNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24933FA1253F628200E7DEE1 /* ProfileNameView.swift */; };
 		24949626254C843F00EBFD86 /* ActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24949625254C843F00EBFD86 /* ActionSheetView.swift */; };
+		24949629254D19FB00EBFD86 /* RefreshTokenRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24949628254D19FB00EBFD86 /* RefreshTokenRequestModel.swift */; };
+		249BA9DA254E73C100E4E2B3 /* CustomNavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249BA9D9254E73C100E4E2B3 /* CustomNavigationLinkView.swift */; };
+		249BA9DD254E85BC00E4E2B3 /* UIDevice+Etx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249BA9DC254E85BC00E4E2B3 /* UIDevice+Etx.swift */; };
 		249CD7CD253A577500C516A8 /* NormalPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249CD7CC253A577500C516A8 /* NormalPostView.swift */; };
 		249CD7D0253A593700C516A8 /* TopicPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249CD7CF253A593700C516A8 /* TopicPostView.swift */; };
 		249CD7D5253A993500C516A8 /* SignUpRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249CD7D4253A993500C516A8 /* SignUpRequestModel.swift */; };
@@ -60,6 +63,7 @@
 		24EAAD9225477FA700479152 /* SwiftyMarkdown in Frameworks */ = {isa = PBXBuildFile; productRef = 24EAAD9125477FA700479152 /* SwiftyMarkdown */; };
 		24EAADA62547BECF00479152 /* TextView in Frameworks */ = {isa = PBXBuildFile; productRef = 24EAADA52547BECF00479152 /* TextView */; };
 		24EAADA92547D83C00479152 /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAADA82547D83C00479152 /* CreatePostViewModel.swift */; };
+		24F95CFC254FC1AF00D1800B /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 24F95CFB254FC1AF00D1800B /* Introspect */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +95,9 @@
 		2483B7192537E3C7004E6DC0 /* PostContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContentView.swift; sourceTree = "<group>"; };
 		24933FA1253F628200E7DEE1 /* ProfileNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNameView.swift; sourceTree = "<group>"; };
 		24949625254C843F00EBFD86 /* ActionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetView.swift; sourceTree = "<group>"; };
+		24949628254D19FB00EBFD86 /* RefreshTokenRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenRequestModel.swift; sourceTree = "<group>"; };
+		249BA9D9254E73C100E4E2B3 /* CustomNavigationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationLinkView.swift; sourceTree = "<group>"; };
+		249BA9DC254E85BC00E4E2B3 /* UIDevice+Etx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Etx.swift"; sourceTree = "<group>"; };
 		249CD7CC253A577500C516A8 /* NormalPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalPostView.swift; sourceTree = "<group>"; };
 		249CD7CF253A593700C516A8 /* TopicPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicPostView.swift; path = "Social Setting/Views/TopicPostView.swift"; sourceTree = SOURCE_ROOT; };
 		249CD7D4253A993500C516A8 /* SignUpRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequestModel.swift; sourceTree = "<group>"; };
@@ -123,6 +130,7 @@
 			files = (
 				24EAADA62547BECF00479152 /* TextView in Frameworks */,
 				24C11A5E254689C700B5B362 /* iTextField in Frameworks */,
+				24F95CFC254FC1AF00D1800B /* Introspect in Frameworks */,
 				24A79969253E197E00CC83D1 /* SwiftKeychainWrapper in Frameworks */,
 				24EAAD9225477FA700479152 /* SwiftyMarkdown in Frameworks */,
 			);
@@ -252,6 +260,7 @@
 				2430BC65253783DC00506696 /* DismissingKeyboard.swift */,
 				2468FDEB2538056E00E6DEC7 /* HideRowSeparatorModifier.swift */,
 				249FA37B25439F1A000453E5 /* String+Etx.swift */,
+				249BA9DC254E85BC00E4E2B3 /* UIDevice+Etx.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -283,6 +292,7 @@
 				241324B1254085BE00CFCD32 /* NetworkResponseError.swift */,
 				249FA3852543A3B8000453E5 /* PostResponseModel.swift */,
 				249FA3892543A8BD000453E5 /* PostRequestModel.swift */,
+				24949628254D19FB00EBFD86 /* RefreshTokenRequestModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -295,6 +305,7 @@
 				24087D7A253D3DE80079D83E /* ProfileImage.swift */,
 				2439E3DB2536ADF30006993D /* MainNavigationLinkView.swift */,
 				2430BC6225377FE300506696 /* AltNavigationLinkView.swift */,
+				249BA9D9254E73C100E4E2B3 /* CustomNavigationLinkView.swift */,
 				24EAAD8D2547783C00479152 /* SSMarkDownView.swift */,
 			);
 			path = Misc;
@@ -329,6 +340,7 @@
 				24C11A5D254689C700B5B362 /* iTextField */,
 				24EAAD9125477FA700479152 /* SwiftyMarkdown */,
 				24EAADA52547BECF00479152 /* TextView */,
+				24F95CFB254FC1AF00D1800B /* Introspect */,
 			);
 			productName = "Social Setting";
 			productReference = 244D93E625366C4800664444 /* Social Setting.app */;
@@ -362,6 +374,7 @@
 				24C11A5C254689C700B5B362 /* XCRemoteSwiftPackageReference "iTextField" */,
 				24EAAD9025477FA700479152 /* XCRemoteSwiftPackageReference "SwiftyMarkdown" */,
 				24EAADA42547BECF00479152 /* XCRemoteSwiftPackageReference "TextView" */,
+				24F95CFA254FC1AF00D1800B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 244D93E725366C4800664444 /* Products */;
 			projectDirPath = "";
@@ -397,6 +410,7 @@
 				2468FDF425380A5600E6DEC7 /* ViewControllerResolver.swift in Sources */,
 				2403664E25380B780067B3E3 /* SearchBar.swift in Sources */,
 				243589EC254495E700C62EB2 /* SearchControllerProviderModifier.swift in Sources */,
+				249BA9DA254E73C100E4E2B3 /* CustomNavigationLinkView.swift in Sources */,
 				24087D7B253D3DE80079D83E /* ProfileImage.swift in Sources */,
 				243C863C253932F400C79654 /* MainTabView.swift in Sources */,
 				249CD7E5253AA4F000C516A8 /* SecureCodeView.swift in Sources */,
@@ -408,6 +422,7 @@
 				249FA3822543A312000453E5 /* BaseAuth.swift in Sources */,
 				2439E3DC2536ADF30006993D /* MainNavigationLinkView.swift in Sources */,
 				2483B71A2537E3C7004E6DC0 /* PostContentView.swift in Sources */,
+				24949629254D19FB00EBFD86 /* RefreshTokenRequestModel.swift in Sources */,
 				249CD7E0253A9ECC00C516A8 /* AuthResponseModel.swift in Sources */,
 				249CD7E9253AAA1D00C516A8 /* SSTextView.swift in Sources */,
 				249CD7D9253A9A6400C516A8 /* SignInRequestModel.swift in Sources */,
@@ -434,6 +449,7 @@
 				24EAAD8E2547783C00479152 /* SSMarkDownView.swift in Sources */,
 				24A7999D253E2A7900CC83D1 /* AuthViewModel.swift in Sources */,
 				244D940025366D8F00664444 /* SignInView.swift in Sources */,
+				249BA9DD254E85BC00E4E2B3 /* UIDevice+Etx.swift in Sources */,
 				24A79998253E29B400CC83D1 /* MainRoute.swift in Sources */,
 				244EDB8D25378501006DB2F1 /* SignUpView.swift in Sources */,
 			);
@@ -658,6 +674,14 @@
 				minimumVersion = 1.4.8;
 			};
 		};
+		24F95CFA254FC1AF00D1800B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -680,6 +704,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 24EAADA42547BECF00479152 /* XCRemoteSwiftPackageReference "TextView" */;
 			productName = TextView;
+		};
+		24F95CFB254FC1AF00D1800B /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24F95CFA254FC1AF00D1800B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
 		};
 /* End XCSwiftPackageProductDependency section */
 

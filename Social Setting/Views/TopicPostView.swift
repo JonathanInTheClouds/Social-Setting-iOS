@@ -12,18 +12,18 @@ struct TopicPostView: View {
     @Binding var post: PostResponseModel
     
     var body: some View {
-        ZStack {
-            Color.clear
-                .cornerRadius(8)
-            VStack(alignment: .leading) {
-                PostHeadView(username: post.userName, timeAgo: post.duration)
-                    .padding(.bottom, 10)
-                MainBody(post: $post)
-                Color.gray39
-                    .frame(height: 1, alignment: .center)
-                    .padding(.top, 15)
-                ButtonHStack(post: $post)
-            }
+        VStack(alignment: .leading) {
+            PostHeadView(username: post.userName, timeAgo: post.duration)
+                .padding(.bottom, 10)
+            NavigationLink(
+                destination: OpenPostView(post: $post),
+                label: {
+                    TopicMainBody(post: $post)
+                })
+            Color.gray39
+                .frame(height: 1, alignment: .center)
+                .padding(.top, 15)
+            ButtonHStack(post: $post)
         }
     }
 }
@@ -35,33 +35,33 @@ struct TopicPostView_Previews: PreviewProvider {
     }
 }
 
-
-private struct MainBody: View {
+struct TopicMainBody: View {
     
     @Binding var post: PostResponseModel
     
     var body: some View {
-        // TODO: - Remove Range Block
-        if post.url != nil {
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                Image("placeholder-photo")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 180, alignment: .center)
-                    .cornerRadius(6)
-                    .clipped()
-            })
+        VStack(alignment: .leading) {
+            if post.url != nil {
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Image("placeholder-photo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 180, alignment: .center)
+                        .cornerRadius(6)
+                        .clipped()
+                })
+            }
+            
+            Text(post.postName)
+                .bold()
+                .font(.system(size: 24))
+                .foregroundColor(Color.gray99)
+                .padding(.bottom, 10)
+                .fixedSize(horizontal: false, vertical: true)
+            
+            Text(post.description)
+                .font(.system(size: 16))
+                .foregroundColor(Color.gray99)
         }
-        
-        Text(post.postName)
-            .bold()
-            .font(.system(size: 24))
-            .foregroundColor(Color.gray99)
-            .padding(.bottom, 10)
-            .fixedSize(horizontal: false, vertical: true)
-        
-        Text(post.description)
-            .font(.system(size: 16))
-            .foregroundColor(Color.gray99)
     }
 }
