@@ -12,8 +12,8 @@ Social Setting was created to demostrate and explore the programming language of
 
 ### What does it demostrate?
 
-* SwiftUI
-* MVVM
-* Combine
-* Network
-* CRUD
+* [SwiftUI](https://developer.apple.com/documentation/swiftui/)
+* [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)
+* [Combine](https://developer.apple.com/documentation/combine)
+* [URLSession](https://developer.apple.com/documentation/foundation/urlsession)
+* [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
