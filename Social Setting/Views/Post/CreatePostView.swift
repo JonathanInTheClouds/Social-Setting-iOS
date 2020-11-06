@@ -11,9 +11,9 @@ import TextView
 
 struct CreatePostView: View {
     
-    @StateObject var createPostViewModel: CreatePostViewModel = CreatePostViewModel()
-    
     @EnvironmentObject var feedViewModel: FeedViewModel
+    
+    @EnvironmentObject var postViewModel: PostViewModel
     
     @State private var selection: Int = 0
     
@@ -47,7 +47,7 @@ struct CreatePostView: View {
  
     private func createPost() {
         let postRequest = PostRequestModel(postName: titleText, description: bodyText, isProfilePost: true)
-        createPostViewModel.createPost(postRequest: postRequest, completion: { createdPost in
+        postViewModel.createPost(postRequest: postRequest, completion: { createdPost in
             feedViewModel.createPostIsPresented = false
             feedViewModel.postFeed.insert(createdPost, at: 0)
         })

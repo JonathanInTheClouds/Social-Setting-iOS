@@ -27,7 +27,6 @@ struct ProfileView: View {
                                                                               description: "If you don't have any knowledge about the topic, admit it openly that you don't know.",
                                                                               userName: "MettaworldJ", subSettingName: "", duration: "just not", upVote: true, downVote: false,
                                                                               voteCount: 61, commentCount: 147)))
-                                .padding(.horizontal, 16)
                                 .padding(.top, 10)
                                 .padding(.bottom, 10)
                                 .onAppear(perform: {

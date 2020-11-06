@@ -44,7 +44,7 @@ struct SecureCodeView: View {
                 }
                 .padding(.bottom, 15)
                 
-                MainNavigationLinkView(action: sendCode, destionation: ProfileNameView(), title: "Send", shouldPush: $codeVerified)
+                MainNavigationLinkView(action: sendCode, destionation: Color.clear, title: "Send", shouldPush: $codeVerified)
             }
             .padding(.horizontal, 30)
             .padding(.bottom, 30)

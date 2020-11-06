@@ -8,7 +8,7 @@
 import Foundation
 import SwiftKeychainWrapper
 
-class AuthViewModel: BaseAuth, ObservableObject {
+class AuthViewModel: AuthNetworkProtocol, ObservableObject {
     
     @Published var secureCodeValidated: Bool = false
     
@@ -16,11 +16,13 @@ class AuthViewModel: BaseAuth, ObservableObject {
     
     @Published var opacity: Double = 0
     
-    func signIn(signInRequest: SignInRequestModel, completion: @escaping (Result<AuthResponseModel, NetworkError>) -> ()) {
+    func signIn(signInRequest: SignInRequestModel, completion: @escaping (Result<AuthResponseModel, URLError>) -> ()) {
+        
+        var component = self.component
         component.path = "/api/auth/signin"
         
         guard let url = component.url else {
-            completion(.failure(.badURL))
+            completion(.failure(.init(.badURL)))
             return
         }
         
@@ -29,7 +31,7 @@ class AuthViewModel: BaseAuth, ObservableObject {
         request.httpMethod = "POST"
 
         guard let jsonData = try? JSONEncoder().encode(signInRequest) else {
-            completion(.failure(.badPackage))
+            completion(.failure(.init(.cannotDecodeRawData)))
             return
         }
         
@@ -38,28 +40,28 @@ class AuthViewModel: BaseAuth, ObservableObject {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data, let response = response as? HTTPURLResponse, error == nil else {
                 print("Error: \(String(describing: error))")
-                completion(.failure(.clientError))
+                completion(.failure(.init(.badServerResponse)))
                 return
             }
             
             guard (200...299) ~= response.statusCode else {
                 print("StatusCode should be 2xx, but is \(response.statusCode)")
                 // Sort By Status Code
-                completion(.failure(.unAuthorized))
+                completion(.failure(.init(.userAuthenticationRequired)))
                 return
             }
             
-            guard let authResponse = try? self.decoder.decode(AuthResponseModel.self, from: data) else {
-                completion(.failure(.unAuthorized))
+            guard let authResponse = try? JSONDecoder.decoder.decode(AuthResponseModel.self, from: data) else {
+                completion(.failure(.init(.cannotDecodeRawData)))
                 return
             }
             
             print(authResponse)
             
-            if self.saveTokens(authResponse: authResponse) {
+            if self.saveTokens(with: authResponse) {
                 completion(.success(authResponse))
             } else {
-                completion(.failure(.clientError))
+                completion(.failure(.init(.cannotWriteToFile)))
             }
             
         }
@@ -68,10 +70,11 @@ class AuthViewModel: BaseAuth, ObservableObject {
         
     }
     
-    func signUp(signUpRequest: SignUpRequestModel, completion: @escaping (Result<Void, NetworkError>) -> ()) {
+    func signUp(signUpRequest: SignUpRequestModel, completion: @escaping (Result<Void, URLError>) -> ()) {
+        var component = self.component
         component.path = "/api/auth/signup"
         
-        guard let url = component.url else { fatalError("Invalid URL") }
+        guard let url = component.url else { return completion(.failure(.init(.badURL))) }
         
         var request = URLRequest(url: url)
         
@@ -82,7 +85,7 @@ class AuthViewModel: BaseAuth, ObservableObject {
         
         request.httpBody = signUpData
         
-        let task = URLSession.shared.dataTask(with: request) { [self] (data, response, error) in
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             guard let data = data, let response = response as? HTTPURLResponse, error == nil else {
                 print("Error: \(String(describing: error))")
@@ -95,13 +98,13 @@ class AuthViewModel: BaseAuth, ObservableObject {
                 // Sort By Status Code
                 switch response.statusCode {
                 case (409):
-                    guard let networkRespError = try? self.decoder.decode(NetworkResponseError.self, from: data) else {
-                        completion(.failure(.conflictError))
+                    guard let networkRespError = try? JSONDecoder.decoder.decode(NetworkResponseError.self, from: data) else {
+                        completion(.failure(.init(.cannotDecodeRawData)))
                         return
                     }
                     completion(.failure(networkRespError.message == "Email" ? .emailConflictError : .userConflictError))
                 default:
-                    completion(.failure(.serverError))
+                    completion(.failure(.init(.badServerResponse)))
                 }
                 return
             }
@@ -113,7 +116,8 @@ class AuthViewModel: BaseAuth, ObservableObject {
         
     }
     
-    func validateSecureCode(code: Int, completion: @escaping (Result<AuthResponseModel, NetworkError>) -> ()) {
+    func validateSecureCode(code: Int, completion: @escaping (Result<AuthResponseModel, URLError>) -> ()) {
+        var component = self.component
         component.path = "/api/auth/token/secureCodeVerification"
         guard let url = component.url else { fatalError("Invalid URL") }
         
@@ -128,9 +132,9 @@ class AuthViewModel: BaseAuth, ObservableObject {
         
         request.httpBody = secureCodePackage
         
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data, let response = response as? HTTPURLResponse, error == nil else {
-                completion(.failure(.serverError))
+                completion(.failure(.init(.badServerResponse)))
                 return
             }
             
@@ -138,92 +142,26 @@ class AuthViewModel: BaseAuth, ObservableObject {
                 print("StatusCode should be 2xx, but is \(response.statusCode)")
                 print("Response = \(response)")
                 // Sort By Status Code
-                completion(.failure(.unAuthorized))
+                completion(.failure(.init(.userAuthenticationRequired)))
                 return
             }
             
-            guard let authResponse = try? self.decoder.decode(AuthResponseModel.self, from: data) else {
-                completion(.failure(.serverError))
+            guard let authResponse = try? JSONDecoder.decoder.decode(AuthResponseModel.self, from: data) else {
+                completion(.failure(.init(.cannotDecodeRawData)))
                 return
             }
             
-            if self.saveTokens(authResponse: authResponse) {
+            if self.saveTokens(with: authResponse) {
                 completion(.success(authResponse))
             } else {
-                completion(.failure(.serverError))
+                completion(.failure(.init(.badServerResponse)))
             }
             
-        }
-        
-        task.resume()
-        
-        
+        }.resume()
+           
     }
-    
-    func sendProfileData(profileName: String, completion: @escaping (Result<Void, NetworkError>) -> ()) {
-        guard let authToken = token else {
-            completion(.failure(.invalidToken))
-            return
-        }
-        component.path = "/api/user/update"
-        guard let url = component.url else {
-            completion(.failure(.badURL))
-            return
-        }
-        
-        guard let jsonData = try? JSONSerialization.data(withJSONObject: [
-            "profileName": profileName
-        ]) else {
-            completion(.failure(.badURL))
-            return
-        }
-        
-        
-        
-        var request = URLRequest(url: url)
-        request.httpBody = jsonData
-        request.httpMethod = "POST"
-        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
-
-        let headers = [
-            "content-type": "application/json",
-            "Bearer": authToken
-        ]
-        
-        request.allHTTPHeaderFields = headers
-        
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            
-            guard let data = data,
-                let response = response as? HTTPURLResponse,
-                error == nil else {
-                print("error", error ?? "Unknown error")
-                completion(.failure(.serverError))
-                return
-            }
-            
-            guard (200 ... 299) ~= response.statusCode else {
-                print("StatusCode should be 2xx, but is \(response.statusCode)")
-                print("Response = \(response)")
-                // Sort By Error 409
-                switch response.statusCode {
-                default:
-                    completion(.failure(.serverError))
-                }
-                return
-            }
-            
-            print(response.statusCode)
-            print(data)
-            
-            completion(.success(()))
-        }
-        
-        task.resume()
-    }
-    
-    private func handle409(data: Data) -> NetworkError {
-        guard let result = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: String] else { return .badURL }
+    private func handle409(data: Data) -> URLError {
+        guard let result = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: String] else { return .init(.badURL) }
         let message = result["message"]
         if message == "Email" {
             return .emailConflictError

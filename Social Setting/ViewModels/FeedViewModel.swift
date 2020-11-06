@@ -10,7 +10,7 @@ import SwiftUI
 import SwiftKeychainWrapper
 import Combine
 
-class FeedViewModel: BaseAuth, ObservableObject {
+class FeedViewModel: ObservableObject {
     
     @Published var postFeed:[PostResponseModel] = [PostResponseModel]()
     
@@ -18,14 +18,12 @@ class FeedViewModel: BaseAuth, ObservableObject {
     
     @Published var showingActionSheet: Bool = false
     
+    private let feedNetwork = FeedNetwork()
+    
     private var currentPage: Int = 1
     
     private var feedCancellable: Cancellable? {
         didSet { oldValue?.cancel() }
-    }
-    
-    override init() {
-        super.init()
     }
     
     deinit {
@@ -33,30 +31,13 @@ class FeedViewModel: BaseAuth, ObservableObject {
     }
     
     func fetchFeed() {
-        print(isTokenExpired)
-        guard let authToken = token else { return }
-        component.path = "/api/post/feed"
-        component.queryItems = [URLQueryItem(name: "page", value: "\(currentPage)")]
-        guard let url = component.url else { return }
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.allHTTPHeaderFields = ["Bearer": authToken, "Accept":"application/json", "Content-Type":"application/json"]
-        
-        feedCancellable = URLSession.shared.dataTaskPublisher(for: request)
-            .tryMap({ (element) -> Data in
-                guard let httpResponse = element.response as? HTTPURLResponse,
-                      httpResponse.statusCode == 200 else { throw URLError(.badServerResponse) }
-                return element.data
-            })
-            .decode(type: [PostResponseModel].self, decoder: decoder)
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
+        feedCancellable = feedNetwork.getFeed(from: currentPage)
             .sink { response in
                 switch response {
                 case .finished:
                     print(response)
                 case .failure(_):
-                    self.refreshAuthToken(then: self.fetchFeed)
+                    self.feedNetwork.refreshToken(then: self.fetchFeed)
                 }
             } receiveValue: { (newPost) in
                 if !newPost.isEmpty {
