@@ -60,7 +60,6 @@
 		24A799A1253E871100CC83D1 /* AnimationCompletionObserverModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A799A0253E871100CC83D1 /* AnimationCompletionObserverModifier.swift */; };
 		24BF8C7E254B20CA004AD158 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF8C7D254B20CA004AD158 /* PostViewModel.swift */; };
 		24BF8C81254B6700004AD158 /* PostContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF8C80254B6700004AD158 /* PostContextMenu.swift */; };
-		24BF8C84254B675F004AD158 /* PostContextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF8C83254B675F004AD158 /* PostContextViewModel.swift */; };
 		24BF8C87254BBA1C004AD158 /* OpenPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF8C86254BBA1B004AD158 /* OpenPostView.swift */; };
 		24C11A5E254689C700B5B362 /* iTextField in Frameworks */ = {isa = PBXBuildFile; productRef = 24C11A5D254689C700B5B362 /* iTextField */; };
 		24EAAD372547440E00479152 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAAD362547440E00479152 /* CreatePostView.swift */; };
@@ -125,7 +124,6 @@
 		24A799A0253E871100CC83D1 /* AnimationCompletionObserverModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCompletionObserverModifier.swift; sourceTree = "<group>"; };
 		24BF8C7D254B20CA004AD158 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		24BF8C80254B6700004AD158 /* PostContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContextMenu.swift; sourceTree = "<group>"; };
-		24BF8C83254B675F004AD158 /* PostContextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostContextViewModel.swift; path = ../../../../../../../../Applications/PostContextViewModel.swift; sourceTree = "<group>"; };
 		24BF8C86254BBA1B004AD158 /* OpenPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPostView.swift; sourceTree = "<group>"; };
 		24EAAD362547440E00479152 /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
 		24EAAD8D2547783C00479152 /* SSMarkDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkDownView.swift; sourceTree = "<group>"; };
@@ -153,7 +151,6 @@
 				24A7999C253E2A7900CC83D1 /* AuthViewModel.swift */,
 				249FA37E2543A2D2000453E5 /* FeedViewModel.swift */,
 				24BF8C7D254B20CA004AD158 /* PostViewModel.swift */,
-				24BF8C83254B675F004AD158 /* PostContextViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -471,7 +468,6 @@
 				2483B7162537C3B9004E6DC0 /* FeedView.swift in Sources */,
 				24191BEA25537C200061682B /* FeedNetwork.swift in Sources */,
 				244D93F325366C4800664444 /* Persistence.swift in Sources */,
-				24BF8C84254B675F004AD158 /* PostContextViewModel.swift in Sources */,
 				244D93EA25366C4800664444 /* Social_SettingApp.swift in Sources */,
 				2468FDEC2538056E00E6DEC7 /* HideRowSeparatorModifier.swift in Sources */,
 				249FA37F2543A2D2000453E5 /* FeedViewModel.swift in Sources */,
