@@ -115,6 +115,8 @@ private struct PostPreview: View {
             .background(Color.tertiarySystemBackground)
             .cornerRadius(8)
             .padding(.all)
+            .shadow(color: Color.black.opacity(0.2), radius: 5)
+
     }
 }
 
