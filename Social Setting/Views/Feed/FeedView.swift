@@ -10,7 +10,6 @@ import SwiftKeychainWrapper
 
 struct FeedView: View {
     
-    
     var body: some View {
         
         NavigationView {
@@ -23,11 +22,7 @@ struct FeedView: View {
             }
         }
     }
-    
-    
-    
-    
-    
+        
 }
 
 
@@ -120,9 +115,22 @@ private struct MainFeedView: View {
     
     
     fileprivate func actionSheetView(postId: Int) -> ActionSheet {
+        let targetPost = feedViewModel.postFeed[postId]
+        let currentUser = Network.shared.authentication?.username == targetPost.username
+        if currentUser {
+            return ActionSheet(title: Text("Post Options"), message: nil, buttons: [
+                .destructive(Text("Delete"), action: {
+                    feedViewModel.deletePost(post: targetPost)
+                }),
+                .destructive(Text("Report"), action: {
+                    print("\(targetPost.username) has been reported")
+                }),
+                .cancel()
+            ])
+        }
         return ActionSheet(title: Text("Post Options"), message: nil, buttons: [
             .destructive(Text("Report"), action: {
-                print("\(feedViewModel.postFeed[postId].userName) has been reported")
+                print("\(targetPost.username) has been reported")
             }),
             .cancel()
         ])

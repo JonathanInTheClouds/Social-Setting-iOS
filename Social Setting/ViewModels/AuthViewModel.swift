@@ -16,10 +16,15 @@ class AuthViewModel: AuthNetworkProtocol, ObservableObject {
     
     @Published var opacity: Double = 0
     
+    
+    /// Sends sign in request to server
+    /// - Parameters:
+    ///   - signInRequest: Package material for request
+    ///   - completion: Result type of AuthResponseModel or URLError
     func signIn(signInRequest: SignInRequestModel, completion: @escaping (Result<AuthResponseModel, URLError>) -> ()) {
         
         var component = self.component
-        component.path = "/api/auth/signin"
+        component.path = "/api/auth/login"
         
         guard let url = component.url else {
             completion(.failure(.init(.badURL)))
@@ -37,7 +42,7 @@ class AuthViewModel: AuthNetworkProtocol, ObservableObject {
         
         request.httpBody = jsonData
         
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data, let response = response as? HTTPURLResponse, error == nil else {
                 print("Error: \(String(describing: error))")
                 completion(.failure(.init(.badServerResponse)))
@@ -64,12 +69,14 @@ class AuthViewModel: AuthNetworkProtocol, ObservableObject {
                 completion(.failure(.init(.cannotWriteToFile)))
             }
             
-        }
-        
-        task.resume()
+        }.resume()
         
     }
     
+    /// Sends sign up request to server
+    /// - Parameters:
+    ///   - signUpRequest: Package material for request
+    ///   - completion: Result type of Void or URLError
     func signUp(signUpRequest: SignUpRequestModel, completion: @escaping (Result<Void, URLError>) -> ()) {
         var component = self.component
         component.path = "/api/auth/signup"
@@ -116,9 +123,13 @@ class AuthViewModel: AuthNetworkProtocol, ObservableObject {
         
     }
     
+    /// Sends validation code to server
+    /// - Parameters:
+    ///   - code: Validation code number
+    ///   - completion: Result type of AuthResponseModel or URLError
     func validateSecureCode(code: Int, completion: @escaping (Result<AuthResponseModel, URLError>) -> ()) {
         var component = self.component
-        component.path = "/api/auth/token/secureCodeVerification"
+        component.path = "/api/auth/token/verify/code"
         guard let url = component.url else { fatalError("Invalid URL") }
         
         var request = URLRequest(url: url)
@@ -160,6 +171,8 @@ class AuthViewModel: AuthNetworkProtocol, ObservableObject {
         }.resume()
            
     }
+    
+    
     private func handle409(data: Data) -> URLError {
         guard let result = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: String] else { return .init(.badURL) }
         let message = result["message"]

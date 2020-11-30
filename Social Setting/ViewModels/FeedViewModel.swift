@@ -18,9 +18,7 @@ class FeedViewModel: ObservableObject {
     
     @Published var showingActionSheet: Bool = false
     
-    private let feedNetwork = FeedNetwork()
-    
-    private var currentPage: Int = 1
+    private var currentPage: Int = 0
     
     private var feedCancellable: Cancellable? {
         didSet { oldValue?.cancel() }
@@ -30,23 +28,34 @@ class FeedViewModel: ObservableObject {
         feedCancellable?.cancel()
     }
     
+    
+    /// Gets main feed
     func fetchFeed() {
-        feedCancellable = feedNetwork.getFeed(from: currentPage)
-            .sink { response in
+        feedCancellable = Network.shared.getFeed(by: currentPage)
+            .sink(receiveCompletion: { (response) in
                 switch response {
                 case .finished:
                     print(response)
                 case .failure(_):
-                    self.feedNetwork.refreshToken(then: self.fetchFeed)
+                    Network.shared.refreshToken(then: self.fetchFeed)
                 }
-            } receiveValue: { (newPost) in
-                if !newPost.isEmpty {
+            }, receiveValue: { (listOfPost) in
+                if !listOfPost.isEmpty {
                     withAnimation(.easeIn(duration: 0.2)) {
-                        self.postFeed.append(contentsOf: newPost)
+                        self.postFeed.append(contentsOf: listOfPost)
                         self.currentPage += 1
                     }
                 }
-            }
+            })
+    }
+    
+    
+    /// Removes post from server
+    /// - Parameter post: Package material for request
+    func deletePost(post: PostResponseModel) {
+        Network.shared.deletePost(id: post.id)
+        guard let index = postFeed.firstIndex(of: post) else { return }
+        postFeed.remove(at: index)
     }
     
 }

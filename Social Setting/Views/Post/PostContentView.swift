@@ -34,10 +34,9 @@ struct Post_Previews: PreviewProvider {
     
     static var previews: some View {
         PostContentView(post: .constant(PostResponseModel(id: 1,
-                                                          publicUserId: "",
                                                           postName: "Openly admit that you don't know something", url: nil,
                                                           description: "If you don't have any knowledge about the topic, admit it openly that you don't know.",
-                                                          userName: "MettaworldJ", subSettingName: "", duration: "just not", upVote: true, downVote: false,
+                                                          username: "MettaworldJ", subSettingName: "", duration: "just not", upVote: true, downVote: false,
                                                           voteCount: 61, commentCount: 147)))
     }
 }

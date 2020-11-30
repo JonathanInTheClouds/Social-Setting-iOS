@@ -10,11 +10,10 @@ import Foundation
 struct PostResponseModel: Decodable, Hashable, Identifiable {
     var localId: UUID? = UUID()
     let id: Int
-    let publicUserId: String
     let postName: String
     let url: String?
     let description: String
-    let userName: String
+    let username: String
     let subSettingName: String
     let duration: String
     var upVote: Bool

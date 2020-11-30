@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainTabView: View {
     
+    var username: String = ""
+    
     var body: some View {
         TabView {
             FeedView()
@@ -27,7 +29,7 @@ struct MainTabView: View {
                     Image(systemName: "chart.bar.xaxis")
                     Text("Activity")
                 }
-            ProfileView()
+            ProfileView(username: username)
                 .tabItem {
                     Image(systemName: "mail.fill")
                     Text("Profile")

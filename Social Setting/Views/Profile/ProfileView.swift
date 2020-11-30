@@ -9,29 +9,24 @@ import SwiftUI
 
 struct ProfileView: View {
     
+    @EnvironmentObject var profileViewModel: ProfileViewModel
+    
+    var username: String = ""
+    
     var body: some View {
         NavigationView {
             ZStack {
                 Color.tertiarySystemBackground.ignoresSafeArea()
                 ScrollView {
                     LazyVStack {
-                        // TODO: - Add Functionality
                         ProfileInfo()
                             .padding(.bottom, 25)
                             .padding(.top, 10)
                         Separator()
-                        ForEach(1...20, id: \.self) { value in
-                            PostContentView(post: .constant(PostResponseModel(id: 1,
-                                                                              publicUserId: "",
-                                                                              postName: "Openly admit that you don't know something", url: nil,
-                                                                              description: "If you don't have any knowledge about the topic, admit it openly that you don't know.",
-                                                                              userName: "MettaworldJ", subSettingName: "", duration: "just not", upVote: true, downVote: false,
-                                                                              voteCount: 61, commentCount: 147)))
-                                .padding(.top, 10)
-                                .padding(.bottom, 10)
-                                .onAppear(perform: {
-                                    print(value)
-                                })
+                        ForEach(profileViewModel.profilePost.indices, id: \.self) { value in
+                            PostContentView(post: $profileViewModel.profilePost[value])
+                                .padding(.vertical, 10)
+                                .onAppear(perform: { self.fetchMoreIfNecessary(current: value) })
                             Separator()
                         }
                     }
@@ -40,6 +35,7 @@ struct ProfileView: View {
             }
             .onAppear(perform: {
                 UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.gray99)]
+                profileViewModel.fetchProfileData(username: username)
             })
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("@fcbarcelona")
@@ -49,6 +45,14 @@ struct ProfileView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 15, height: 23, alignment: .center)
             }))
+        }
+    }
+    
+    fileprivate func fetchMoreIfNecessary(current: Int) {
+        let lastIndex = profileViewModel.profilePost.count - 1
+        let shouldLoadMore = lastIndex == current
+        if shouldLoadMore {
+            profileViewModel.fetchProfileData(username: username)
         }
     }
 }
@@ -65,12 +69,14 @@ struct ProfileView_Previews: PreviewProvider {
 }
 
 private struct HeadView: View {
+    
+    @EnvironmentObject var profileViewModel: ProfileViewModel
+    
     var body: some View {
         HStack(spacing: 13) {
             ProfileImage()
-            
             VStack(alignment: .leading, spacing: 3) {
-                Text("FC Barcelona")
+                Text(profileViewModel.username)
                     .font(.title3)
                     .bold()
                     .foregroundColor(Color.gray99)
@@ -78,9 +84,7 @@ private struct HeadView: View {
                     .font(.footnote)
                     .foregroundColor(Color.gray79)
             }
-            
             Spacer()
-            
             HStack {
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                     ZStack {
@@ -89,8 +93,9 @@ private struct HeadView: View {
                             .foregroundColor(Color.gray79)
                     }.frame(width: 42, height: 42, alignment: .center)
                 }).clipShape(Circle())
-                
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Button(action: {
+                    profileViewModel.followerCount += 1
+                }, label: {
                     ZStack {
                         Color.gray19
                         Image(systemName: "plus")
@@ -103,6 +108,9 @@ private struct HeadView: View {
 }
 
 private struct BodyView: View {
+    
+    @EnvironmentObject var profileViewModel: ProfileViewModel
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("The best thing about a boolean is even if you are wrong, you are only off by a bit.")
@@ -118,11 +126,15 @@ private struct BodyView: View {
 }
 
 private struct FootView: View {
+    
+    @EnvironmentObject var profileViewModel: ProfileViewModel
+    
+    
     var body: some View {
         HStack(spacing: 1) {
-            ProfileInfoButton(title: "Posts", count: 781)
-            ProfileInfoButton(title: "Followers", count: 290)
-            ProfileInfoButton(title: "Following", count: 45)
+            ProfileInfoButton(title: "Post", count: $profileViewModel.postCount)
+            ProfileInfoButton(title: "Followers", count: $profileViewModel.followerCount)
+            ProfileInfoButton(title: "Following", count: $profileViewModel.followingCount)
         }
         .frame(height: 70, alignment: .center)
         .cornerRadius(6)
@@ -131,9 +143,9 @@ private struct FootView: View {
 
 private struct ProfileInfoButton: View {
     
-    @State var title: String
+    var title: String
     
-    @State var count: Int
+    @Binding var count: Int
     
     var body: some View {
         Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
@@ -153,6 +165,7 @@ private struct ProfileInfoButton: View {
 }
 
 struct ProfileInfo: View {
+    
     var body: some View {
         VStack {
             HeadView()

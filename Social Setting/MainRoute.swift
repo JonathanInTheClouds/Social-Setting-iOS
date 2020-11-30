@@ -15,7 +15,7 @@ struct MainRoute: View {
     var body: some View {
         VStack {
             if authViewModel.validationConfirmed || authViewModel.authentication?.authenticationToken != nil {
-                MainTabView()
+                MainTabView(username: authViewModel.authentication?.username ?? "")
             } else {
                 SignInView()
             }

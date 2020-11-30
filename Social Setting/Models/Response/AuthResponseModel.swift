@@ -11,7 +11,12 @@ struct AuthResponseModel: Codable {
     let publicId: String
     let authenticationToken: String
     let refreshToken: String
-    let expiresAt: Date
+    let expiresAt: ExpiresAt
     let username: String
     var profileName: String?
+}
+
+struct ExpiresAt: Codable {
+    let nano: Int
+    let epochSecond: Int
 }

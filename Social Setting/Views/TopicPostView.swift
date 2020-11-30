@@ -13,7 +13,7 @@ struct TopicPostView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            PostHeadView(username: post.userName, timeAgo: post.duration)
+            PostHeadView(username: post.username, timeAgo: post.duration)
                 .padding(.bottom, 10)
             NavigationLink(
                 destination: OpenPostView(post: $post),
@@ -30,7 +30,7 @@ struct TopicPostView: View {
 
 struct TopicPostView_Previews: PreviewProvider {
     static var previews: some View {
-        TopicPostView(post: .constant(PostResponseModel(id: 1, publicUserId: "", postName: "Openly admit that you don't know something", url: nil, description: "If you don't have any knowledge about the topic, admit it openly that you don't know.", userName: "MettaworldJ", subSettingName: "", duration: "just not", upVote: true, downVote: false, voteCount: 61, commentCount: 147)))
+        TopicPostView(post: .constant(PostResponseModel(id: 1, postName: "Openly admit that you don't know something", url: nil, description: "If you don't have any knowledge about the topic, admit it openly that you don't know.", username: "MettaworldJ", subSettingName: "", duration: "just not", upVote: true, downVote: false, voteCount: 61, commentCount: 147)))
             .padding(.horizontal, 16)
     }
 }

@@ -47,18 +47,16 @@ struct CreatePostView: View {
  
     private func createPost() {
         let postRequest = PostRequestModel(postName: titleText, description: bodyText, isProfilePost: true)
-        postViewModel.createPost(postRequest: postRequest, completion: { createdPost in
+        postViewModel.createPost(postRequest: postRequest) { (createdPost) in
             feedViewModel.createPostIsPresented = false
             feedViewModel.postFeed.insert(createdPost, at: 0)
-        })
+        }
     }
     
     func previewPostModel() -> Binding<PostResponseModel> {
         return Binding<PostResponseModel>(get: {
-            PostResponseModel(localId: nil, id: 1, publicUserId: "", postName: titleText, url: nil, description: bodyText, userName: "MettaworldJ", subSettingName: "", duration: "just now", upVote: true, downVote: false, voteCount: 24, commentCount: 12)
-        }, set: {_ in
-            
-        })
+            PostResponseModel(localId: nil, id: 1, postName: titleText, url: nil, description: bodyText, username: "MettaworldJ", subSettingName: "", duration: "just now", upVote: true, downVote: false, voteCount: 24, commentCount: 12)
+        }, set: {_ in })
     }
 
 }

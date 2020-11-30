@@ -29,20 +29,28 @@ extension AuthNetworkProtocol {
     var component: URLComponents {
         var component = URLComponents()
         component.scheme = "http"
-        component.host = "192.168.1.36"
-        component.port = 8086
+        component.host = "localhost"
+        component.port = 8080
         return component
     }
     
+    /// Saves Authentication Token to Device for futher use
+    /// - Parameter authResponse: packaged auth data
+    /// - Returns: true on success
     func saveTokens(with authResponse: AuthResponseModel) -> Bool {
         guard let data = try? JSONEncoder.encoder.encode(authResponse) else { return false }
         return KeychainWrapper.standard.set(data, forKey: "authentication")
     }
     
+    
+    /// Deletes  Token from Device
     func deleteTokens() {
         KeychainWrapper.standard.removeAllKeys()
     }
     
+    
+    /// Refreshes Authentication Token for futher use
+    /// - Parameter run: funtion that is to be continued after refresh
     func refreshToken(then run: @escaping () -> ()) {
         var component = self.component
         component.path = "/api/auth/token/refresh"

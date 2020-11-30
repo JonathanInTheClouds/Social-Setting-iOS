@@ -77,8 +77,7 @@ struct SignUpView: View {
     }
     
     private func signUp() {
-        let signUpRequestModel = SignUpRequestModel(email: email, username: username, password: password, profileName: fullname)
-        authViewModel.signUp(signUpRequest: signUpRequestModel) { (result) in
+        authViewModel.signUp(signUpRequest: SignUpRequestModel(email: email, username: username, password: password, profileName: fullname)) { (result) in
             switch (result) {
             case .success():
                 signUpComplete = true

@@ -13,7 +13,7 @@ struct NormalPostView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            PostHeadView(username: post.userName, timeAgo: post.duration)
+            PostHeadView(username: post.username, timeAgo: post.duration)
             MainBody(bodyText: post.description)
                 .foregroundColor(Color.gray99)
                 .padding(.bottom, 15)
@@ -77,7 +77,6 @@ private struct MainBody: View {
         VStack {
             Text(bodyText)
                 .font(setFont(text: bodyText))
-            // TODO: - Remove Range Block
             if photoURL == nil { // Temp
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                     Image("placeholder-photo")
@@ -187,7 +186,7 @@ struct ButtonHStack: View {
 struct NormalPostView_Previews: PreviewProvider {
     
     static var previews: some View {
-        NormalPostView(post: .constant(PostResponseModel(id: 1, publicUserId: "", postName: "Openly admit that you don't know something", url: nil,
-                                                         description: "If you don't have any knowledge about the topic, admit it openly that you don't know.", userName: "MettaworldJ", subSettingName: "", duration: "just not", upVote: true, downVote: false, voteCount: 61, commentCount: 147)))
+        NormalPostView(post: .constant(PostResponseModel(id: 1, postName: "Openly admit that you don't know something", url: nil,
+                                                         description: "If you don't have any knowledge about the topic, admit it openly that you don't know.", username: "MettaworldJ", subSettingName: "", duration: "just not", upVote: true, downVote: false, voteCount: 61, commentCount: 147)))
     }
 }
