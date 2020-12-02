@@ -23,15 +23,16 @@ class AuthViewModel: BaseNetworkProtocol, ObservableObject {
     ///   - signInRequest: Package material for request
     ///   - completion: Result type of AuthResponseModel or URLError
     func signIn(signInRequest: SignInRequestModel) {
-        Network.shared.signIn(signInRequest: signInRequest) { (result) in
-            switch result {
+        Network.shared.signIn(signInRequest: signInRequest) { (results) in
+            switch results {
             case .success(_):
-                withAnimation { 
-                    self.opacity = 0
+                DispatchQueue.main.async {
+                    withAnimation {
+                        self.opacity = 0
+                    }
                 }
-            case .failure(let reason):
-                print(result)
-                print(reason)
+            case .failure(let error):
+                print("Reason = \(error)")
             }
         }
     }
@@ -49,7 +50,7 @@ class AuthViewModel: BaseNetworkProtocol, ObservableObject {
     ///   - code: Validation code number
     ///   - completion: Result type of AuthResponseModel or URLError
     func validateSecureCode(code: Int, completion: @escaping (Result<AuthResponseModel, URLError>) -> ()) {
-        Network.shared.validateSecureCode(code: code, completion: completion)
+        Network.shared.validateSecureCode(code: VerificationCodeModel(code: code), completion: completion)
     }
     
     

@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum NetworkError: Error {
+    case badURL
+    case badAuth
+}
+
 class Network: BaseNetworkProtocol {
     
     static let shared = Network()
