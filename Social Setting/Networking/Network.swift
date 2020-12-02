@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Network: AuthNetworkProtocol {
+class Network: BaseNetworkProtocol {
     
     static let shared = Network()
     

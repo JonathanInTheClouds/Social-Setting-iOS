@@ -29,7 +29,7 @@ extension BaseNetworkProtocol {
     var component: URLComponents {
         var component = URLComponents()
         component.scheme = "http"
-        component.host = "192.168.1.26"
+        component.host = "192.168.1.25"
         component.port = 8086
         return component
     }

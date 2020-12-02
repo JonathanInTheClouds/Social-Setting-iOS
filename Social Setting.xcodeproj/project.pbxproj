@@ -11,7 +11,7 @@
 		24087D7B253D3DE80079D83E /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24087D7A253D3DE80079D83E /* ProfileImage.swift */; };
 		241324B2254085BE00CFCD32 /* NetworkResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241324B1254085BE00CFCD32 /* NetworkResponseError.swift */; };
 		241324B625409B6300CFCD32 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241324B525409B6300CFCD32 /* NetworkError.swift */; };
-		24191BF42553C11A0061682B /* AuthNetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24191BF32553C11A0061682B /* AuthNetworkProtocol.swift */; };
+		24191BF42553C11A0061682B /* BaseNetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24191BF32553C11A0061682B /* BaseNetworkProtocol.swift */; };
 		2430BC6325377FE300506696 /* AltNavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2430BC6225377FE300506696 /* AltNavigationLinkView.swift */; };
 		2430BC66253783DC00506696 /* DismissingKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2430BC65253783DC00506696 /* DismissingKeyboard.swift */; };
 		243589EC254495E700C62EB2 /* SearchControllerProviderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243589EB254495E700C62EB2 /* SearchControllerProviderModifier.swift */; };
@@ -41,6 +41,7 @@
 		247B49B32571FD9200890AE6 /* PostNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247B49B22571FD9200890AE6 /* PostNetworking.swift */; };
 		2483B7162537C3B9004E6DC0 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483B7152537C3B9004E6DC0 /* FeedView.swift */; };
 		2483B71A2537E3C7004E6DC0 /* PostContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2483B7192537E3C7004E6DC0 /* PostContentView.swift */; };
+		24893B382576BAAC00D64A5C /* AuthNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24893B372576BAAC00D64A5C /* AuthNetworking.swift */; };
 		24949626254C843F00EBFD86 /* ActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24949625254C843F00EBFD86 /* ActionSheetView.swift */; };
 		24949629254D19FB00EBFD86 /* RefreshTokenRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24949628254D19FB00EBFD86 /* RefreshTokenRequestModel.swift */; };
 		249BA9DA254E73C100E4E2B3 /* CustomNavigationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249BA9D9254E73C100E4E2B3 /* CustomNavigationLinkView.swift */; };
@@ -77,7 +78,7 @@
 		24087D7A253D3DE80079D83E /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		241324B1254085BE00CFCD32 /* NetworkResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseError.swift; sourceTree = "<group>"; };
 		241324B525409B6300CFCD32 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		24191BF32553C11A0061682B /* AuthNetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworkProtocol.swift; sourceTree = "<group>"; };
+		24191BF32553C11A0061682B /* BaseNetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworkProtocol.swift; sourceTree = "<group>"; };
 		2430BC6225377FE300506696 /* AltNavigationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltNavigationLinkView.swift; sourceTree = "<group>"; };
 		2430BC65253783DC00506696 /* DismissingKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissingKeyboard.swift; sourceTree = "<group>"; };
 		243589EB254495E700C62EB2 /* SearchControllerProviderModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerProviderModifier.swift; sourceTree = "<group>"; };
@@ -109,6 +110,7 @@
 		247B49B22571FD9200890AE6 /* PostNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworking.swift; sourceTree = "<group>"; };
 		2483B7152537C3B9004E6DC0 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		2483B7192537E3C7004E6DC0 /* PostContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContentView.swift; sourceTree = "<group>"; };
+		24893B372576BAAC00D64A5C /* AuthNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNetworking.swift; sourceTree = "<group>"; };
 		24949625254C843F00EBFD86 /* ActionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetView.swift; sourceTree = "<group>"; };
 		24949628254D19FB00EBFD86 /* RefreshTokenRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenRequestModel.swift; sourceTree = "<group>"; };
 		249BA9D9254E73C100E4E2B3 /* CustomNavigationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationLinkView.swift; sourceTree = "<group>"; };
@@ -173,7 +175,7 @@
 		24191BFC2553CD7E0061682B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				24191BF32553C11A0061682B /* AuthNetworkProtocol.swift */,
+				24191BF32553C11A0061682B /* BaseNetworkProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				247B49AB2571FBB700890AE6 /* Network.swift */,
+				24893B372576BAAC00D64A5C /* AuthNetworking.swift */,
 				247B49AE2571FD2600890AE6 /* FeedNetworking.swift */,
 				247B49B22571FD9200890AE6 /* PostNetworking.swift */,
 				24191BFC2553CD7E0061682B /* Protocols */,
@@ -449,7 +452,7 @@
 				2430BC6325377FE300506696 /* AltNavigationLinkView.swift in Sources */,
 				24949626254C843F00EBFD86 /* ActionSheetView.swift in Sources */,
 				243C9A932572C6B400DAEA35 /* UserProfileFeedResponseModel.swift in Sources */,
-				24191BF42553C11A0061682B /* AuthNetworkProtocol.swift in Sources */,
+				24191BF42553C11A0061682B /* BaseNetworkProtocol.swift in Sources */,
 				249D8AA52572CDBF00691FA7 /* ProfileViewModel.swift in Sources */,
 				2468FDF425380A5600E6DEC7 /* ViewControllerResolver.swift in Sources */,
 				2403664E25380B780067B3E3 /* SearchBar.swift in Sources */,
@@ -458,6 +461,7 @@
 				24087D7B253D3DE80079D83E /* ProfileImage.swift in Sources */,
 				243C863C253932F400C79654 /* MainTabView.swift in Sources */,
 				249CD7E5253AA4F000C516A8 /* SecureCodeView.swift in Sources */,
+				24893B382576BAAC00D64A5C /* AuthNetworking.swift in Sources */,
 				249CD7D5253A993500C516A8 /* SignUpRequestModel.swift in Sources */,
 				249FA38A2543A8BD000453E5 /* PostRequestModel.swift in Sources */,
 				2447EA14255248510097D8A9 /* JSONEncoder+Etx.swift in Sources */,

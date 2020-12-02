@@ -37,6 +37,7 @@ struct SSTextView: View {
             .isSecure(isSecure)
             .disableAutocorrection(autoCorrection)
             .disableAutocorrection(autoCap)
+            .autocapitalization(.none)
             .frame(height: 21, alignment: .center)
             .padding()
             .background(Color.gray19)

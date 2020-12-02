@@ -57,7 +57,7 @@ struct SignInView: View {
                 .padding(.all, 30)
                 .navigationBarHidden(true)
                 .modifier(DismissingKeyboard())
-                .opacity(opacity).onAnimationCompleted(for: opacity) {
+                .opacity(authViewModel.opacity).onAnimationCompleted(for: opacity) {
                     withAnimation(.easeIn(duration: 0.5)) {
                         self.authViewModel.validationConfirmed = true
                     }
@@ -68,16 +68,7 @@ struct SignInView: View {
     
     func signIn() {
         let signInRequest = SignInRequestModel(username: username, password: password)
-        authViewModel.signIn(signInRequest: signInRequest) { (result) in
-            switch result {
-            case .success(_):
-                withAnimation {
-                    opacity = 0
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+        authViewModel.signIn(signInRequest: signInRequest)
     }
 }
 

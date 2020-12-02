@@ -36,6 +36,7 @@ struct LeftHeadingSection: View {
                 withAnimation(.easeOut(duration: 0.3)) {
                     authViewModel.deleteTokens()
                     authViewModel.validationConfirmed = false
+                    authViewModel.opacity = 1
                 }
             } label: {
                 Image("large-logo")

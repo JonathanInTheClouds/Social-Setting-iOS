@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class ProfileViewModel: ObservableObject, AuthNetworkProtocol {
+class ProfileViewModel: ObservableObject, BaseNetworkProtocol {
     
     @Published var profilePost: [PostResponseModel] = [PostResponseModel]()
     
