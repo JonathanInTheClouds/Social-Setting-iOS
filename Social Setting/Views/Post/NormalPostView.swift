@@ -39,11 +39,18 @@ struct PostHeadView: View {
             ProfileImage(buttonSize: 50, imageSize: 20)
             
             VStack(alignment: .leading, spacing: 2) {
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                NavigationLink(destination: ProfileView(username: username).environmentObject(ProfileViewModel())) {
                     Text(username)
                         .foregroundColor(Color.gray99)
                         .font(.callout)
-                })
+                }
+//                Button(action: {
+//
+//                }, label: {
+//                    Text(username)
+//                        .foregroundColor(Color.gray99)
+//                        .font(.callout)
+//                })
                 Text(timeAgo)
                     .foregroundColor(Color.gray79)
                     .font(.caption)
@@ -52,7 +59,7 @@ struct PostHeadView: View {
             Spacer()
             
             Button(action: {
-                feedViewModel.showingActionSheet = true
+                feedViewModel.shoudShowMenu = true
                 print("Clicked")
             }, label: {
                 HStack {

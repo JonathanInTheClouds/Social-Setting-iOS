@@ -16,7 +16,7 @@ class FeedViewModel: ObservableObject {
     
     @Published var createPostIsPresented: Bool = false
     
-    @Published var showingActionSheet: Bool = false
+    @Published var shoudShowMenu: Bool = false
     
     private var currentPage: Int = 0
     

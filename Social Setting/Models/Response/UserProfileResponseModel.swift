@@ -10,6 +10,7 @@ import Foundation
 class UserProfileResponseModel: Codable {
     let username: String
     let email: String
+    let profileName: String
     let description: String?
     let url: String?
     var postCount: Int

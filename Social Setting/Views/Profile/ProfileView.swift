@@ -14,38 +14,38 @@ struct ProfileView: View {
     var username: String = ""
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color.tertiarySystemBackground.ignoresSafeArea()
-                ScrollView {
-                    LazyVStack {
-                        ProfileInfo()
-                            .padding(.bottom, 25)
-                            .padding(.top, 10)
+        
+        ZStack {
+            Color.tertiarySystemBackground.ignoresSafeArea()
+            ScrollView {
+                LazyVStack {
+                    ProfileInfo()
+                        .padding(.bottom, 25)
+                        .padding(.top, 10)
+                    Separator()
+                    ForEach(profileViewModel.profilePost.indices, id: \.self) { value in
+                        PostContentView(post: $profileViewModel.profilePost[value])
+                            .padding(.vertical, 10)
+                            .onAppear(perform: { self.fetchMoreIfNecessary(current: value) })
                         Separator()
-                        ForEach(profileViewModel.profilePost.indices, id: \.self) { value in
-                            PostContentView(post: $profileViewModel.profilePost[value])
-                                .padding(.vertical, 10)
-                                .onAppear(perform: { self.fetchMoreIfNecessary(current: value) })
-                            Separator()
-                        }
                     }
-                    .padding(.top, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
                 }
+                .padding(.top, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
             }
-            .onAppear(perform: {
-                UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.gray99)]
-                profileViewModel.fetchProfileData(username: username)
-            })
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("@fcbarcelona")
-            .navigationBarItems(trailing: Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                Image(systemName: "ellipsis")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 15, height: 23, alignment: .center)
-            }))
         }
+        .onAppear(perform: {
+            UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.gray99)]
+            profileViewModel.fetchProfileData(username: username)
+        })
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("@\(profileViewModel.username)")
+        .navigationBarItems(trailing: Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+            Image(systemName: "ellipsis")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 15, height: 23, alignment: .center)
+        }))
+        
     }
     
     fileprivate func fetchMoreIfNecessary(current: Int) {
@@ -76,7 +76,7 @@ private struct HeadView: View {
         HStack(spacing: 13) {
             ProfileImage()
             VStack(alignment: .leading, spacing: 3) {
-                Text(profileViewModel.username)
+                Text(profileViewModel.profileName)
                     .font(.title3)
                     .bold()
                     .foregroundColor(Color.gray99)

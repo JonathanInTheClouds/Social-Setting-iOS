@@ -14,6 +14,8 @@ class ProfileViewModel: ObservableObject, BaseNetworkProtocol {
     
     @Published var username: String = ""
     
+    @Published var profileName: String = ""
+    
     @Published var email: String = ""
     
     @Published var description: String? = ""
@@ -45,6 +47,7 @@ class ProfileViewModel: ObservableObject, BaseNetworkProtocol {
                 if let profileInfo = data.profile {
                     self.username = profileInfo.username
                     self.email = profileInfo.email
+                    self.profileName = profileInfo.profileName
                     self.description = profileInfo.description
                     self.url = profileInfo.url
                     self.postCount = profileInfo.postCount

@@ -89,13 +89,11 @@ private struct MainFeedView: View {
             LazyVStack {
                 ForEach(feedViewModel.postFeed.indices, id: \.self) { id in
                     PostContentView(post: $feedViewModel.postFeed[id])
-                        .environmentObject(feedViewModel)
                         .onAppear {fetchMoreIfNecessary(current: id)}
                         .contextMenu {
                             PostContextMenu(postId: id)
-                                .environmentObject(feedViewModel)
                         }
-                        .actionSheet(isPresented: $feedViewModel.showingActionSheet, content: {
+                        .actionSheet(isPresented: $feedViewModel.shoudShowMenu, content: {
                             self.actionSheetView(postId: id)
                         })
                     Separator()
