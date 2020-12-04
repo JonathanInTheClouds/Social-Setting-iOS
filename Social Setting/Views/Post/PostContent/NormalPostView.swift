@@ -44,13 +44,6 @@ struct PostHeadView: View {
                         .foregroundColor(Color.gray99)
                         .font(.callout)
                 }
-//                Button(action: {
-//
-//                }, label: {
-//                    Text(username)
-//                        .foregroundColor(Color.gray99)
-//                        .font(.callout)
-//                })
                 Text(timeAgo)
                     .foregroundColor(Color.gray79)
                     .font(.caption)

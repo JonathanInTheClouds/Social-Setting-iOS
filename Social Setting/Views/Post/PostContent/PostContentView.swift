@@ -13,7 +13,7 @@ struct PostContentView: View {
     
     var body: some View {
         ZStack {
-            Color.clear
+            Color.tertiarySystemBackground
                 .contentShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
             Group {
                 if post.postName.isEmpty {

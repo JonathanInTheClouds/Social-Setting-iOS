@@ -16,7 +16,7 @@ struct TopicPostView: View {
             PostHeadView(username: post.username, timeAgo: post.duration)
                 .padding(.bottom, 10)
             NavigationLink(
-                destination: OpenPostView(post: $post),
+                destination: SelectedPostView(post: $post),
                 label: {
                     TopicMainBody(post: $post)
                 })
