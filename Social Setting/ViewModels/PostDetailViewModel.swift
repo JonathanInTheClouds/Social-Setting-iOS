@@ -35,6 +35,9 @@ class PostDetailViewModel: ObservableObject {
             }, receiveValue: { (postDetails) in
                 print(postDetails)
                 self.comments.append(contentsOf: postDetails.comments)
+                if !postDetails.comments.isEmpty {
+                    self.page += 1
+                }
                 guard let post = postDetails.post else { return }
                 self.post = post
             })

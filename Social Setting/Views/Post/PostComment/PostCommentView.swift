@@ -157,13 +157,13 @@ struct ReplyView: View {
             })
             .padding(.bottom, 26)
             Spacer()
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                LazyVStack(alignment: .leading, spacing: 0) {
-                    ForEach(1...2, id: \.self) { n in
+            LazyVStack(alignment: .leading, spacing: 0) {
+                ForEach(1...1, id: \.self) { n in
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                         CommentReplyView()
-                    }
+                    })
                 }
-            })
+            }
         }
         .padding(.bottom, 8)
     }

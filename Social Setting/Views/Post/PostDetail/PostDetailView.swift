@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct PostDetailView: View {
-    
-    
+        
     @EnvironmentObject var postDetailViewModel: PostDetailViewModel
+    
+    @State var isLoaded = false
     
     var body: some View {
         ZStack {
@@ -42,7 +43,10 @@ struct PostDetailView: View {
             }
             .navigationTitle("1 comments")
             .onAppear {
-                postDetailViewModel.fetchFeed()
+                if !isLoaded {
+                    self.postDetailViewModel.fetchFeed()
+                }
+                self.isLoaded = true
             }
         }
     }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CommentResponseModel: Codable {
+struct CommentResponseModel: Codable, Hashable {
     let id: Int
     let postId: Int
     let text: String
