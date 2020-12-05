@@ -65,7 +65,7 @@ struct RightHeadingSection: View {
                     .frame(width: 23, height: 23, alignment: .center)
             }
             .sheet(isPresented: $feedViewModel.createPostIsPresented) {
-                CreatePostView()
+                PostCreateView()
             }
         }
     }

@@ -17,9 +17,9 @@ struct PostContentView: View {
                 .contentShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
             Group {
                 if post.postName.isEmpty {
-                    NormalPostView(post: $post)
+                    PostNormalView(post: $post)
                 } else {
-                    TopicPostView(post: $post)
+                    PostTopicView(post: $post)
                 }
             }
             .padding(.horizontal, 16)

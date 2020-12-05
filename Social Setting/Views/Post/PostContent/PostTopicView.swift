@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TopicPostView: View {
+struct PostTopicView: View {
     
     @Binding var post: PostResponseModel
     
@@ -16,7 +16,8 @@ struct TopicPostView: View {
             PostHeadView(username: post.username, timeAgo: post.duration)
                 .padding(.bottom, 10)
             NavigationLink(
-                destination: SelectedPostView(post: $post),
+                destination: PostDetailView()
+                    .environmentObject(PostDetailViewModel(post: post)),
                 label: {
                     TopicMainBody(post: $post)
                 })
@@ -30,7 +31,7 @@ struct TopicPostView: View {
 
 struct TopicPostView_Previews: PreviewProvider {
     static var previews: some View {
-        TopicPostView(post: .constant(PostResponseModel(id: 1, postName: "Openly admit that you don't know something", url: nil, description: "If you don't have any knowledge about the topic, admit it openly that you don't know.", username: "MettaworldJ", subSettingName: "", duration: "just not", upVote: true, downVote: false, voteCount: 61, commentCount: 147)))
+        PostTopicView(post: .constant(PostResponseModel(id: 1, postName: "Openly admit that you don't know something", url: nil, description: "If you don't have any knowledge about the topic, admit it openly that you don't know.", username: "MettaworldJ", subSettingName: "", duration: "just not", upVote: true, downVote: false, voteCount: 61, commentCount: 147)))
             .padding(.horizontal, 16)
     }
 }
@@ -60,7 +61,7 @@ struct TopicMainBody: View {
                 .fixedSize(horizontal: false, vertical: true)
             
             Text(post.description)
-                .font(.system(size: 16))
+                .font(.body)
                 .foregroundColor(Color.gray99)
         }
     }

@@ -9,7 +9,7 @@ import SwiftUI
 import iTextField
 import TextView
 
-struct CreatePostView: View {
+struct PostCreateView: View {
     
     @EnvironmentObject var feedViewModel: FeedViewModel
     
@@ -108,7 +108,7 @@ private struct PostPreview: View {
     @Binding var post: PostResponseModel
     
     var body: some View {
-        TopicPostView(post: $post)
+        PostTopicView(post: $post)
             .padding(.all)
             .background(Color.tertiarySystemBackground)
             .cornerRadius(8)
@@ -122,11 +122,11 @@ private struct PostPreview: View {
 struct CreatePostView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CreatePostView()
+            PostCreateView()
                 .environment(\.colorScheme, .light)
                 .environmentObject(FeedViewModel())
             
-            CreatePostView()
+            PostCreateView()
                 .environment(\.colorScheme, .dark)
                 .environmentObject(FeedViewModel())
         }

@@ -19,7 +19,7 @@ struct ProfileImage: View {
                 Color.gray19
                 Image(systemName: "person.fill")
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: imageSize, height: imageSize, alignment: .center)
                     .foregroundColor(Color.gray79)
             }.frame(width: buttonSize, height: buttonSize, alignment: .center)

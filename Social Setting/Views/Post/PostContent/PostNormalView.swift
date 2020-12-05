@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NormalPostView: View {
+struct PostNormalView: View {
     
     @Binding var post: PostResponseModel
     
@@ -186,7 +186,7 @@ struct ButtonHStack: View {
 struct NormalPostView_Previews: PreviewProvider {
     
     static var previews: some View {
-        NormalPostView(post: .constant(PostResponseModel(id: 1, postName: "Openly admit that you don't know something", url: nil,
+        PostNormalView(post: .constant(PostResponseModel(id: 1, postName: "Openly admit that you don't know something", url: nil,
                                                          description: "If you don't have any knowledge about the topic, admit it openly that you don't know.", username: "MettaworldJ", subSettingName: "", duration: "just not", upVote: true, downVote: false, voteCount: 61, commentCount: 147)))
     }
 }
