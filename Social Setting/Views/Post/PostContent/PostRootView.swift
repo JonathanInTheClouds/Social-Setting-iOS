@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PostContentView: View {
+struct PostRootView: View {
     
     @Binding var post: PostResponseModel
     
@@ -25,7 +25,6 @@ struct PostContentView: View {
             .padding(.horizontal, 16)
             .padding(.top, 10)
             .padding(.bottom, 10)
-            
         }
     }
 }
@@ -33,7 +32,7 @@ struct PostContentView: View {
 struct Post_Previews: PreviewProvider {
     
     static var previews: some View {
-        PostContentView(post: .constant(PostResponseModel(id: 1,
+        PostRootView(post: .constant(PostResponseModel(id: 1,
                                                           postName: "Openly admit that you don't know something", url: nil,
                                                           description: "If you don't have any knowledge about the topic, admit it openly that you don't know.",
                                                           username: "MettaworldJ", subSettingName: "", duration: "just not", upVote: true, downVote: false,

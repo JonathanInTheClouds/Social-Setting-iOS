@@ -39,7 +39,7 @@ private struct CommentHeadView: View {
     
     var body: some View {
         HStack(spacing: 10) {
-            ProfileImage(buttonSize: 32, imageSize: 15)
+            ProfileImage(buttonSize: 32, imageSize: 15, destination: Text("Hello World"))
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                 Text("\(comment.username)")
                     .font(.callout)
@@ -123,7 +123,7 @@ private struct CommentFootView: View {
 private struct CommentReplyView: View {
     var body: some View {
         HStack(alignment: .center, spacing: 15) {
-            ProfileImage(buttonSize: 32, imageSize: 15)
+            ProfileImage(buttonSize: 32, imageSize: 15, destination: Text("Hello World"))
             Text("Roy Barber  ")
                 .foregroundColor(Color.gray99)
                 .fontWeight(.medium)

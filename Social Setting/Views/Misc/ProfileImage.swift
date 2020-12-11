@@ -7,11 +7,13 @@
 
 import SwiftUI
 
-struct ProfileImage: View {
+struct ProfileImage<V: View>: View {
     
     @State var buttonSize: CGFloat = 70
     
     @State var imageSize: CGFloat = 28
+    
+    var destination: V
     
     var body: some View {
         Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
@@ -30,6 +32,6 @@ struct ProfileImage: View {
 
 struct ProfileImage_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileImage()
+        ProfileImage(destination: Text("Hello World"))
     }
 }

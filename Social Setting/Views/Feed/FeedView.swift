@@ -88,7 +88,7 @@ private struct MainFeedView: View {
         ScrollView {
             LazyVStack {
                 ForEach(feedViewModel.postFeed.indices, id: \.self) { id in
-                    PostContentView(post: $feedViewModel.postFeed[id])
+                    PostRootView(post: $feedViewModel.postFeed[id])
                         .onAppear {fetchMoreIfNecessary(current: id)}
                         .contextMenu {
                             PostContextMenu(postId: id)

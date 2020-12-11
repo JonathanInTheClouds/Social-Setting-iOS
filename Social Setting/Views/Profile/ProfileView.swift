@@ -24,7 +24,7 @@ struct ProfileView: View {
                         .padding(.top, 10)
                     Separator()
                     ForEach(profileViewModel.profilePost.indices, id: \.self) { value in
-                        PostContentView(post: $profileViewModel.profilePost[value])
+                        PostRootView(post: $profileViewModel.profilePost[value])
                             .padding(.vertical, 10)
                             .onAppear(perform: { self.fetchMoreIfNecessary(current: value) })
                         Separator()
@@ -74,7 +74,7 @@ private struct HeadView: View {
     
     var body: some View {
         HStack(spacing: 13) {
-            ProfileImage()
+            ProfileImage(destination: Text("Hello World"))
             VStack(alignment: .leading, spacing: 3) {
                 Text(profileViewModel.profileName)
                     .font(.title3)

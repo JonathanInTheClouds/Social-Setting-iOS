@@ -36,7 +36,7 @@ struct PostHeadView: View {
     
     var body: some View {
         HStack {
-            ProfileImage(buttonSize: 50, imageSize: 20)
+            ProfileImage(buttonSize: 50, imageSize: 20, destination: Text("Hello World"))
             
             VStack(alignment: .leading, spacing: 2) {
                 NavigationLink(destination: ProfileView(username: username).environmentObject(ProfileViewModel())) {
