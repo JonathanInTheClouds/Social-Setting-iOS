@@ -76,6 +76,8 @@ private struct MainFeedView: View {
     
     @EnvironmentObject private var feedViewModel: FeedViewModel
     
+    @Environment(\.colorScheme) var colorScheme
+    
     private var actionSheet: ActionSheet {
         ActionSheet(title: Text("Post Options"), message: Text("Choose Option"), buttons: [
             .default(Text("Save")),
@@ -86,22 +88,22 @@ private struct MainFeedView: View {
     
     var body: some View {
         ScrollView {
-            LazyVStack {
+            LazyVGrid(columns: [GridItem()]) {
                 ForEach(feedViewModel.postFeed.indices, id: \.self) { id in
-                    PostRootView(post: $feedViewModel.postFeed[id])
-                        .onAppear {fetchMoreIfNecessary(current: id)}
-                        .contextMenu {
-                            PostContextMenu(postId: id)
-                        }
-                        .actionSheet(isPresented: $feedViewModel.shoudShowMenu, content: {
-                            self.actionSheetView(postId: id)
-                        })
-                    Separator()
+                    PostContentView(post: $feedViewModel.postFeed[id])
+                    .contextMenu {
+                        PostContextMenu(postId: id)
+                    }
+                    .background(Color.tertiarySystemBackground)
+                    .groupBoxStyle(PostGroupBoxStyle(destination: Text("Post"), post: feedViewModel.postFeed[id]))
                 }
                 .opacity(feedViewModel.postFeed.isEmpty ? 0 : 1)
+                Color.clear.frame(height: 30)
             }
-            .padding(.top, 5)
-        }.onAppear(perform: feedViewModel.fetchFeed)
+            .padding(.top, 10)
+        }
+        .onAppear(perform: feedViewModel.fetchFeed)
+        .background(colorScheme == .light ? Color(.sRGB, red: 247/255, green: 247/255, blue: 247/255, opacity: 1) : Color(.sRGB, red: 25/255, green: 26/255, blue: 27/255, opacity: 1))
     }
     
     fileprivate func fetchMoreIfNecessary(current: Int) {

@@ -25,7 +25,7 @@ struct PostDetailView: View {
                         TopicMainBody(post: $postDetailViewModel.post)
                             .padding(.vertical, 16)
                             .padding(.horizontal, 16)
-                        ButtonHStack(post: $postDetailViewModel.post)
+                        PostButtonHStack(post: $postDetailViewModel.post)
                             .padding(.horizontal, 16)
                             .padding(.bottom, 16)
                         Separator() 

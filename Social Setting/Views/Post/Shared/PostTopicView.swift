@@ -24,7 +24,7 @@ struct PostTopicView: View {
             Color.gray39
                 .frame(height: 1, alignment: .center)
                 .padding(.top, 15)
-            ButtonHStack(post: $post)
+            PostButtonHStack(post: $post)
         }
     }
 }
