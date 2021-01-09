@@ -2,10 +2,11 @@
 //  Social_SettingApp.swift
 //  Social Setting
 //
-//  Created by Jonathan Dowdell on 10/13/20.
+//  Created by Mettaworldj on 12/31/20.
 //
 
 import SwiftUI
+import iTextField
 
 @main
 struct Social_SettingApp: App {
@@ -13,23 +14,23 @@ struct Social_SettingApp: App {
     let authViewModel = AuthViewModel()
     let postViewModel = PostViewModel()
     let feedViewModel = FeedViewModel()
-    let profileViewModel = ProfileViewModel()
     
     init() {
         UINavigationBar.appearance().tintColor = UIColor(Color.baseColor)
+        UITextView.appearance().tintColor = UIColor(Color.baseColor)
+        UITextField.appearance().tintColor = UIColor(Color.baseColor)
+        UITabBar.appearance().tintColor = UIColor(Color.baseColor)
     }
 
     var body: some Scene {
         WindowGroup {
-            MainRoute()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            MainRouter()
                 .environmentObject(authViewModel)
-                .environmentObject(postViewModel)
                 .environmentObject(feedViewModel)
-                .environmentObject(profileViewModel)
-                .onAppear(perform: {
-                    UITextView.appearance().backgroundColor = .clear
-                })
+                .environmentObject(postViewModel)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
+
+typealias PlainTextView = iTextField
