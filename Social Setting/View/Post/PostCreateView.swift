@@ -102,7 +102,7 @@ private struct HeaderView: View {
             .pickerStyle(SegmentedPickerStyle())
         }
         .padding(.horizontal)
-//        .padding(.top)
+        //        .padding(.top)
     }
 }
 
@@ -132,11 +132,46 @@ private struct PostPreview: View {
     var body: some View {
         GroupBox {
             VStack(alignment: .leading) {
-                PostHeadView(destination: Text(""), post: post)
+                
+                HStack {
+                    ProfileImage(buttonSize: 50, imageSize: 20, destination: Text("Hello World"))
+                    VStack {
+                        HStack {
+                            Text(post.username)
+                                .foregroundColor(.gray99)
+                                .font(.callout)
+                            Spacer()
+                        }
+                        HStack {
+                            Text(post.duration)
+                                .foregroundColor(.gray79)
+                                .font(.caption)
+                            Spacer()
+                        }
+                    }
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        print(post.postName)
+                    }, label: {
+                        HStack {
+                            Spacer()
+                            Image(systemName: "ellipsis")
+                                .foregroundColor(Color.gray79)
+                        }
+                        .frame(width: 50, height: 50, alignment: .center)
+                    })
+                }
                 
                 PostBodyView(post: post)
                     .padding(.bottom)
-                
+                NavigationLink(
+                    destination: PostCommentView(),
+                    isActive: .constant(false),
+                    label: {})
+                Color.gray39
+                    .frame(height: 1, alignment: .center)
                 PostHButtonView(post: $post)
             }
         }
@@ -144,7 +179,6 @@ private struct PostPreview: View {
         .cornerRadius(8)
         .shadow(color: Color.black.opacity(0.2), radius: 5)
         .padding()
-        
     }
 }
 
