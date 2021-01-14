@@ -12,6 +12,10 @@ class PostViewModel: ObservableObject {
     
     private var cancellable: AnyCancellable?
     
+    deinit {
+        print("PostViewModel Killed - ☠️")
+    }
+    
     func likePost(post: PostResponse) {
         cancellable = SocialSettingAPI.likePost(post: post)
             .sink(receiveCompletion: { _ in }) { _ in }

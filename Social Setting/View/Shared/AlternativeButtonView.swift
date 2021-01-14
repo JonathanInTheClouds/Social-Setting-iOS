@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AlternativeButtonView<Content: View>: View {
     
-    var destination = Text("Hello")
+    var destination = Text("Hello World")
     
     let content: () -> Content
     

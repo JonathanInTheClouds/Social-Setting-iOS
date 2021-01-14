@@ -20,7 +20,6 @@ struct DynamicBackground<Content: View>: View {
     var spacing: CGFloat?
     
     
-    
     init(_ edge: Edge.Set = .all, _ length: CGFloat? = nil, alignment: HorizontalAlignment = .center, spacing: CGFloat? = nil, @ViewBuilder content: @escaping () -> Content) {
         self.content = content
         self.edge = edge

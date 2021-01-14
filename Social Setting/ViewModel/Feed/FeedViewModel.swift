@@ -25,6 +25,10 @@ class FeedViewModel: ObservableObject, AuthTokenProtocol {
     
     private var cancellable: AnyCancellable?
     
+    deinit {
+        print("FeedViewModel Killed - ☠️")
+    }
+    
     func getFeed() {
         cancellable = SocialSettingAPI.getMainFeed(of: page)
             .sink(receiveCompletion: { _ in }) { (posts) in

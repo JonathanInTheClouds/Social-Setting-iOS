@@ -12,27 +12,23 @@ struct PostCreateView: View {
     
     @EnvironmentObject var authViewModel: AuthViewModel
     
-    @ObservedObject var feedViewModel: FeedViewModel
+    @EnvironmentObject var feedViewModel: FeedViewModel
     
     @EnvironmentObject var postViewModel: PostViewModel
     
-    @State private var selection: Int = 0
-    
-    @State private var titleText: String = ""
-    
-    @State private var titleEditing: Bool = false
-    
-    @State private var bodyText: String = ""
-    
-    @State private var bodyEditing: Bool = false
+    @ObservedObject var postCreateViewModel = PostCreateViewModel()
     
     var body: some View {
         NavigationView {
             VStack {
-                HeaderView(selection: $selection)
+                HeaderView()
+                    .environmentObject(postCreateViewModel)
                 
-                if selection != 2 {
-                    BodyView(titleText: $titleText, titleEditing: $titleEditing, bodyText: $bodyText, bodyEditing: $bodyEditing)
+                if postCreateViewModel.selection != 2 {
+                    BodyView(titleText: $postCreateViewModel.titleText,
+                             titleEditing: $postCreateViewModel.titleEditing,
+                             bodyText: $postCreateViewModel.bodyText,
+                             bodyEditing: $postCreateViewModel.bodyEditing)
                 } else {
                     PostPreview(post: previewPostModel())
                 }
@@ -47,38 +43,46 @@ struct PostCreateView: View {
     }
     
     private func createPost() {
-        let postRequest = PostRequest(postName: titleText, url: nil, description: bodyText)
+        let postRequest = PostRequest(postName: postCreateViewModel.titleText, url: nil, description: postCreateViewModel.bodyText)
         feedViewModel.createPost(post: postRequest)
     }
     
     func previewPostModel() -> Binding<PostResponse> {
+        print(Int.max)
         return Binding<PostResponse>(get: {
-            PostResponse(subSettingId: 1, postId: 1, postName: titleText, description: bodyText, url: nil, userPublicId: "", username: SocialSettingAPI.agent.savedAuthentication?.username ?? "", subSettingName: "", voteCount: 24, commentCount: 12, duration: "Just now", upVote: true, downVote: false)
+            PostResponse(subSettingId: 1,
+                         postId: 1,
+                         postName: postCreateViewModel.titleText,
+                         description: postCreateViewModel.bodyText,
+                         url: nil,
+                         userPublicId: "",
+                         username: SocialSettingAPI.agent.savedAuthentication?.username ?? "",
+                         subSettingName: "", voteCount: 24, commentCount: 12, duration: "Just now",
+                         upVote: true, downVote: false)
         }, set: {_ in })
     }
 }
 
 private struct HeaderView: View {
-    @Binding var selection: Int
+    
+    @EnvironmentObject var postCreateViewModel: PostCreateViewModel
     
     var body: some View {
         VStack {
             HStack(alignment: .firstTextBaseline, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
-                
                 HStack {
-                    
                     Text(" TO: ")
-                    
-                    AlternativeButtonView({
-                        print("Hello World")
-                    }, {
-                        HStack {
-                            Text("CS Students")
-                                .foregroundColor(Color.labelColor)
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(Color.labelColor)
+                    Button(action: {}, label: {
+                        NavigationLink(destination: PostCreateSubscriptionListView(username: $postCreateViewModel.subSettingName)) {
+                            HStack {
+                                Text("CS Students")
+                                    .foregroundColor(Color.labelColor)
+                                Image(systemName: "chevron.right")
+                                    .foregroundColor(Color.labelColor)
+                            }
                         }
                     })
+                    .padding(.horizontal, 15)
                     .frame(height: 30)
                     .background(Color.itemColor)
                     .cornerRadius(6)
@@ -89,9 +93,9 @@ private struct HeaderView: View {
             .padding(.vertical, 5)
             
             Picker(selection: Binding<Int>(
-                get: { selection }, set: { tag in
+                get: { postCreateViewModel.selection }, set: { tag in
                     withAnimation(.easeIn(duration: 0.3)) {
-                        selection = tag
+                        postCreateViewModel.selection = tag
                     }
                 }
             ), label: Text("What type of post?")) {
@@ -167,7 +171,7 @@ private struct PostPreview: View {
                 PostBodyView(post: post)
                     .padding(.bottom)
                 NavigationLink(
-                    destination: PostCommentView(),
+                    destination: PostCommentView(post: $post),
                     isActive: .constant(false),
                     label: {})
                 Color.gray39
@@ -186,11 +190,11 @@ private struct PostPreview: View {
 struct CreatePostView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            PostCreateView(feedViewModel: FeedViewModel())
+            PostCreateView()
                 .environment(\.colorScheme, .light)
                 .environmentObject(FeedViewModel())
             
-            PostCreateView(feedViewModel: FeedViewModel())
+            PostCreateView()
                 .environment(\.colorScheme, .dark)
                 .environmentObject(FeedViewModel())
         }

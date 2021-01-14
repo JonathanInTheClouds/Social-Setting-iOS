@@ -10,9 +10,9 @@ import ASCollectionView
 
 struct FeedViewAlt: View {
     
-    @State var dataExample = (0 ..< 3).map { $0 }
-    
     @EnvironmentObject var feedViewModel: FeedViewModel
+    
+    @EnvironmentObject var postViewModel: PostViewModel
     
     var body: some View {
         NavigationView {
@@ -20,7 +20,7 @@ struct FeedViewAlt: View {
                 ASCollectionView(data: feedViewModel.postFeed.indices, dataID: \.self) { (item, _) in
                     PostFeedView(post: $feedViewModel.postFeed[item])
                         .contextMenu(ContextMenu(menuItems: {
-                            PostContextMenu()
+                            PostContextMenu(post: $feedViewModel.postFeed[item])
                         }))
                         .groupBoxStyle(PostGroupBoxStyle(destination: Text("In Side"), post: feedViewModel.postFeed[item]))
                         .onAppear { fetchMoreIfNecessary(current: item) }
@@ -121,7 +121,7 @@ struct RightHeadingSection: View {
                     .frame(width: 23, height: 23, alignment: .center)
             }
             .sheet(isPresented: $feedViewModel.createPostIsPresented) {
-                PostCreateView(feedViewModel: feedViewModel)
+                PostCreateView()
             }
         }
     }

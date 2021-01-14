@@ -9,13 +9,14 @@ import SwiftUI
 import ASCollectionView
 
 struct PostCommentView: View {
-    let generator = UINotificationFeedbackGenerator()
+    
+    @Binding var post: PostResponse
     
     var body: some View {
         DynamicBackground {
             ASCollectionView {
-                PostFeedView(post: .constant(MockData.post[0]))
-                    .groupBoxStyle(PostGroupBoxStyle(destination: Text(""), post: MockData.post[0]))
+                PostFeedView(post: $post)
+                    .groupBoxStyle(PostGroupBoxStyle(destination: Text(""), post: post))
             }
             .alwaysBounceVertical()
         }
@@ -38,6 +39,6 @@ struct PostCommentView: View {
 
 struct PostCommentView_Previews: PreviewProvider {
     static var previews: some View {
-        PostCommentView()
+        PostCommentView(post: .constant(MockData.post[0]))
     }
 }

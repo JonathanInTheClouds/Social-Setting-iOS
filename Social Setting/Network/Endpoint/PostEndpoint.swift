@@ -22,7 +22,17 @@ extension SocialSettingAPI {
     
     static func createPost(post: PostRequest) -> AnyPublisher<PostResponse, Error> {
         guard let url = base.url else { return Fail(error: NetworkError.badURL).eraseToAnyPublisher() }
-        var request = URLRequest(url: url.appendingPathComponent("subSetting/Software Engineers/post"))
+        let userDefaults = UserDefaults.standard
+        var selectedSubSettingName = ""
+        
+        do {
+            let savedSubSetting = try userDefaults.getObject(forKey: "SelectedSubSetting", castTo: SubSettingResponse.self)
+            selectedSubSettingName = savedSubSetting.name
+        } catch {
+            guard let username = SocialSettingAPI.agent.savedAuthentication?.username else { return Fail(error: NetworkError.decodingFailed).eraseToAnyPublisher() }
+            selectedSubSettingName = username
+        }
+        var request = URLRequest(url: url.appendingPathComponent("subSetting/\(selectedSubSettingName)/post"))
         request.httpBody = post.toData()
         request.httpMethod = "POST"
         return agent.authenticatedRun(request)

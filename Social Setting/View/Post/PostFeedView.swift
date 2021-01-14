@@ -24,7 +24,7 @@ struct PostFeedView: View {
                     PostBodyView(post: post)
                         .padding(.bottom)
                     NavigationLink(
-                        destination: PostCommentView(),
+                        destination: PostCommentView(post: $post),
                         isActive: $shouldPush,
                         label: {})
                     Color.gray39

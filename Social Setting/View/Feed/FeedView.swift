@@ -19,7 +19,7 @@ struct FeedView: View {
                         ForEach (feedViewModel.postFeed.indices, id: \.self) { index in
                             PostFeedView(post: $feedViewModel.postFeed[index])
                                 .contextMenu(ContextMenu(menuItems: {
-                                    PostContextMenu()
+                                    PostContextMenu(post: $feedViewModel.postFeed[index])
                                 }))
                                 .groupBoxStyle(PostGroupBoxStyle(destination: Text("In Side"), post: feedViewModel.postFeed[index]))
                                 .actionSheet(isPresented: $feedViewModel.showActionSheet) {

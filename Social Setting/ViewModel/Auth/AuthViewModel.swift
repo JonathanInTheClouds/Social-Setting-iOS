@@ -17,6 +17,10 @@ class AuthViewModel: ObservableObject, AuthTokenProtocol {
     
     private var cancellable: AnyCancellable?
     
+    deinit {
+        print("AuthViewModel Killed - ☠️")
+    }
+    
     func signIn(signinRequest: SignInRequest) {
         cancellable = SocialSettingAPI.signIn(signInRequest: signinRequest)
             .sink(receiveCompletion: { _ in }, receiveValue: { self.saveAuthToken($0) })

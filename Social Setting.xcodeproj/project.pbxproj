@@ -41,6 +41,8 @@
 		244F4DAB25A17EDF007ED6C8 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 244F4DAA25A17EDF007ED6C8 /* SwiftKeychainWrapper */; };
 		244F4DAE25A17F2B007ED6C8 /* AuthTokenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F4DAD25A17F2B007ED6C8 /* AuthTokenProtocol.swift */; };
 		244F4DBE25A1A073007ED6C8 /* AuthEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F4DBD25A1A073007ED6C8 /* AuthEndpoint.swift */; };
+		2464CD1625AC10CB00CFF156 /* SubscriptionEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2464CD1525AC10CB00CFF156 /* SubscriptionEndpoint.swift */; };
+		2464CD1825AC175A00CFF156 /* PostCreateSubscriptionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2464CD1725AC175A00CFF156 /* PostCreateSubscriptionListView.swift */; };
 		247B8D7D25A3B8B200364C9F /* AuthenticationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247B8D7C25A3B8B200364C9F /* AuthenticationResponse.swift */; };
 		247B8D8725A3D7A800364C9F /* ServiceErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247B8D8625A3D7A800364C9F /* ServiceErrorMessage.swift */; };
 		247B8D8A25A3D7D200364C9F /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247B8D8925A3D7D200364C9F /* ServiceError.swift */; };
@@ -51,9 +53,16 @@
 		249428AC25A43019002C4D6D /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249428AB25A43019002C4D6D /* Response.swift */; };
 		249428B225A43171002C4D6D /* SubSettingFeedEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249428B125A43171002C4D6D /* SubSettingFeedEndpoint.swift */; };
 		249428BC25A43889002C4D6D /* Encodable+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249428BB25A43889002C4D6D /* Encodable+Data.swift */; };
+		249A015125B0067400508CD5 /* CommentEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249A015025B0067400508CD5 /* CommentEndpoint.swift */; };
+		249A015425B0075900508CD5 /* CommentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249A015325B0075900508CD5 /* CommentRequest.swift */; };
+		249A015625B0079C00508CD5 /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249A015525B0079C00508CD5 /* CommentResponse.swift */; };
+		249A015A25B0084A00508CD5 /* CommentFeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249A015925B0084A00508CD5 /* CommentFeedResponse.swift */; };
 		249AB51A25A01CB60093BE80 /* SocialSettingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249AB51925A01CB60093BE80 /* SocialSettingAPI.swift */; };
 		249AB51D25A01D580093BE80 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249AB51C25A01D580093BE80 /* NetworkManager.swift */; };
 		249AB52025A020C20093BE80 /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249AB51F25A020C20093BE80 /* SignUpResponse.swift */; };
+		24D99D6125AE5D3800BFE9EF /* PostCreateSubscriptionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D99D6025AE5D3800BFE9EF /* PostCreateSubscriptionListViewModel.swift */; };
+		24D99D6325AE889C00BFE9EF /* UserDefaults+Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D99D6225AE889C00BFE9EF /* UserDefaults+Object.swift */; };
+		24D99D6525AE9B6800BFE9EF /* PostCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D99D6425AE9B6800BFE9EF /* PostCreateViewModel.swift */; };
 		24E9AFFC259E7905006D1DBB /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E9AFFB259E7905006D1DBB /* AuthViewModel.swift */; };
 		24E9B000259E80EC006D1DBB /* MainButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E9AFFF259E80EC006D1DBB /* MainButtonView.swift */; };
 		24E9B004259E8315006D1DBB /* AltButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E9B003259E8315006D1DBB /* AltButtonView.swift */; };
@@ -124,6 +133,8 @@
 		244F4DA425A17CC1007ED6C8 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		244F4DAD25A17F2B007ED6C8 /* AuthTokenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTokenProtocol.swift; sourceTree = "<group>"; };
 		244F4DBD25A1A073007ED6C8 /* AuthEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEndpoint.swift; sourceTree = "<group>"; };
+		2464CD1525AC10CB00CFF156 /* SubscriptionEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionEndpoint.swift; sourceTree = "<group>"; };
+		2464CD1725AC175A00CFF156 /* PostCreateSubscriptionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreateSubscriptionListView.swift; sourceTree = "<group>"; };
 		247B8D7C25A3B8B200364C9F /* AuthenticationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationResponse.swift; sourceTree = "<group>"; };
 		247B8D8625A3D7A800364C9F /* ServiceErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceErrorMessage.swift; sourceTree = "<group>"; };
 		247B8D8925A3D7D200364C9F /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
@@ -134,9 +145,16 @@
 		249428AB25A43019002C4D6D /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		249428B125A43171002C4D6D /* SubSettingFeedEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSettingFeedEndpoint.swift; sourceTree = "<group>"; };
 		249428BB25A43889002C4D6D /* Encodable+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Data.swift"; sourceTree = "<group>"; };
+		249A015025B0067400508CD5 /* CommentEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentEndpoint.swift; sourceTree = "<group>"; };
+		249A015325B0075900508CD5 /* CommentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRequest.swift; sourceTree = "<group>"; };
+		249A015525B0079C00508CD5 /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
+		249A015925B0084A00508CD5 /* CommentFeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentFeedResponse.swift; sourceTree = "<group>"; };
 		249AB51925A01CB60093BE80 /* SocialSettingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSettingAPI.swift; sourceTree = "<group>"; };
 		249AB51C25A01D580093BE80 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		249AB51F25A020C20093BE80 /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
+		24D99D6025AE5D3800BFE9EF /* PostCreateSubscriptionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreateSubscriptionListViewModel.swift; sourceTree = "<group>"; };
+		24D99D6225AE889C00BFE9EF /* UserDefaults+Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Object.swift"; sourceTree = "<group>"; };
+		24D99D6425AE9B6800BFE9EF /* PostCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreateViewModel.swift; sourceTree = "<group>"; };
 		24E9AFFB259E7905006D1DBB /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		24E9AFFF259E80EC006D1DBB /* MainButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonView.swift; sourceTree = "<group>"; };
 		24E9B003259E8315006D1DBB /* AltButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltButtonView.swift; sourceTree = "<group>"; };
@@ -232,8 +250,9 @@
 			isa = PBXGroup;
 			children = (
 				2407A7CC259E729000B20C39 /* Color+Theme.swift */,
-				24E9B013259E8EAF006D1DBB /* DismissingKeyboard.swift */,
+				24D99D6225AE889C00BFE9EF /* UserDefaults+Object.swift */,
 				249428BB25A43889002C4D6D /* Encodable+Data.swift */,
+				24E9B013259E8EAF006D1DBB /* DismissingKeyboard.swift */,
 				2435BA1F25A9783300E6A99D /* Vibrate.swift */,
 			);
 			path = Utility;
@@ -285,6 +304,7 @@
 				240FCCA225A4E63F00657F76 /* PostContextMenu.swift */,
 				24F41BFD25A51D43007981A7 /* PostGroupBoxStyle.swift */,
 				24F41C0325A556D9007981A7 /* PostCreateView.swift */,
+				2464CD1725AC175A00CFF156 /* PostCreateSubscriptionListView.swift */,
 				241C78FD25A79008000BEAAD /* PostDeleteView.swift */,
 				24122F2D25A9260000C0340C /* PostCommentView.swift */,
 			);
@@ -373,12 +393,64 @@
 			path = Security;
 			sourceTree = "<group>";
 		};
-		24E9B00E259E8DFC006D1DBB /* ViewModel */ = {
+		249A015225B0072F00508CD5 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				249A015825B007F700508CD5 /* Request */,
+				249A015725B007EE00508CD5 /* Response */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		249A015725B007EE00508CD5 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				249A015525B0079C00508CD5 /* CommentResponse.swift */,
+				249A015925B0084A00508CD5 /* CommentFeedResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		249A015825B007F700508CD5 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				249A015325B0075900508CD5 /* CommentRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		24D99D5D25AE5AF400BFE9EF /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				24E9AFFB259E7905006D1DBB /* AuthViewModel.swift */,
-				24F41BED25A4FE0F007981A7 /* FeedViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		24D99D5E25AE5AFB00BFE9EF /* Post */ = {
+			isa = PBXGroup;
+			children = (
 				24F41C0A25A55872007981A7 /* PostViewModel.swift */,
+				24D99D6425AE9B6800BFE9EF /* PostCreateViewModel.swift */,
+				24D99D6025AE5D3800BFE9EF /* PostCreateSubscriptionListViewModel.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		24D99D5F25AE5B0200BFE9EF /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				24F41BED25A4FE0F007981A7 /* FeedViewModel.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		24E9B00E259E8DFC006D1DBB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				24D99D5D25AE5AF400BFE9EF /* Auth */,
+				24D99D5F25AE5B0200BFE9EF /* Feed */,
+				24D99D5E25AE5AFB00BFE9EF /* Post */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -388,6 +460,7 @@
 			children = (
 				24E9B024259EB74B006D1DBB /* Auth */,
 				2436D25325A2A2E3001D86A0 /* Post */,
+				249A015225B0072F00508CD5 /* Comment */,
 				2436D24925A2A242001D86A0 /* SubSetting */,
 				24F41C1425A568F5007981A7 /* VoteRequest.swift */,
 			);
@@ -441,6 +514,8 @@
 				24F41BF425A4FF4F007981A7 /* UserFeedEndpoint.swift */,
 				249428B125A43171002C4D6D /* SubSettingFeedEndpoint.swift */,
 				24F41C1125A56161007981A7 /* PostEndpoint.swift */,
+				2464CD1525AC10CB00CFF156 /* SubscriptionEndpoint.swift */,
+				249A015025B0067400508CD5 /* CommentEndpoint.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -542,20 +617,26 @@
 				247B8D9E25A3DFB200364C9F /* AuthenticationError.swift in Sources */,
 				241C790025A7BBCF000BEAAD /* AlternativeButtonView.swift in Sources */,
 				240FCC8D25A4DE8200657F76 /* PostFeedView.swift in Sources */,
+				249A015625B0079C00508CD5 /* CommentResponse.swift in Sources */,
+				249A015A25B0084A00508CD5 /* CommentFeedResponse.swift in Sources */,
 				2435BA2025A9783300E6A99D /* Vibrate.swift in Sources */,
 				24F41BF525A4FF4F007981A7 /* UserFeedEndpoint.swift in Sources */,
 				247B8D9525A3D92600364C9F /* URLSession+Publisher.swift in Sources */,
 				249AB51A25A01CB60093BE80 /* SocialSettingAPI.swift in Sources */,
+				24D99D6325AE889C00BFE9EF /* UserDefaults+Object.swift in Sources */,
 				249428AC25A43019002C4D6D /* Response.swift in Sources */,
 				24F41C0825A55721007981A7 /* PostRequest.swift in Sources */,
 				24122F2E25A9260000C0340C /* PostCommentView.swift in Sources */,
 				2436D25B25A2A47E001D86A0 /* SubSettingResponse.swift in Sources */,
 				2407A7B8259E6FAD00B20C39 /* Persistence.swift in Sources */,
 				24F41BEE25A4FE0F007981A7 /* FeedViewModel.swift in Sources */,
+				24D99D6525AE9B6800BFE9EF /* PostCreateViewModel.swift in Sources */,
+				249A015425B0075900508CD5 /* CommentRequest.swift in Sources */,
 				24F41C0425A556D9007981A7 /* PostCreateView.swift in Sources */,
 				24F41BFA25A5050D007981A7 /* MockData.swift in Sources */,
 				24E9B045259ECAC3006D1DBB /* NetworkError.swift in Sources */,
 				2436D24725A243A6001D86A0 /* VerifyCodeView.swift in Sources */,
+				2464CD1825AC175A00CFF156 /* PostCreateSubscriptionListView.swift in Sources */,
 				24E9B02D259EBA63006D1DBB /* VerifyCodeRequest.swift in Sources */,
 				24E9B01E259EB6BE006D1DBB /* SignInRequest.swift in Sources */,
 				247B8D8A25A3D7D200364C9F /* ServiceError.swift in Sources */,
@@ -570,6 +651,7 @@
 				24E9B01A259EB5F4006D1DBB /* SignUpRequeest.swift in Sources */,
 				24F41C1225A56161007981A7 /* PostEndpoint.swift in Sources */,
 				240FCC8525A4DB3900657F76 /* MainTabView.swift in Sources */,
+				249A015125B0067400508CD5 /* CommentEndpoint.swift in Sources */,
 				247B8D9B25A3DE4B00364C9F /* Authenticator.swift in Sources */,
 				24E9B010259E8E39006D1DBB /* SignUpView.swift in Sources */,
 				249AB52025A020C20093BE80 /* SignUpResponse.swift in Sources */,
@@ -577,11 +659,13 @@
 				2407A7CD259E729000B20C39 /* Color+Theme.swift in Sources */,
 				249428B225A43171002C4D6D /* SubSettingFeedEndpoint.swift in Sources */,
 				2436D25F25A2C74C001D86A0 /* RefreshTokenRequest.swift in Sources */,
+				24D99D6125AE5D3800BFE9EF /* PostCreateSubscriptionListViewModel.swift in Sources */,
 				24E9AFFC259E7905006D1DBB /* AuthViewModel.swift in Sources */,
 				244F4DBE25A1A073007ED6C8 /* AuthEndpoint.swift in Sources */,
 				2407A7AF259E6FAC00B20C39 /* Social_SettingApp.swift in Sources */,
 				24E9B004259E8315006D1DBB /* AltButtonView.swift in Sources */,
 				24447EC525A6761D003B3EDD /* FeedViewAlt.swift in Sources */,
+				2464CD1625AC10CB00CFF156 /* SubscriptionEndpoint.swift in Sources */,
 				2436D25525A2A2FA001D86A0 /* PostResponse.swift in Sources */,
 				2407A7D9259E777400B20C39 /* StandardInputView.swift in Sources */,
 				24F41C0B25A55872007981A7 /* PostViewModel.swift in Sources */,

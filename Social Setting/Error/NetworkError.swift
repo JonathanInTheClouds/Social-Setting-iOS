@@ -10,6 +10,7 @@ import Foundation
 public enum NetworkError: String, Error {
     case parametersNil = "Parameters were nil."
     case encodingFailed = "Parameters encoding failed."
+    case decodingFailed = "Parameters decoding failed."
     case missingURL = "URL is nil"
     case badURL = "Bad URL"
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SubSettingResponse: Codable {
+struct SubSettingResponse: Codable, Identifiable {
     let id: Int64
     let name: String
     let description: String
