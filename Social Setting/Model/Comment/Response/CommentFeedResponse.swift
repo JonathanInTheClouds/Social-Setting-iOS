@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CommentFeedResponse {
-    var post: PostResponse?
+struct CommentFeedResponse: Decodable {
+    var post: PostResponse? = nil
     var comments: [CommentResponse]
 }

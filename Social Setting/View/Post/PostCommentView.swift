@@ -10,16 +10,33 @@ import ASCollectionView
 
 struct PostCommentView: View {
     
+    @ObservedObject var postCommentViewModel = PostCommentViewModel()
+    
+    @State var commentList = [CommentResponse]()
+    
     @Binding var post: PostResponse
     
     var body: some View {
         DynamicBackground {
-            ASCollectionView {
-                PostFeedView(post: $post)
-                    .groupBoxStyle(PostGroupBoxStyle(destination: Text(""), post: post))
+            ScrollView {
+                LazyVStack {
+                    PostFeedView(post: $post)
+                        .groupBoxStyle(PostGroupBoxStyle(destination: Text(""), post: post))
+                    ForEach(commentList.indices, id: \.self) { index in
+                        VStack {
+                            HStack {
+                                Text(commentList[index].text)
+                            }
+                        }
+                    }
+                }
             }
-            .alwaysBounceVertical()
         }
+        .onAppear(perform: {
+            postCommentViewModel.getComments(subSettingName: post.subSettingName, postId: post.postId) { (comments)  in 
+                self.commentList.append(contentsOf: comments)
+            }
+        })
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 HStack {

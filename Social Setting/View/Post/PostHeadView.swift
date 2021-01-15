@@ -40,7 +40,6 @@ struct PostHeadView<V: View>: View {
                 })
             
             Button(action: {
-                print(post.postName)
                 feedViewModel.setDeletablePost(post: post)
                 feedViewModel.showActionSheet.toggle()
             }, label: {

@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct CommentResponse {
+struct CommentResponse: Decodable {
     let id: Int64
     let postId: Int64
     let text: String
     let username: String
-    let dureation: String
+    let duration: String
 }

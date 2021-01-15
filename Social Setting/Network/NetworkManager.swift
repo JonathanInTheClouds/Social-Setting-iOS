@@ -12,7 +12,7 @@ import SwiftKeychainWrapper
 struct NetworkManager: AuthTokenProtocol {
     
     private let session: NetworkSession
-    private let authenticator:Authenticator
+    private let authenticator: Authenticator
     
     struct Response<T> {
         let value: T
