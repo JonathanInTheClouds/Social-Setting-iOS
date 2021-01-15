@@ -22,13 +22,39 @@ struct PostCommentView: View {
                 LazyVStack {
                     PostFeedView(post: $post)
                         .groupBoxStyle(PostGroupBoxStyle(destination: Text(""), post: post))
+                    CommentHeader()
                     ForEach(commentList.indices, id: \.self) { index in
-                        VStack {
+                        VStack(alignment: .leading, spacing: 10) {
                             HStack {
-                                Text(commentList[index].text)
+                                ProfileImage(buttonSize: 32, imageSize: 14, destination: Text(""))
+                                Text(commentList[index].username)
+                                
+                                Spacer()
+                                
+                                Text(post.duration)
+                                    .foregroundColor(.gray79)
+                                    .font(.footnote)
+                                
+                                Button(action: {
+                                }, label: {
+                                    HStack {
+                                        Spacer()
+                                        Image(systemName: "ellipsis")
+                                            .foregroundColor(Color.gray79)
+                                    }
+                                    .frame(width: 50, height: 25, alignment: .center)
+                                })
                             }
+                            
+                            Text(commentList[index].text)
+                                .foregroundColor(Color.gray99)
                         }
+                        .padding(.horizontal, 16)
+                        Color.gray39
+                            .frame(height: 1)
                     }
+                    .padding(.vertical, 5)
+                    .padding(.top, 1)
                 }
             }
         }
@@ -57,5 +83,25 @@ struct PostCommentView: View {
 struct PostCommentView_Previews: PreviewProvider {
     static var previews: some View {
         PostCommentView(post: .constant(MockData.post[0]))
+    }
+}
+
+private struct CommentHeader: View {
+    var body: some View {
+        ZStack {
+            Color.gray19
+                .frame(height: 56)
+            VStack {
+                Spacer()
+                HStack {
+                    Text("COMMENTS")
+                        .font(.caption)
+                        .foregroundColor(Color.gray79)
+                    Spacer()
+                }
+            }
+            .padding(.horizontal, 16)
+            .padding(.bottom, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+        }
     }
 }

@@ -50,7 +50,6 @@
 		247B8D9525A3D92600364C9F /* URLSession+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247B8D9425A3D92600364C9F /* URLSession+Publisher.swift */; };
 		247B8D9B25A3DE4B00364C9F /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247B8D9A25A3DE4B00364C9F /* Authenticator.swift */; };
 		247B8D9E25A3DFB200364C9F /* AuthenticationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247B8D9D25A3DFB200364C9F /* AuthenticationError.swift */; };
-		24806AF225B13539009F500C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24806AF125B13539009F500C /* Network.swift */; };
 		249428AC25A43019002C4D6D /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249428AB25A43019002C4D6D /* Response.swift */; };
 		249428B225A43171002C4D6D /* SubSettingFeedEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249428B125A43171002C4D6D /* SubSettingFeedEndpoint.swift */; };
 		249428BC25A43889002C4D6D /* Encodable+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249428BB25A43889002C4D6D /* Encodable+Data.swift */; };
@@ -144,7 +143,6 @@
 		247B8D9425A3D92600364C9F /* URLSession+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Publisher.swift"; sourceTree = "<group>"; };
 		247B8D9A25A3DE4B00364C9F /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		247B8D9D25A3DFB200364C9F /* AuthenticationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationError.swift; sourceTree = "<group>"; };
-		24806AF125B13539009F500C /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		249428AB25A43019002C4D6D /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		249428B125A43171002C4D6D /* SubSettingFeedEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSettingFeedEndpoint.swift; sourceTree = "<group>"; };
 		249428BB25A43889002C4D6D /* Encodable+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Data.swift"; sourceTree = "<group>"; };
@@ -365,7 +363,6 @@
 				247B8D8C25A3D7F800364C9F /* Protocol */,
 				24F41BF225A4FF25007981A7 /* Endpoint */,
 				249AB51925A01CB60093BE80 /* SocialSettingAPI.swift */,
-				24806AF125B13539009F500C /* Network.swift */,
 				249AB51C25A01D580093BE80 /* NetworkManager.swift */,
 				24F41BF925A5050D007981A7 /* MockData.swift */,
 			);
@@ -379,6 +376,14 @@
 				247B8D8D25A3D80E00364C9F /* NetworkSession.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		24806AF325B14A26009F500C /* Vote */ = {
+			isa = PBXGroup;
+			children = (
+				24F41C1425A568F5007981A7 /* VoteRequest.swift */,
+			);
+			path = Vote;
 			sourceTree = "<group>";
 		};
 		249428AA25A43006002C4D6D /* Helper */ = {
@@ -468,7 +473,7 @@
 				2436D25325A2A2E3001D86A0 /* Post */,
 				249A015225B0072F00508CD5 /* Comment */,
 				2436D24925A2A242001D86A0 /* SubSetting */,
-				24F41C1425A568F5007981A7 /* VoteRequest.swift */,
+				24806AF325B14A26009F500C /* Vote */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -666,7 +671,6 @@
 				249428B225A43171002C4D6D /* SubSettingFeedEndpoint.swift in Sources */,
 				2436D25F25A2C74C001D86A0 /* RefreshTokenRequest.swift in Sources */,
 				24D99D6125AE5D3800BFE9EF /* PostCreateSubscriptionListViewModel.swift in Sources */,
-				24806AF225B13539009F500C /* Network.swift in Sources */,
 				24E9AFFC259E7905006D1DBB /* AuthViewModel.swift in Sources */,
 				244F4DBE25A1A073007ED6C8 /* AuthEndpoint.swift in Sources */,
 				2407A7AF259E6FAC00B20C39 /* Social_SettingApp.swift in Sources */,
