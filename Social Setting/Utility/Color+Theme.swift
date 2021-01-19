@@ -53,5 +53,9 @@ extension Color {
         return Color("tertiarySystemBackground")
     }
     
+    static var navAltColor: Color {
+        return Color("navAltColor")
+    }
+    
     
 }

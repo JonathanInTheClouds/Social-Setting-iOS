@@ -19,18 +19,20 @@ struct DynamicBackground<Content: View>: View {
     
     var spacing: CGFloat?
     
+    var color: Color
     
-    init(_ edge: Edge.Set = .all, _ length: CGFloat? = nil, alignment: HorizontalAlignment = .center, spacing: CGFloat? = nil, @ViewBuilder content: @escaping () -> Content) {
+    init(_ edge: Edge.Set = .all, _ length: CGFloat? = nil, alignment: HorizontalAlignment = .center, spacing: CGFloat? = nil, color: Color = Color.tertiarySystemBackground, @ViewBuilder content: @escaping () -> Content) {
         self.content = content
         self.edge = edge
         self.length = length
         self.alignment = alignment
         self.spacing = spacing
+        self.color = color
     }
     
     var body: some View {
         ZStack {
-            Color.tertiarySystemBackground
+            color
                 .ignoresSafeArea()
             VStack(alignment: alignment, spacing: spacing) {
                 content()

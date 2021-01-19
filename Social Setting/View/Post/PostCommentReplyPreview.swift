@@ -9,10 +9,12 @@ import SwiftUI
 
 struct PostCommentReplyPreview: View {
     
+    @Environment(\.colorScheme) var colorScheme
+    
     var post: PostResponse?
     
     var body: some View {
-        DynamicBackground(Edge.Set.horizontal, 16) {
+        DynamicBackground(Edge.Set.horizontal, 16, color: colorScheme == .dark ? Color.tertiarySystemBackground : Color.gray19) {
             VStack(alignment: .leading) {
                 HStack {
                     Image(systemName: "arrow.turn.down.right")

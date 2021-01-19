@@ -28,6 +28,8 @@
 		24122F2E25A9260000C0340C /* PostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24122F2D25A9260000C0340C /* PostCommentView.swift */; };
 		241C78FE25A79008000BEAAD /* PostDeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241C78FD25A79008000BEAAD /* PostDeleteView.swift */; };
 		241C790025A7BBCF000BEAAD /* AlternativeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241C78FF25A7BBCF000BEAAD /* AlternativeButtonView.swift */; };
+		24308EE125B75CF500551333 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24308EE025B75CF500551333 /* ProgressBar.swift */; };
+		24308EE725B76C7A00551333 /* DisableModalDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24308EE625B76C7A00551333 /* DisableModalDismiss.swift */; };
 		2435BA2025A9783300E6A99D /* Vibrate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435BA1F25A9783300E6A99D /* Vibrate.swift */; };
 		2436D24725A243A6001D86A0 /* VerifyCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2436D24625A243A6001D86A0 /* VerifyCodeView.swift */; };
 		2436D24B25A2A274001D86A0 /* SubSettingFeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2436D24A25A2A274001D86A0 /* SubSettingFeedResponse.swift */; };
@@ -128,6 +130,8 @@
 		24122F2D25A9260000C0340C /* PostCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentView.swift; sourceTree = "<group>"; };
 		241C78FD25A79008000BEAAD /* PostDeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDeleteView.swift; sourceTree = "<group>"; };
 		241C78FF25A7BBCF000BEAAD /* AlternativeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativeButtonView.swift; sourceTree = "<group>"; };
+		24308EE025B75CF500551333 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		24308EE625B76C7A00551333 /* DisableModalDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableModalDismiss.swift; sourceTree = "<group>"; };
 		2435BA1F25A9783300E6A99D /* Vibrate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vibrate.swift; sourceTree = "<group>"; };
 		2436D24625A243A6001D86A0 /* VerifyCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyCodeView.swift; sourceTree = "<group>"; };
 		2436D24A25A2A274001D86A0 /* SubSettingFeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSettingFeedResponse.swift; sourceTree = "<group>"; };
@@ -264,6 +268,7 @@
 				249428BB25A43889002C4D6D /* Encodable+Data.swift */,
 				24E9B013259E8EAF006D1DBB /* DismissingKeyboard.swift */,
 				2435BA1F25A9783300E6A99D /* Vibrate.swift */,
+				24308EE625B76C7A00551333 /* DisableModalDismiss.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 				24122F2D25A9260000C0340C /* PostCommentView.swift */,
 				24A19E1B25B60F19002DFAB5 /* PostCreateCommentView.swift */,
 				24C2D4E925B69E3E00D68E4D /* PostCommentReplyPreview.swift */,
+				24308EE025B75CF500551333 /* ProgressBar.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -693,12 +699,14 @@
 				2436D25F25A2C74C001D86A0 /* RefreshTokenRequest.swift in Sources */,
 				24D99D6125AE5D3800BFE9EF /* PostCreateSubscriptionListViewModel.swift in Sources */,
 				24E9AFFC259E7905006D1DBB /* AuthViewModel.swift in Sources */,
+				24308EE725B76C7A00551333 /* DisableModalDismiss.swift in Sources */,
 				244F4DBE25A1A073007ED6C8 /* AuthEndpoint.swift in Sources */,
 				2407A7AF259E6FAC00B20C39 /* Social_SettingApp.swift in Sources */,
 				24E9B004259E8315006D1DBB /* AltButtonView.swift in Sources */,
 				24447EC525A6761D003B3EDD /* FeedViewAlt.swift in Sources */,
 				2464CD1625AC10CB00CFF156 /* SubscriptionEndpoint.swift in Sources */,
 				2436D25525A2A2FA001D86A0 /* PostResponse.swift in Sources */,
+				24308EE125B75CF500551333 /* ProgressBar.swift in Sources */,
 				2407A7D9259E777400B20C39 /* StandardInputView.swift in Sources */,
 				24F41C0B25A55872007981A7 /* PostViewModel.swift in Sources */,
 				240FCC9D25A4E33E00657F76 /* PostBodyView.swift in Sources */,

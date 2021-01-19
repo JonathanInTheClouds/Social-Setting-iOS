@@ -40,6 +40,7 @@ struct PostFeedView: View {
         }
         .sheet(isPresented: $commentPopupHelper.shouldReply) {
             PostCreateCommentView()
+                .environmentObject(commentPopupHelper)
         }
     }
 }

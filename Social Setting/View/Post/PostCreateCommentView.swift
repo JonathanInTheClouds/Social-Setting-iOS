@@ -16,11 +16,13 @@ struct PostCreateCommentView: View {
     
     @State var commentEditing = true
     
+    @State var progressValue: Float = 0.0
+    
     init() {
         // for navigation bar title color
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.clear]
         // For navigation bar background color
-        UINavigationBar.appearance().backgroundColor = UIColor(Color(red: 28/255, green: 28/255, blue: 30/255))
+        UINavigationBar.appearance().backgroundColor = UIColor(Color.navAltColor)
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().isTranslucent = true
@@ -32,7 +34,11 @@ struct PostCreateCommentView: View {
             VStack {
                 TextView(text: $commentText, isEditing: $commentEditing, placeholder: "Whats on your mind?", textHorizontalPadding: 16, placeholderHorizontalPadding: 20, font: .systemFont(ofSize: 18))
                     .padding(.top, 20)
-                PostCommentReplyPreview(post: commentPopupHelper.commentRequestHelper.post)
+                VStack(spacing: 0) {
+                    ProgressBar(value: $progressValue)
+                        .frame(height: 1)
+                    PostCommentReplyPreview(post: commentPopupHelper.commentRequestHelper.post)
+                }
             }
             .toolbar {
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
@@ -58,7 +64,9 @@ struct PostCreateCommentView: View {
                 }
                 
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Button(action: {
+                        startProgressBar()
+                    }, label: {
                         Text("Post")
                             .foregroundColor(Color.baseColor)
                     })
@@ -66,6 +74,7 @@ struct PostCreateCommentView: View {
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
+            .modifier(DisableModalDismiss(disabled: !commentText.isEmpty))
         }
         .onDisappear {
             // for navigation bar title color
@@ -75,6 +84,12 @@ struct PostCreateCommentView: View {
             UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
             UINavigationBar.appearance().shadowImage = nil
             UINavigationBar.appearance().isTranslucent = true
+        }
+    }
+    
+    func startProgressBar() {
+        for _ in 0...30 {
+            self.progressValue += 0.015
         }
     }
 }
