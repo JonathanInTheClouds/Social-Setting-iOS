@@ -9,13 +9,11 @@ import SwiftUI
 
 struct PostFeedView: View {
     
+    @EnvironmentObject var commentPopupHelper: CommentPopupHelper
+    
     @Binding var post: PostResponse
     
     @State var shouldPush = false
-    
-    init(post: Binding<PostResponse>) {
-        self._post = post
-    }
     
     var body: some View {
         ZStack {
@@ -39,6 +37,9 @@ struct PostFeedView: View {
             if post.deleted ?? false {
                 PostDeleteView()
             }
+        }
+        .sheet(isPresented: $commentPopupHelper.shouldReply) {
+            PostCreateCommentView()
         }
     }
 }

@@ -10,11 +10,15 @@ import ASCollectionView
 
 struct PostCommentView: View {
     
+    @EnvironmentObject var commentPopupHelper: CommentPopupHelper
+    
     @ObservedObject var postCommentViewModel = PostCommentViewModel()
     
     @State var commentList = [CommentResponse]()
     
     @Binding var post: PostResponse
+    
+    @State var shouldReply = false
     
     var body: some View {
         DynamicBackground {
@@ -22,45 +26,85 @@ struct PostCommentView: View {
                 LazyVStack {
                     PostFeedView(post: $post)
                         .groupBoxStyle(PostGroupBoxStyle(destination: Text(""), post: post))
-                    CommentHeader()
-                    ForEach(commentList.indices, id: \.self) { index in
-                        VStack(alignment: .leading, spacing: 10) {
-                            HStack {
-                                ProfileImage(buttonSize: 32, imageSize: 14, destination: Text(""))
-                                Text(commentList[index].username)
-                                
-                                Spacer()
-                                
-                                Text(post.duration)
-                                    .foregroundColor(.gray79)
-                                    .font(.footnote)
-                                
-                                Button(action: {
-                                }, label: {
-                                    HStack {
-                                        Spacer()
-                                        Image(systemName: "ellipsis")
-                                            .foregroundColor(Color.gray79)
+                    Group {
+                        CommentHeader()
+                        ForEach(commentList.indices, id: \.self) { index in
+                            VStack(alignment: .leading, spacing: 10) {
+                                HStack {
+                                    ProfileImage(buttonSize: 32, imageSize: 14, destination: Text(""))
+                                    Text(commentList[index].username)
+                                    
+                                    Spacer()
+                                    
+                                    Text(post.duration)
+                                        .foregroundColor(.gray79)
+                                        .font(.footnote)
+                                    
+                                    Button(action: {}, label: {
+                                        HStack {
+                                            Spacer()
+                                            Image(systemName: "ellipsis")
+                                                .foregroundColor(Color.gray79)
+                                        }
+                                        .frame(width: 50, height: 25, alignment: .center)
+                                    })
+                                }
+                                Text(commentList[index].text)
+                                    .foregroundColor(Color.gray99)
+                                HStack {
+                                    if let likes = commentList[index].likes, likes != 0 {
+                                        Text("\(likes) likes")
+                                            .foregroundColor(.gray79)
+                                            .font(.footnote)
+                                    } else {
+                                        Text("- likes")
+                                            .foregroundColor(.gray79)
+                                            .font(.footnote)
                                     }
-                                    .frame(width: 50, height: 25, alignment: .center)
-                                })
+                                    
+                                    Spacer()
+                                    
+                                    HStack(spacing: 20) {
+                                        Button(action: {
+                                            commentPopupHelper.commentRequestHelper.post = post
+                                            commentPopupHelper.shouldReply = true
+                                        }, label: {
+                                            Text("Reply")
+                                                .foregroundColor(.baseColor)
+                                                .font(.footnote)
+                                        })
+                                        
+                                        Button(action: {
+                                            Vibration.soft.vibrate()
+                                            withAnimation {
+                                                if let _ =  commentList[index].likes {
+                                                    commentList[index].likes! += 1
+                                                } else {
+                                                    commentList[index].likes = 1
+                                                }
+                                            }
+                                        }, label: {
+                                            Text("Like")
+                                                .foregroundColor(.baseColor)
+                                                .font(.footnote)
+                                        })
+                                    }
+                                }
                             }
-                            
-                            Text(commentList[index].text)
-                                .foregroundColor(Color.gray99)
+                            .padding(.horizontal, 16)
+                            Color.gray39
+                                .frame(height: 1)
                         }
-                        .padding(.horizontal, 16)
-                        Color.gray39
-                            .frame(height: 1)
                     }
+                    .opacity(!commentList.isEmpty ? 1 : 0)
                     .padding(.vertical, 5)
                     .padding(.top, 1)
                 }
             }
         }
         .onAppear(perform: {
-            postCommentViewModel.getComments(subSettingName: post.subSettingName, postId: post.postId) { (comments)  in 
-                self.commentList.append(contentsOf: comments)
+            postCommentViewModel.getComments(subSettingName: post.subSettingName, postId: post.postId) {
+                self.commentList.append(contentsOf: $0)
             }
         })
         .toolbar {
@@ -77,6 +121,10 @@ struct PostCommentView: View {
                 }
             }
         }
+        .sheet(isPresented: $commentPopupHelper.shouldReply, content: {
+            PostCreateCommentView()
+                .environmentObject(commentPopupHelper)
+        })
     }
 }
 

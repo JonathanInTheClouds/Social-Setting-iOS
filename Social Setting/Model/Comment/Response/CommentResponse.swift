@@ -13,4 +13,5 @@ struct CommentResponse: Decodable {
     let text: String
     let username: String
     let duration: String
+    var likes: Int? = 0
 }

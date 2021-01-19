@@ -12,20 +12,13 @@ class PostCommentViewModel: ObservableObject {
     
     @Published var commentList = [CommentResponse]()
     
-    
-    
     var page: Int = 0
     
     var commentFeedCancellable: AnyCancellable?
     
-    deinit {
-        print("PostCommentViewModel Killed - ☠️")
-    }
-    
     func getComments(subSettingName: String, postId: Int64, completion: @escaping ([CommentResponse]) -> Void) {
         commentFeedCancellable = SocialSettingAPI.getComments(subSettingName: subSettingName, postId: postId, page: page)
             .sink(receiveCompletion: { print($0) }, receiveValue: {
-                
                 completion($0.comments)
             })
     }

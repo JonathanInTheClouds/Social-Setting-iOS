@@ -14,6 +14,7 @@ struct Social_SettingApp: App {
     let authViewModel = AuthViewModel()
     let postViewModel = PostViewModel()
     let feedViewModel = FeedViewModel()
+    let commentPopupHelper = CommentPopupHelper()
     
     init() {
         UINavigationBar.appearance().tintColor = UIColor(Color.baseColor)
@@ -28,6 +29,7 @@ struct Social_SettingApp: App {
                 .environmentObject(authViewModel)
                 .environmentObject(feedViewModel)
                 .environmentObject(postViewModel)
+                .environmentObject(commentPopupHelper)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

@@ -14,6 +14,8 @@ struct PostHButtonView: View {
     
     @EnvironmentObject var postViewModel: PostViewModel
     
+    @EnvironmentObject var commentPopupHelper: CommentPopupHelper
+    
     @Binding var post: PostResponse
     
     private let likeButtonColor = Color.baseColor
@@ -41,7 +43,10 @@ struct PostHButtonView: View {
             })
             .frame(height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+            Button(action: {
+                commentPopupHelper.commentRequestHelper.post = post
+                commentPopupHelper.shouldReply = true
+            }, label: {
                 HStack {
                     Image(systemName: "bubble.left.and.bubble.right.fill")
                         .resizable()
