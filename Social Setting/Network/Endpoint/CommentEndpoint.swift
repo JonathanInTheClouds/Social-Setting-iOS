@@ -11,7 +11,7 @@ import Combine
 extension SocialSettingAPI {
     static func getComments(subSettingName: String, postId: Int64, page: Int) -> AnyPublisher<CommentFeedResponse, Error> {
         let queryItems = [URLQueryItem(name: "page", value: "\(page)"),
-                          URLQueryItem(name: "amount", value: "\(40)"),
+                          URLQueryItem(name: "amount", value: "\(20)"),
                           URLQueryItem(name: "info", value: "true")]
         var urlComponent = base
         urlComponent.queryItems = queryItems

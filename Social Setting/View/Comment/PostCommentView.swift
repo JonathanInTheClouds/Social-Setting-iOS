@@ -73,7 +73,6 @@ struct PostCommentView: View {
         let lastIndex = commentList.count - 1
         let shouldLoadMore = (lastIndex == current)
         if shouldLoadMore {
-            print("Should Get More")
             postCommentViewModel.getComments(subSettingName: post.subSettingName, postId: post.postId, page: page, completion: handleData)
         }
     }
@@ -82,9 +81,7 @@ struct PostCommentView: View {
         switch data {
         case .success(let result):
             self.commentList.append(contentsOf: result.comments)
-            if !result.comments.isEmpty {
-                page += 1
-            }
+            if !result.comments.isEmpty { page += 1 }
             guard let post = result.post else { return }
             self.post.commentCount = post.commentCount
             self.post.voteCount = post.voteCount
