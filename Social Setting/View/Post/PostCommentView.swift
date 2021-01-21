@@ -122,8 +122,9 @@ struct PostCommentView: View {
             }
         }
         .sheet(isPresented: $commentPopupHelper.shouldReply, content: {
-            PostCreateCommentView()
+            PostCreateCommentView(commentList: $commentList)
                 .environmentObject(commentPopupHelper)
+                .environmentObject(postCommentViewModel)
         })
     }
 }

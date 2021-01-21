@@ -48,14 +48,14 @@ struct PostHButtonView: View {
                 commentPopupHelper.shouldReply = true
             }, label: {
                 HStack {
-                    Image(systemName: "bubble.left.and.bubble.right.fill")
+                    Image(systemName: "arrowshape.turn.up.backward.fill")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 25, height: 25, alignment: .center)
                         .foregroundColor(Color.gray79)
                         .padding(.trailing, 5)
                     
-                    Text("12")
+                    Text("\(post.commentCount)")
                         .foregroundColor(Color.gray79)
                 }
             })

@@ -11,6 +11,7 @@ struct PostFeedView: View {
     
     @EnvironmentObject var commentPopupHelper: CommentPopupHelper
     
+    
     @Binding var post: PostResponse
     
     @State var shouldPush = false
@@ -39,7 +40,7 @@ struct PostFeedView: View {
             }
         }
         .sheet(isPresented: $commentPopupHelper.shouldReply) {
-            PostCreateCommentView()
+            PostCreateCommentView(commentList: .constant([CommentResponse]()))
                 .environmentObject(commentPopupHelper)
         }
     }

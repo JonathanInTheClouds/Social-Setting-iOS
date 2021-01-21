@@ -21,4 +21,14 @@ extension SocialSettingAPI {
             .map(\.value)
             .eraseToAnyPublisher()
     }
+    
+    static func createComment(subSettingName: String, postId: Int, text: String) -> AnyPublisher<CommentResponse, Error> {
+        guard let url = base.url else { return Fail(error: NetworkError.badURL).eraseToAnyPublisher() }
+        var request = URLRequest(url: url.appendingPathComponent("subSetting/\(subSettingName)/post/\(postId)/comment"))
+        request.httpMethod = "POST"
+        request.httpBody = CommentRequest(text: text).toData()
+        return agent.authenticatedRun(request)
+            .map(\.value)
+            .eraseToAnyPublisher()
+    }
 }

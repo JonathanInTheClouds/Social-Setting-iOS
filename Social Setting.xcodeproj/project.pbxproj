@@ -289,6 +289,7 @@
 		2407A7D7259E774600B20C39 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				24308EE025B75CF500551333 /* ProgressBar.swift */,
 				2407A7D8259E777400B20C39 /* StandardInputView.swift */,
 				24E9AFFF259E80EC006D1DBB /* MainButtonView.swift */,
 				24E9B003259E8315006D1DBB /* AltButtonView.swift */,
@@ -324,7 +325,6 @@
 				24122F2D25A9260000C0340C /* PostCommentView.swift */,
 				24A19E1B25B60F19002DFAB5 /* PostCreateCommentView.swift */,
 				24C2D4E925B69E3E00D68E4D /* PostCommentReplyPreview.swift */,
-				24308EE025B75CF500551333 /* ProgressBar.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";

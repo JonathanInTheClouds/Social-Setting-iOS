@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct CommentRequest {
+struct CommentRequest: Codable {
     let text: String
 }

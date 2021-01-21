@@ -12,13 +12,17 @@ struct PostCreateCommentView: View {
     
     @EnvironmentObject var commentPopupHelper: CommentPopupHelper
     
+    @ObservedObject var postCommentViewModel: PostCommentViewModel = PostCommentViewModel()
+    
     @State var commentText = ""
     
     @State var commentEditing = true
     
     @State var progressValue: Float = 0.0
     
-    init() {
+    @Binding var commentList: [CommentResponse]
+    
+    init(commentList: Binding<[CommentResponse]>) {
         // for navigation bar title color
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.clear]
         // For navigation bar background color
@@ -26,13 +30,16 @@ struct PostCreateCommentView: View {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().isTranslucent = true
+        self._commentList = commentList
     }
     
     
     var body: some View {
         NavigationView {
             VStack {
-                TextView(text: $commentText, isEditing: $commentEditing, placeholder: "Whats on your mind?", textHorizontalPadding: 16, placeholderHorizontalPadding: 20, font: .systemFont(ofSize: 18))
+                TextView(text: $commentText, isEditing: $commentEditing,
+                         placeholder: "Whats on your mind?", textHorizontalPadding: 16,
+                         placeholderHorizontalPadding: 20, font: .systemFont(ofSize: 18))
                     .padding(.top, 20)
                 VStack(spacing: 0) {
                     ProgressBar(value: $progressValue)
@@ -65,7 +72,20 @@ struct PostCreateCommentView: View {
                 
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                     Button(action: {
+                        guard let post = commentPopupHelper.commentRequestHelper.post else { return }
                         startProgressBar()
+                        postCommentViewModel.createComment(subSettingName: post.subSettingName, postId: Int(post.postId), text: commentText) { (result) in
+                            switch result {
+                            case .success(let commentResponse):
+                                commentList.append(commentResponse)
+                                progressValue = 1
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    commentPopupHelper.shouldReply = false
+                                }
+                            case .failure(_):
+                                resetProgressBar()
+                            }
+                        }
                     }, label: {
                         Text("Post")
                             .foregroundColor(Color.baseColor)
@@ -92,10 +112,18 @@ struct PostCreateCommentView: View {
             self.progressValue += 0.015
         }
     }
+    
+    func finishProgressBar(competion: @escaping () -> ()) {
+        
+    }
+    
+    func resetProgressBar() {
+        self.progressValue = 0
+    }
 }
 
 struct PostCreateCommentView_Previews: PreviewProvider {
     static var previews: some View {
-        PostCreateCommentView()
+        PostCreateCommentView(commentList: .constant([CommentResponse]()))
     }
 }
