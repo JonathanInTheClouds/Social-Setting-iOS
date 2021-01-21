@@ -22,7 +22,9 @@ struct PostCreateCommentView: View {
     
     @Binding var commentList: [CommentResponse]
     
-    init(commentList: Binding<[CommentResponse]>) {
+    @Binding var targetPost: PostResponse
+    
+    init(commentList: Binding<[CommentResponse]>, targetPost: Binding<PostResponse>) {
         // for navigation bar title color
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.clear]
         // For navigation bar background color
@@ -31,6 +33,7 @@ struct PostCreateCommentView: View {
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().isTranslucent = true
         self._commentList = commentList
+        self._targetPost = targetPost
     }
     
     
@@ -81,6 +84,7 @@ struct PostCreateCommentView: View {
                                 progressValue = 1
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                     commentPopupHelper.shouldReply = false
+                                    targetPost.commentCount += 1
                                 }
                             case .failure(_):
                                 resetProgressBar()
@@ -124,6 +128,6 @@ struct PostCreateCommentView: View {
 
 struct PostCreateCommentView_Previews: PreviewProvider {
     static var previews: some View {
-        PostCreateCommentView(commentList: .constant([CommentResponse]()))
+        PostCreateCommentView(commentList: .constant([CommentResponse]()), targetPost: .constant(MockData.post[0]))
     }
 }
