@@ -72,16 +72,14 @@ private struct HeaderView: View {
             HStack(alignment: .firstTextBaseline, spacing: /*@START_MENU_TOKEN@*/nil/*@END_MENU_TOKEN@*/, content: {
                 HStack {
                     Text(" TO: ")
-                    Button(action: {}, label: {
-                        NavigationLink(destination: PostCreateSubscriptionListView(username: $postCreateViewModel.subSettingName)) {
-                            HStack {
-                                Text("CS Students")
-                                    .foregroundColor(Color.labelColor)
-                                Image(systemName: "chevron.right")
-                                    .foregroundColor(Color.labelColor)
-                            }
+                    NavigationLink(destination: PostCreateSubscriptionListView(subSettingName: $postCreateViewModel.subSettingName)) {
+                        HStack {
+                            Text(postCreateViewModel.subSettingName ?? "")
+                                .foregroundColor(Color.labelColor)
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(Color.labelColor)
                         }
-                    })
+                    }
                     .padding(.horizontal, 15)
                     .frame(height: 30)
                     .background(Color.itemColor)

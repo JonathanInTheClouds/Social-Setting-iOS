@@ -8,11 +8,11 @@
 import Foundation
 import Combine
 
-class PostCreateSubscriptionListViewModel: ObservableObject {
+class PostCreateSubscriptionListViewModel: ObservableObject, AuthTokenProtocol {
     
     @Published var subSettingList = [SubSettingResponse]()
     
-    @Published var selectedSubSetting: SubSettingResponse? = nil
+    @Published var selectedSubSetting: String? = nil
     
     private var subSettingListCancellable: AnyCancellable?
     
@@ -22,7 +22,7 @@ class PostCreateSubscriptionListViewModel: ObservableObject {
         getSubSettingSubscriptions()
         let userDefaults = UserDefaults.standard
         do {
-            let savedSubSetting = try userDefaults.getObject(forKey: "SelectedSubSetting", castTo: SubSettingResponse.self)
+            let savedSubSetting = try userDefaults.getObject(forKey: "SelectedSubSetting", castTo: String.self)
             self.selectedSubSetting = savedSubSetting
             print(savedSubSetting)
         } catch {

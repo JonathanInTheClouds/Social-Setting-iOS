@@ -6,70 +6,54 @@
 //
 
 import SwiftUI
+import SwiftKeychainWrapper
 
 struct PostCreateSubscriptionListView: View {
     
     @ObservedObject var postCreateSubscriptionListViewModel = PostCreateSubscriptionListViewModel()
     
-    @Binding var username: String?
+    @Binding var subSettingName: String?
     
-    @State var subSettingId: Int64 = -0
+    @State var tempSubSettingName = ""
     
     var body: some View {
         List {
-//            ForEach(postCreateSubscriptionListViewModel.subSettingList.indices) { index in
-//                PostCreateSubscriptionCell(selectedSubSetting: $postCreateSubscriptionListViewModel.selectedSubSetting, subSetting: $postCreateSubscriptionListViewModel.subSettingList[index])
-//            }
-            ForEach(postCreateSubscriptionListViewModel.subSettingList) { item in
+            
+            if let currentUser = postCreateSubscriptionListViewModel.savedAuthentication {
                 Button {
-                    subSettingId = item.id
-                    let userDefaults = UserDefaults.standard
-                    do {
-                        try userDefaults.setObject(item, forKey: "SelectedSubSetting")
-                    } catch {
-                        print(error.localizedDescription)
-                    }
+                    tempSubSettingName = currentUser.username
+                    UserDefaults.standard.set(tempSubSettingName, forKey: "SelectedSubSetting")
                 } label: {
                     HStack {
-                        Text(item.name)
-                            .bold()
+                        Text(currentUser.username)
                         Spacer()
-                        if item.id == subSettingId {
+                        if let name = subSettingName, (currentUser.username == name && tempSubSettingName.isEmpty) || (currentUser.username == tempSubSettingName) {
                             Image(systemName: "checkmark")
                         }
                     }
                 }
             }
-        }
-        .navigationTitle("SubSettings")
-    }
-}
-
-
-private struct PostCreateSubscriptionCell: View {
-    
-    @Binding var selectedSubSetting: SubSettingResponse?
-    
-    @Binding var subSetting: SubSettingResponse
-    
-    var body: some View {
-        Button(action: {
-            selectedSubSetting = subSetting
-            let userDefaults = UserDefaults.standard
-            do {
-                try userDefaults.setObject(subSetting, forKey: "SelectedSubSetting")
-            } catch {
-                print(error.localizedDescription)
-            }
-        }, label: {
-            HStack {
-                Text(subSetting.name)
-                    .bold()
-                Spacer()
-                if subSetting.id == selectedSubSetting?.id {
-                    Image(systemName: "checkmark")
+            
+            ForEach(postCreateSubscriptionListViewModel.subSettingList) { item in
+                Button {
+                    tempSubSettingName = item.name
+                    UserDefaults.standard.set(tempSubSettingName, forKey: "SelectedSubSetting")
+                } label: {
+                    HStack {
+                        Text(item.name)
+                        Spacer()
+                        if let name = subSettingName, (item.name == name && tempSubSettingName.isEmpty) || (item.name == tempSubSettingName) {
+                            Image(systemName: "checkmark")
+                        }
+                    }
                 }
+
             }
-        })
+        }
+        .onDisappear {
+            withAnimation(.spring()) { 
+                subSettingName = tempSubSettingName
+            }
+        }
     }
 }

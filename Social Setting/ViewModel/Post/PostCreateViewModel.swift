@@ -23,27 +23,15 @@ class PostCreateViewModel: ObservableObject {
     
     init() {
         let userDefaults = UserDefaults.standard
-        do {
-            let savedSubSetting = try userDefaults.getObject(forKey: "SelectedSubSetting", castTo: SubSettingResponse.self)
-            subSettingName = savedSubSetting.name
-        } catch {
+        guard let savedSubSettingName = userDefaults.object(forKey: "SelectedSubSetting") as? String else {
             guard let auth = SocialSettingAPI.agent.savedAuthentication else { return }
             subSettingName = auth.username
+            return
         }
+        subSettingName = savedSubSettingName
     }
     
     deinit {
         print("PostCreateViewModel ☠️ Killed")
-    }
-    
-    func reload() {
-        let userDefaults = UserDefaults.standard
-        do {
-            let savedSubSetting = try userDefaults.getObject(forKey: "SelectedSubSetting", castTo: SubSettingResponse.self)
-            subSettingName = savedSubSetting.name
-        } catch {
-            guard let auth = SocialSettingAPI.agent.savedAuthentication else { return }
-            subSettingName = auth.username
-        }
     }
 }
