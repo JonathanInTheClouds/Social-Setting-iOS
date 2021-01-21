@@ -78,6 +78,14 @@ struct PostHButtonView: View {
             })
             .frame(height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         }
+        .sheet(isPresented: $commentPopupHelper.shouldReply) {
+            PostCreateCommentView(commentList: .constant([CommentResponse]()), targetPost: $post)
+                .environmentObject(commentPopupHelper)
+                .onDisappear {
+                    guard let count = commentPopupHelper.commentRequestHelper.post?.commentCount else {return}
+                    post.commentCount = count
+                }
+        }
     }
     
 }

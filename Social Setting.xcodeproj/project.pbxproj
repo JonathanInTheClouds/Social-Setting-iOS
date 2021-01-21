@@ -280,6 +280,7 @@
 				2407A7C3259E700000B20C39 /* Auth */,
 				240FCC8725A4DC0B00657F76 /* Feed */,
 				240FCC8B25A4DE4800657F76 /* Post */,
+				24BFFD8125B949E600C9A444 /* Comment */,
 				244F4DA725A17CCA007ED6C8 /* Route */,
 				240FCC8425A4DB3900657F76 /* MainTabView.swift */,
 			);
@@ -322,9 +323,6 @@
 				24F41C0325A556D9007981A7 /* PostCreateView.swift */,
 				2464CD1725AC175A00CFF156 /* PostCreateSubscriptionListView.swift */,
 				241C78FD25A79008000BEAAD /* PostDeleteView.swift */,
-				24122F2D25A9260000C0340C /* PostCommentView.swift */,
-				24A19E1B25B60F19002DFAB5 /* PostCreateCommentView.swift */,
-				24C2D4E925B69E3E00D68E4D /* PostCommentReplyPreview.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -444,6 +442,16 @@
 				24C2D4EB25B6A66D00D68E4D /* CommentRequestHelper.swift */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		24BFFD8125B949E600C9A444 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				24122F2D25A9260000C0340C /* PostCommentView.swift */,
+				24A19E1B25B60F19002DFAB5 /* PostCreateCommentView.swift */,
+				24C2D4E925B69E3E00D68E4D /* PostCommentReplyPreview.swift */,
+			);
+			path = Comment;
 			sourceTree = "<group>";
 		};
 		24C2D4ED25B6B09700D68E4D /* Comment */ = {

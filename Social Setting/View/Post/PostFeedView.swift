@@ -39,10 +39,6 @@ struct PostFeedView: View {
                 PostDeleteView()
             }
         }
-        .sheet(isPresented: $commentPopupHelper.shouldReply) {
-            PostCreateCommentView(commentList: .constant([CommentResponse]()), targetPost: $post)
-                .environmentObject(commentPopupHelper)
-        }
     }
 }
 

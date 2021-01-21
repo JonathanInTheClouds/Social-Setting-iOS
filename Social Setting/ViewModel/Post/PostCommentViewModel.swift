@@ -10,14 +10,18 @@ import Combine
 
 class PostCommentViewModel: ObservableObject {
     
-    var page: Int = 0
-    
     var commentFeedCancellable: AnyCancellable?
     
-    func getComments(subSettingName: String, postId: Int64, completion: @escaping ([CommentResponse]) -> Void) {
+    func getComments(subSettingName: String, postId: Int64, page: Int, completion: @escaping (Result<CommentFeedResponse, Error>) -> Void) {
         commentFeedCancellable = SocialSettingAPI.getComments(subSettingName: subSettingName, postId: postId, page: page)
-            .sink(receiveCompletion: { print($0) }, receiveValue: {
-                completion($0.comments)
+            .sink(receiveCompletion: {
+                switch $0 {
+                case .finished: break
+                case .failure(_):
+                    completion(.failure(APIError.somethingWentWrong))
+                }
+            }, receiveValue: {
+                completion(.success($0))
             })
     }
     
