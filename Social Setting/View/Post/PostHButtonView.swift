@@ -81,10 +81,7 @@ struct PostHButtonView: View {
         .sheet(isPresented: $commentPopupHelper.shouldReply) {
             PostCreateCommentView(commentList: .constant([CommentResponse]()), targetPost: $post)
                 .environmentObject(commentPopupHelper)
-                .onDisappear {
-                    guard let count = commentPopupHelper.commentRequestHelper.post?.commentCount else {return}
-                    post.commentCount = count
-                }
+                
         }
     }
     
