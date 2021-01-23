@@ -38,6 +38,15 @@
         }
       },
       {
+        "package": "SwiftUIListSeparator",
+        "repositoryURL": "https://github.com/SchmidtyApps/SwiftUIListSeparator.git",
+        "state": {
+          "branch": null,
+          "revision": "4761aa9ec6142d348adc570fdb55f5cf19400f1a",
+          "version": "1.0.0"
+        }
+      },
+      {
         "package": "TextView",
         "repositoryURL": "https://github.com/kenmueller/TextView",
         "state": {

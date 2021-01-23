@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2405762825BB677400C44CB2 /* PostCreateCommentViewAlt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2405762725BB677400C44CB2 /* PostCreateCommentViewAlt.swift */; };
 		2407A7AF259E6FAC00B20C39 /* Social_SettingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2407A7AE259E6FAC00B20C39 /* Social_SettingApp.swift */; };
 		2407A7B1259E6FAC00B20C39 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2407A7B0259E6FAC00B20C39 /* ContentView.swift */; };
 		2407A7B3259E6FAD00B20C39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2407A7B2259E6FAD00B20C39 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		24447EC525A6761D003B3EDD /* FeedViewAlt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24447EC425A6761D003B3EDD /* FeedViewAlt.swift */; };
 		24447EC825A676DF003B3EDD /* ASCollectionViewDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 24447EC725A676DF003B3EDD /* ASCollectionViewDynamic */; };
 		24447EC925A676DF003B3EDD /* ASCollectionViewDynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 24447EC725A676DF003B3EDD /* ASCollectionViewDynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		244C6B5825BBABE600250978 /* SwiftUIListSeparator in Frameworks */ = {isa = PBXBuildFile; productRef = 244C6B5725BBABE600250978 /* SwiftUIListSeparator */; };
 		244F4DA525A17CC1007ED6C8 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F4DA425A17CC1007ED6C8 /* MainRouter.swift */; };
 		244F4DAB25A17EDF007ED6C8 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 244F4DAA25A17EDF007ED6C8 /* SwiftKeychainWrapper */; };
 		244F4DAE25A17F2B007ED6C8 /* AuthTokenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244F4DAD25A17F2B007ED6C8 /* AuthTokenProtocol.swift */; };
@@ -108,6 +110,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2405762725BB677400C44CB2 /* PostCreateCommentViewAlt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreateCommentViewAlt.swift; sourceTree = "<group>"; };
 		2407A7AB259E6FAC00B20C39 /* Social Setting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Social Setting.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2407A7AE259E6FAC00B20C39 /* Social_SettingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social_SettingApp.swift; sourceTree = "<group>"; };
 		2407A7B0259E6FAC00B20C39 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -199,6 +202,7 @@
 				244F4DAB25A17EDF007ED6C8 /* SwiftKeychainWrapper in Frameworks */,
 				24F41C0F25A558FC007981A7 /* TextView in Frameworks */,
 				2407A7D2259E76DF00B20C39 /* iTextField in Frameworks */,
+				244C6B5825BBABE600250978 /* SwiftUIListSeparator in Frameworks */,
 				24447EC825A676DF003B3EDD /* ASCollectionViewDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,6 +453,7 @@
 			children = (
 				24122F2D25A9260000C0340C /* PostCommentView.swift */,
 				24A19E1B25B60F19002DFAB5 /* PostCreateCommentView.swift */,
+				2405762725BB677400C44CB2 /* PostCreateCommentViewAlt.swift */,
 				24C2D4E925B69E3E00D68E4D /* PostCommentReplyPreview.swift */,
 			);
 			path = Comment;
@@ -595,6 +600,7 @@
 				244F4DAA25A17EDF007ED6C8 /* SwiftKeychainWrapper */,
 				24F41C0E25A558FC007981A7 /* TextView */,
 				24447EC725A676DF003B3EDD /* ASCollectionViewDynamic */,
+				244C6B5725BBABE600250978 /* SwiftUIListSeparator */,
 			);
 			productName = "Social Setting";
 			productReference = 2407A7AB259E6FAC00B20C39 /* Social Setting.app */;
@@ -628,6 +634,7 @@
 				244F4DA925A17EDF007ED6C8 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 				24F41C0D25A558FC007981A7 /* XCRemoteSwiftPackageReference "TextView" */,
 				24447EC625A676DF003B3EDD /* XCRemoteSwiftPackageReference "ASCollectionView" */,
+				244C6B5625BBABE600250978 /* XCRemoteSwiftPackageReference "SwiftUIListSeparator" */,
 			);
 			productRefGroup = 2407A7AC259E6FAC00B20C39 /* Products */;
 			projectDirPath = "";
@@ -705,6 +712,7 @@
 				2407A7CD259E729000B20C39 /* Color+Theme.swift in Sources */,
 				249428B225A43171002C4D6D /* SubSettingFeedEndpoint.swift in Sources */,
 				2436D25F25A2C74C001D86A0 /* RefreshTokenRequest.swift in Sources */,
+				2405762825BB677400C44CB2 /* PostCreateCommentViewAlt.swift in Sources */,
 				24D99D6125AE5D3800BFE9EF /* PostCreateSubscriptionListViewModel.swift in Sources */,
 				24E9AFFC259E7905006D1DBB /* AuthViewModel.swift in Sources */,
 				24308EE725B76C7A00551333 /* DisableModalDismiss.swift in Sources */,
@@ -938,6 +946,14 @@
 				minimumVersion = 1.7.1;
 			};
 		};
+		244C6B5625BBABE600250978 /* XCRemoteSwiftPackageReference "SwiftUIListSeparator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SchmidtyApps/SwiftUIListSeparator.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		244F4DA925A17EDF007ED6C8 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper.git";
@@ -966,6 +982,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 24447EC625A676DF003B3EDD /* XCRemoteSwiftPackageReference "ASCollectionView" */;
 			productName = ASCollectionViewDynamic;
+		};
+		244C6B5725BBABE600250978 /* SwiftUIListSeparator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 244C6B5625BBABE600250978 /* XCRemoteSwiftPackageReference "SwiftUIListSeparator" */;
+			productName = SwiftUIListSeparator;
 		};
 		244F4DAA25A17EDF007ED6C8 /* SwiftKeychainWrapper */ = {
 			isa = XCSwiftPackageProductDependency;

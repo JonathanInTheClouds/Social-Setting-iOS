@@ -44,15 +44,18 @@ class FeedViewModel: ObservableObject, AuthTokenProtocol {
     func createPost(post: PostRequest) {
         cancellable = SocialSettingAPI.createPost(post: post)
             .print()
-            .sink(receiveCompletion: { _ in }, receiveValue: {
-                self.postFeed.insert($0, at: 0)
+            .sink(receiveCompletion: { _ in 
                 self.createPostIsPresented = false
+            }, receiveValue: {
+                self.postFeed.insert($0, at: 0)
+                
             })
     }
     
     func deletePost() {
         guard let post = deletablePost else { return }
         cancellable = SocialSettingAPI.delete(post: post)
+            .print()
             .sink(receiveCompletion: { _ in }) {
                 for (index, element) in self.postFeed.enumerated() {
                     if element.postId == self.deletablePost?.postId {

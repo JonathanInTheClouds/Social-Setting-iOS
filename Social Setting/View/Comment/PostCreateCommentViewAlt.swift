@@ -1,18 +1,22 @@
 //
-//  PostCreateCommentView.swift
+//  PostCreateCommentViewAlt.swift
 //  Social Setting
 //
-//  Created by Mettaworldj on 1/18/21.
+//  Created by Mettaworldj on 1/22/21.
 //
 
 import SwiftUI
 import TextView
 
-struct PostCreateCommentView: View {
-    
-    @EnvironmentObject var commentPopupHelper: CommentPopupHelper
+struct PostCreateCommentViewAlt: View {
     
     @ObservedObject var postCommentViewModel: PostCommentViewModel = PostCommentViewModel()
+    
+    @Binding var isOpen: Bool
+    
+    @Binding var commentList: [CommentResponse]
+    
+    @Binding var targetPost: PostResponse
     
     @State var commentText = ""
     
@@ -20,19 +24,16 @@ struct PostCreateCommentView: View {
     
     @State var progressValue: Float = 0.0
     
-    @Binding var commentList: [CommentResponse]
-    
-    init(commentList: Binding<[CommentResponse]>, targetPost: Binding<PostResponse>) {
-        // for navigation bar title color
+    init(isOpen: Binding<Bool>, commentList: Binding<[CommentResponse]>, targetPost: Binding<PostResponse>) {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.clear]
-        // For navigation bar background color
         UINavigationBar.appearance().backgroundColor = UIColor(Color.navAltColor)
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().isTranslucent = true
         self._commentList = commentList
+        self._targetPost = targetPost
+        self._isOpen = isOpen
     }
-    
     
     var body: some View {
         NavigationView {
@@ -44,13 +45,13 @@ struct PostCreateCommentView: View {
                 VStack(spacing: 0) {
                     ProgressBar(value: $progressValue)
                         .frame(height: 1)
-                    PostCommentReplyPreview(post: commentPopupHelper.commentRequestHelper.post)
+                    PostCommentReplyPreview(post: targetPost)
                 }
             }
             .toolbar {
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
                     Button(action: {
-                        commentPopupHelper.shouldReply = false
+                        isOpen = false
                     }, label: {
                         Text("Cancel")
                             .foregroundColor(Color.baseColor)
@@ -72,15 +73,15 @@ struct PostCreateCommentView: View {
                 
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                     Button(action: {
-                        guard let post = commentPopupHelper.commentRequestHelper.post else { return }
                         startProgressBar()
-                        postCommentViewModel.createComment(subSettingName: post.subSettingName, postId: Int(post.postId), text: commentText) { (result) in
+                        postCommentViewModel.createComment(subSettingName: targetPost.subSettingName, postId: Int(targetPost.postId), text: commentText) { (result) in
                             switch result {
                             case .success(let commentResponse):
                                 commentList.append(commentResponse)
                                 progressValue = 1
+                                isOpen = false
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                    commentPopupHelper.shouldReply = false
+                                    targetPost.commentCount += 1
                                 }
                             case .failure(_):
                                 resetProgressBar()
@@ -122,8 +123,8 @@ struct PostCreateCommentView: View {
     }
 }
 
-struct PostCreateCommentView_Previews: PreviewProvider {
+struct PostCreateCommentViewAlt_Previews: PreviewProvider {
     static var previews: some View {
-        PostCreateCommentView(commentList: .constant([CommentResponse]()), targetPost: .constant(MockData.post[0]))
+        PostCreateCommentViewAlt(isOpen: .constant(true), commentList: .constant([CommentResponse]()), targetPost: .constant(MockData.post[0]))
     }
 }

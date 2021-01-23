@@ -11,7 +11,6 @@ struct PostFeedView: View {
     
     @EnvironmentObject var commentPopupHelper: CommentPopupHelper
     
-    
     @Binding var post: PostResponse
     
     @State var shouldPush = false
@@ -33,6 +32,9 @@ struct PostFeedView: View {
             }
             .onTapGesture {
                 shouldPush = true
+            }
+            .sheet(isPresented: $commentPopupHelper.shouldReply) {
+                PostCreateCommentViewAlt(isOpen: $commentPopupHelper.shouldReply, commentList: .constant([CommentResponse]()), targetPost: $post)
             }
             
             if post.deleted ?? false {

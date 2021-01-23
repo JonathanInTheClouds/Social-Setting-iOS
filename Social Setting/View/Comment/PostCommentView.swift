@@ -62,11 +62,13 @@ struct PostCommentView: View {
                 }
             }
         }
-        .sheet(isPresented: $commentPopupHelper.shouldReply, content: {
-            PostCreateCommentView(commentList: $commentList, targetPost: $post)
-                .environmentObject(commentPopupHelper)
-                .environmentObject(postCommentViewModel)
-        })
+        .sheet(isPresented: $commentPopupHelper.shouldReply) {
+            PostCreateCommentViewAlt(isOpen: $commentPopupHelper.shouldReply, commentList: $commentList, targetPost: $post)
+        }
+//        .sheet(isPresented: $commentPopupHelper.shouldReply, content: {
+//            PostCreateCommentView(commentList: $commentList, targetPost: $post)
+//                .environmentObject(commentPopupHelper)
+//        })
     }
     
     fileprivate func fetchMoreIfNecessary(current: Int) {
