@@ -10,7 +10,7 @@ import Combine
 
 extension SocialSettingAPI {
     static func getMainFeed(of page: Int) -> AnyPublisher<[PostResponse], Error> {
-        let queryItems = [URLQueryItem(name: "page", value: "\(page)"), URLQueryItem(name: "amount", value: "\(20)")]
+        let queryItems = [URLQueryItem(name: "page", value: "\(page)"), URLQueryItem(name: "amount", value: "\(30)")]
         var urlComponent = base
         urlComponent.queryItems = queryItems
         guard let url = urlComponent.url else { return Fail(error: NetworkError.badURL).eraseToAnyPublisher() }

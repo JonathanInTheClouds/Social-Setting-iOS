@@ -10,7 +10,7 @@ import SwiftUI
 struct MainTabView: View {
     var body: some View {
         TabView {
-            FeedViewAlt()
+            FeedViewList()
                 .tabItem {
                     Image(systemName: "cube.fill")
                         .offset(y: 5)

@@ -2,16 +2,16 @@
 //  PostBodyView.swift
 //  Social Setting
 //
-//  Created by Mettaworldj on 1/23/21.
+//  Created by Mettaworldj on 1/5/21.
 //
 
 import SwiftUI
 
-struct PostBodyView: View {
+struct PostBodyView2: View {
     
-    @Binding var showProfile: Bool
+    var post: PostResponse
     
-    @Binding var post: PostResponse
+    var photoURL: String?
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -27,13 +27,24 @@ struct PostBodyView: View {
                     .foregroundColor(.gray99)
                 Spacer()
             }
+            
+            if photoURL != nil {
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Image("placeholder-photo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 180, alignment: .center)
+                        .cornerRadius(6)
+                        .clipped()
+                })
+            }
         }
         .frame(maxWidth: .infinity)
     }
 }
 
-struct PostBodyView_Previews: PreviewProvider {
+struct PostBodyView_Previews2: PreviewProvider {
     static var previews: some View {
-        PostBodyView(showProfile: .constant(false), post: .constant(MockData.post[0]))
+        PostBodyView2(post: MockData.post[0])
     }
 }

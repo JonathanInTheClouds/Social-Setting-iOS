@@ -136,7 +136,7 @@ private struct PostPreview: View {
             VStack(alignment: .leading) {
                 
                 HStack {
-                    ProfileImage(buttonSize: 50, imageSize: 20, destination: Text("Hello World"))
+                    ProfileImage2(buttonSize: 50, imageSize: 20, destination: Text("Hello World"))
                     VStack {
                         HStack {
                             Text(post.username)
@@ -166,7 +166,7 @@ private struct PostPreview: View {
                     })
                 }
                 
-                PostBodyView(post: post)
+                PostBodyView2(post: post)
                     .padding(.bottom)
                 NavigationLink(
                     destination: PostCommentView(post: $post),
@@ -174,7 +174,7 @@ private struct PostPreview: View {
                     label: {})
                 Color.gray39
                     .frame(height: 1, alignment: .center)
-                PostHButtonView(post: $post)
+                PostHButtonView1(post: $post)
             }
         }
         .background(Color.tertiarySystemBackground)

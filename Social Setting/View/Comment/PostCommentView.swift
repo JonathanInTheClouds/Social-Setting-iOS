@@ -135,7 +135,7 @@ private struct CommentView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
-                ProfileImage(buttonSize: 32, imageSize: 14, destination: Text(""))
+                ProfileImage2(buttonSize: 32, imageSize: 14, destination: Text(""))
                 Text(commentList[index].username)
                 
                 Spacer()

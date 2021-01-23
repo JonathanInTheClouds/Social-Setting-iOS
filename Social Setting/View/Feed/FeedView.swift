@@ -32,7 +32,7 @@ struct FeedView: View {
                     .padding(.top, 15)
                 }
             }
-            .navigationBarItems(leading: LeftHeadingSection(), trailing: RightHeadingSection())
+            .navigationBarItems(leading: FeedNavigationLogo(), trailing: FeedCreatePostButton())
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 feedViewModel.getFeed()

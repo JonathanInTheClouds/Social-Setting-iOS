@@ -23,17 +23,17 @@ class AuthViewModel: ObservableObject, AuthTokenProtocol {
     
     func signIn(signinRequest: SignInRequest) {
         cancellable = SocialSettingAPI.signIn(signInRequest: signinRequest)
-            .sink(receiveCompletion: { _ in }, receiveValue: { self.saveAuthToken($0) })
+            .sink(receiveCompletion: { _ in }, receiveValue: { [weak self] authResponse in self?.saveAuthToken(authResponse) })
     }
     
     func signUp(signUpRequest: SignUpRequest) {
         cancellable = SocialSettingAPI.signUp(signUpRequest: signUpRequest)
-            .sink(receiveCompletion: { _ in }, receiveValue: { self.sucessfullySignedUp = $0.valid })
+            .sink(receiveCompletion: { _ in }, receiveValue: { [weak self] signUpResponse in self?.sucessfullySignedUp = signUpResponse.valid })
     }
     
     func verifyCode(verifyCodeRequest: VerifyCodeRequest) {
         cancellable =  SocialSettingAPI.verifyCode(verifyCodeRequest: verifyCodeRequest)
-            .sink(receiveCompletion: { _ in }, receiveValue: { self.saveAuthToken($0) })
+            .sink(receiveCompletion: { _ in }, receiveValue: { [weak self] authentication in self?.saveAuthToken(authentication) })
     }
     
     func getSubSettingFeed(_ page: Int) {

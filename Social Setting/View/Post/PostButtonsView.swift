@@ -1,25 +1,19 @@
 //
-//  PostHButtonView.swift
+//  PostBodyView.swift
 //  Social Setting
 //
-//  Created by Mettaworldj on 1/5/21.
+//  Created by Mettaworldj on 1/23/21.
 //
 
 import SwiftUI
 
-
-struct PostHButtonView: View {
-    
-    @EnvironmentObject var feedViewModel: FeedViewModel
-    
-    @EnvironmentObject var postViewModel: PostViewModel
+struct PostButtonsView: View {
     
     @EnvironmentObject var commentPopupHelper: CommentPopupHelper
     
     @Binding var post: PostResponse
     
-    private let likeButtonColor = Color.baseColor
-    private let shareButtonColor = Color(.sRGB, red: 69/255, green: 142/255, blue: 255/255, opacity: 1)
+    @EnvironmentObject var postViewModel: PostViewModel
     
     var body: some View {
         HStack(spacing: 20) {
@@ -40,10 +34,11 @@ struct PostHButtonView: View {
                     Text("\(post.voteCount)")
                         .foregroundColor(Color.gray79)
                 }
-            })
+            }).buttonStyle(PlainButtonStyle())
             .frame(height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             
             Button(action: {
+                Vibration.light.vibrate()
                 commentPopupHelper.commentRequestHelper.post = post
                 commentPopupHelper.shouldReply = true
             }, label: {
@@ -58,9 +53,14 @@ struct PostHButtonView: View {
                     Text("\(post.commentCount)")
                         .foregroundColor(Color.gray79)
                 }
-            })
+            }).buttonStyle(PlainButtonStyle())
             .frame(height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            
+            .sheet(isPresented: $commentPopupHelper.shouldReply) {
+                if let post = commentPopupHelper.commentRequestHelper.post {
+                    PostCreateCommentView(commentList: .constant([CommentResponse]()), targetPost: .constant(post))
+                        .environmentObject(commentPopupHelper)
+                }
+            }
             
             Button(action: {}, label: {
                 HStack {
@@ -76,14 +76,31 @@ struct PostHButtonView: View {
                         .foregroundColor(Color.gray79)
                 }
             })
+            .buttonStyle(PlainButtonStyle())
+            .frame(height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            
+            Spacer()
+            
+            Button(action: {
+                Vibration.soft.vibrate()
+            }, label: {
+                HStack {
+                    Image(systemName: "ellipsis")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 25, height: 25, alignment: .center)
+                        .foregroundColor(Color.gray79)
+                        .padding(.trailing, 5)
+                }
+            })
+            .buttonStyle(PlainButtonStyle())
             .frame(height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         }
     }
-    
 }
 
-struct PostHButtonView_Previews: PreviewProvider {
+struct PostButtonsView_Previews: PreviewProvider {
     static var previews: some View {
-        PostHButtonView(post: .constant(MockData.post[0]))
+        PostButtonsView(post: .constant(MockData.post[0]))
     }
 }

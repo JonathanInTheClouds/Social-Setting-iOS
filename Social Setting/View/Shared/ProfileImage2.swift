@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProfileImage<V: View>: View {
+struct ProfileImage2<V: View>: View {
     
     @State var buttonSize: CGFloat = 70
     
@@ -32,6 +32,6 @@ struct ProfileImage<V: View>: View {
 
 struct ProfileImage_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileImage(destination: Text("Hello World"))
+        ProfileImage2(destination: Text("Hello World"))
     }
 }

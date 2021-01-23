@@ -31,13 +31,11 @@ class FeedViewModel: ObservableObject, AuthTokenProtocol {
     
     func getFeed() {
         cancellable = SocialSettingAPI.getMainFeed(of: page)
-            .sink(receiveCompletion: { _ in }) { (posts) in
+            .sink(receiveCompletion: { _ in }) { [weak self] posts in
                 if !posts.isEmpty {
-                    self.page += 1
+                    self?.page += 1
                 }
-                withAnimation {
-                    self.postFeed.append(contentsOf: posts)
-                }
+                self?.postFeed.append(contentsOf: posts)
             }
     }
     
@@ -46,9 +44,10 @@ class FeedViewModel: ObservableObject, AuthTokenProtocol {
             .print()
             .sink(receiveCompletion: { _ in 
                 self.createPostIsPresented = false
-            }, receiveValue: {
-                self.postFeed.insert($0, at: 0)
-                
+            }, receiveValue: { [weak self] post in
+                withAnimation(.spring()) {
+                    self?.postFeed.insert(post, at: 0)
+                }
             })
     }
     

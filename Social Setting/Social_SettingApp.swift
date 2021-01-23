@@ -10,7 +10,6 @@ import iTextField
 
 @main
 struct Social_SettingApp: App {
-    let persistenceController = PersistenceController.shared
     let authViewModel = AuthViewModel()
     let postViewModel = PostViewModel()
     let feedViewModel = FeedViewModel()
@@ -30,7 +29,6 @@ struct Social_SettingApp: App {
                 .environmentObject(feedViewModel)
                 .environmentObject(postViewModel)
                 .environmentObject(commentPopupHelper)
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

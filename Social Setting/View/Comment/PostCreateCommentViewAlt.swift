@@ -20,7 +20,7 @@ struct PostCreateCommentViewAlt: View {
     
     @State var commentText = ""
     
-    @State var commentEditing = false
+    @State var commentEditing = true
     
     @State var progressValue: Float = 0.0
     

@@ -15,14 +15,6 @@ struct MainRouter: View {
     var body: some View {
         if authViewModel.savedAuthentication != nil || authViewModel.authentication != nil {
             MainTabView()
-                .sheet(isPresented: $commentPopupHelper.shouldReply) {
-                    if let post = commentPopupHelper.commentRequestHelper.post {
-                        PostCreateCommentView(commentList: .constant([CommentResponse]()), targetPost: .constant(post))
-                            .environmentObject(commentPopupHelper)
-                    } else {
-                        Text("Error")
-                    }
-                }
         } else {
             SignInView()
         }

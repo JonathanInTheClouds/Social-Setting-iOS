@@ -57,5 +57,12 @@ extension Color {
         return Color("navAltColor")
     }
     
+    static var flatDarkBackground: Color {
+        return Color("flatDarkBackground")
+    }
+    
+    static var flatDarkCardBackground: Color {
+        return Color("flatDarkCardBackground")
+    }
     
 }

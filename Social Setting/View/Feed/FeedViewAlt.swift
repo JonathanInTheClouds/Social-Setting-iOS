@@ -41,7 +41,7 @@ struct FeedViewAlt: View {
                 }
                 
             }
-            .navigationBarItems(leading: LeftHeadingSection(), trailing: RightHeadingSection())
+            .navigationBarItems(leading: FeedNavigationLogo(), trailing: FeedCreatePostButton())
             .navigationBarTitleDisplayMode(.inline)
         }
     }
@@ -84,45 +84,3 @@ struct FeedViewAlt_Previews: PreviewProvider {
     }
 }
 
-struct LeftHeadingSection: View {
-    
-    @EnvironmentObject private var authViewModel: AuthViewModel
-    
-    var body: some View {
-        HStack {
-            Button {
-                withAnimation(.easeOut(duration: 0.3)) {
-                    authViewModel.signOut()
-                }
-            } label: {
-                Image("large-logo")
-                    .resizable()
-                    .frame(width: 24, height: 24, alignment: .center)
-                Text("Social Setting")
-                    .foregroundColor(Color.gray99)
-            }
-        }
-    }
-}
-
-
-struct RightHeadingSection: View {
-    
-    @EnvironmentObject private var feedViewModel: FeedViewModel
-    
-    var body: some View {
-        HStack {
-            Button {
-                feedViewModel.createPostIsPresented = true
-            } label: {
-                Image(systemName: "rectangle.fill.badge.plus")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 23, height: 23, alignment: .center)
-            }
-            .sheet(isPresented: $feedViewModel.createPostIsPresented) {
-                PostCreateView()
-            }
-        }
-    }
-}

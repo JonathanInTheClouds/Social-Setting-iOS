@@ -36,10 +36,10 @@ class PostCreateSubscriptionListViewModel: ObservableObject, AuthTokenProtocol {
     
     func getSubSettingSubscriptions() {
         subSettingListCancellable = SocialSettingAPI.getSubscribedSubsettingList(page: page)
-            .sink(receiveCompletion: { print($0) }, receiveValue: {
-                if !$0.isEmpty {
-                    self.subSettingList.append(contentsOf: $0)
-                    self.page += 1
+            .sink(receiveCompletion: { print($0) }, receiveValue: { [weak self] subSettingResponse in
+                if !subSettingResponse.isEmpty {
+                    self?.subSettingList.append(contentsOf: subSettingResponse)
+                    self?.page += 1
                 }
             })
     }

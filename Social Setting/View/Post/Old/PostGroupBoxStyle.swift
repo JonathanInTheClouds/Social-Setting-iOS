@@ -15,7 +15,7 @@ struct PostGroupBoxStyle<V: View>: GroupBoxStyle {
     var post: PostResponse
     
     func makeBody(configuration: Configuration) -> some View {
-        GroupBox(label: PostHeadView(destination: destination, post: post), content: {
+        GroupBox(label: PostHeaderView(showProfile: .constant(false), post: .constant(post)), content: {
             configuration.content
         })
     }

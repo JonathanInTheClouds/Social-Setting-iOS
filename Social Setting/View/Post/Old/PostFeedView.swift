@@ -19,7 +19,7 @@ struct PostFeedView: View {
         ZStack {
             GroupBox {
                 VStack(alignment: .leading) {
-                    PostBodyView(post: post)
+                    PostBodyView2(post: post)
                         .padding(.bottom)
                     NavigationLink(
                         destination: PostCommentView(post: $post),
@@ -27,20 +27,17 @@ struct PostFeedView: View {
                         label: {})
                     Color.gray39
                         .frame(height: 1, alignment: .center)
-                    PostHButtonView(post: $post)
+                    PostHButtonView1(post: $post)
                 }
             }
             .onTapGesture {
                 shouldPush = true
             }
-            .sheet(isPresented: $commentPopupHelper.shouldReply) {
-                PostCreateCommentViewAlt(isOpen: $commentPopupHelper.shouldReply, commentList: .constant([CommentResponse]()), targetPost: $post)
-            }
-            
             if post.deleted ?? false {
                 PostDeleteView()
             }
         }
+        .clipShape(RoundedRectangle(cornerRadius: 15))
     }
 }
 
