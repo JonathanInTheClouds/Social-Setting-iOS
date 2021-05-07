@@ -10,10 +10,10 @@ import SwiftUI
 @main
 struct Social_SettingApp: App {
     let persistenceController = PersistenceController.shared
-
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ProfileView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
