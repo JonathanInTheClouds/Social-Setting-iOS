@@ -13,8 +13,9 @@ struct Social_SettingApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ProfileView()
+            MainFeedView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
+

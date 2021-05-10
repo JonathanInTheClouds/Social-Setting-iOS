@@ -9,15 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     
-//    init() {
-//        UINavigationBar.appearance().tintColor = UIColor(Color.dynamicBackground)
-//    }
-    
-    
     var body: some View {
-
-        
-        
         NavigationView {
             ZStack {
                 Color.dynamicBackground.ignoresSafeArea(edges: .all)

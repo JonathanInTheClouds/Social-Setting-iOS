@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct PostView: View {
+    
+    @State var bookmarked = false
+    
     var body: some View {
         VStack {
             HStack {
@@ -55,6 +58,7 @@ struct PostView: View {
                         Text("Like")
                     }
                 })
+                .foregroundColor(.accentColor)
                 
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                     HStack {
@@ -66,10 +70,12 @@ struct PostView: View {
                 
                 Spacer()
                 
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Button(action: {
+                    bookmarked.toggle()
+                }, label: {
                     Image(systemName: "bookmark")
                 })
-                .foregroundColor(Color.labelSecondary)
+                .foregroundColor(!bookmarked ? Color.labelSecondary : .accentColor)
                 
             }
             .padding(.vertical, 16)

@@ -21,6 +21,8 @@
 		241FF895263B644D005B12BA /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241FF894263B644D005B12BA /* SignInView.swift */; };
 		241FF8A3263BAC3D005B12BA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241FF8A2263BAC3D005B12BA /* ProfileView.swift */; };
 		2423F6242645D8A500C04BA9 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2423F6232645D8A500C04BA9 /* PostView.swift */; };
+		246DC4C32649CBA800533324 /* MainFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246DC4C22649CBA800533324 /* MainFeedView.swift */; };
+		246DC4C52649D65F00533324 /* StoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246DC4C42649D65F00533324 /* StoryItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		241FF894263B644D005B12BA /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		241FF8A2263BAC3D005B12BA /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		2423F6232645D8A500C04BA9 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		246DC4C22649CBA800533324 /* MainFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedView.swift; sourceTree = "<group>"; };
+		246DC4C42649D65F00533324 /* StoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,8 @@
 				241829A32639ACAD0022AEAA /* SocialButton.swift */,
 				241FF8A2263BAC3D005B12BA /* ProfileView.swift */,
 				2423F6232645D8A500C04BA9 /* PostView.swift */,
+				246DC4C22649CBA800533324 /* MainFeedView.swift */,
+				246DC4C42649D65F00533324 /* StoryItem.swift */,
 				2418299E2639A39D0022AEAA /* Theme.swift */,
 				241829672638F3C40022AEAA /* Assets.xcassets */,
 				2418296C2638F3C40022AEAA /* Persistence.swift */,
@@ -289,8 +295,10 @@
 				241829A42639ACAD0022AEAA /* SocialButton.swift in Sources */,
 				241829AF2639BB390022AEAA /* SignUpView.swift in Sources */,
 				2418299F2639A39D0022AEAA /* Theme.swift in Sources */,
+				246DC4C52649D65F00533324 /* StoryItem.swift in Sources */,
 				241829972638F52B0022AEAA /* MainView.swift in Sources */,
 				241FF895263B644D005B12BA /* SignInView.swift in Sources */,
+				246DC4C32649CBA800533324 /* MainFeedView.swift in Sources */,
 				2423F6242645D8A500C04BA9 /* PostView.swift in Sources */,
 				241829702638F3C40022AEAA /* Social_Setting.xcdatamodeld in Sources */,
 			);
