@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,8 +21,16 @@
 		241FF895263B644D005B12BA /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241FF894263B644D005B12BA /* SignInView.swift */; };
 		241FF8A3263BAC3D005B12BA /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241FF8A2263BAC3D005B12BA /* ProfileView.swift */; };
 		2423F6242645D8A500C04BA9 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2423F6232645D8A500C04BA9 /* PostView.swift */; };
+		24294E9B265B221E00AD486A /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24294E9A265B221E00AD486A /* ProfileImage.swift */; };
 		246DC4C32649CBA800533324 /* MainFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246DC4C22649CBA800533324 /* MainFeedView.swift */; };
 		246DC4C52649D65F00533324 /* StoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246DC4C42649D65F00533324 /* StoryItem.swift */; };
+		2486DA732659655100478925 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2486DA722659655100478925 /* CommentsView.swift */; };
+		2486DA7626596B6200478925 /* iTextField in Frameworks */ = {isa = PBXBuildFile; productRef = 2486DA7526596B6200478925 /* iTextField */; };
+		2486DA78265A0E5E00478925 /* ReplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2486DA77265A0E5E00478925 /* ReplyView.swift */; };
+		24B64023264C697D007C4FBB /* TintColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B64022264C697D007C4FBB /* TintColorView.swift */; };
+		24B64025264C781A007C4FBB /* ThemeSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B64024264C781A007C4FBB /* ThemeSettingsController.swift */; };
+		24DD6F2E264B26EB003D2B8E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6F2D264B26EB003D2B8E /* MainTabView.swift */; };
+		24DD6F30264B2B90003D2B8E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6F2F264B2B90003D2B8E /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,8 +71,15 @@
 		241FF894263B644D005B12BA /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		241FF8A2263BAC3D005B12BA /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		2423F6232645D8A500C04BA9 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		24294E9A265B221E00AD486A /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		246DC4C22649CBA800533324 /* MainFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedView.swift; sourceTree = "<group>"; };
 		246DC4C42649D65F00533324 /* StoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryItem.swift; sourceTree = "<group>"; };
+		2486DA722659655100478925 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
+		2486DA77265A0E5E00478925 /* ReplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyView.swift; sourceTree = "<group>"; };
+		24B64022264C697D007C4FBB /* TintColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TintColorView.swift; sourceTree = "<group>"; };
+		24B64024264C781A007C4FBB /* ThemeSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSettingsController.swift; sourceTree = "<group>"; };
+		24DD6F2D264B26EB003D2B8E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		24DD6F2F264B2B90003D2B8E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2486DA7626596B6200478925 /* iTextField in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +133,7 @@
 			children = (
 				241829632638F3C40022AEAA /* Social_SettingApp.swift */,
 				241829962638F52B0022AEAA /* MainView.swift */,
+				24DD6F2D264B26EB003D2B8E /* MainTabView.swift */,
 				241829AE2639BB390022AEAA /* SignUpView.swift */,
 				241FF894263B644D005B12BA /* SignInView.swift */,
 				241829A32639ACAD0022AEAA /* SocialButton.swift */,
@@ -124,12 +141,18 @@
 				2423F6232645D8A500C04BA9 /* PostView.swift */,
 				246DC4C22649CBA800533324 /* MainFeedView.swift */,
 				246DC4C42649D65F00533324 /* StoryItem.swift */,
+				24DD6F2F264B2B90003D2B8E /* SettingsView.swift */,
+				2486DA722659655100478925 /* CommentsView.swift */,
+				2486DA77265A0E5E00478925 /* ReplyView.swift */,
+				24B64022264C697D007C4FBB /* TintColorView.swift */,
 				2418299E2639A39D0022AEAA /* Theme.swift */,
+				24B64024264C781A007C4FBB /* ThemeSettingsController.swift */,
 				241829672638F3C40022AEAA /* Assets.xcassets */,
 				2418296C2638F3C40022AEAA /* Persistence.swift */,
 				241829712638F3C40022AEAA /* Info.plist */,
 				2418296E2638F3C40022AEAA /* Social_Setting.xcdatamodeld */,
 				241829692638F3C40022AEAA /* Preview Content */,
+				24294E9A265B221E00AD486A /* ProfileImage.swift */,
 			);
 			path = "Social Setting";
 			sourceTree = "<group>";
@@ -176,6 +199,9 @@
 			dependencies = (
 			);
 			name = "Social Setting";
+			packageProductDependencies = (
+				2486DA7526596B6200478925 /* iTextField */,
+			);
 			productName = "Social Setting";
 			productReference = 241829602638F3C40022AEAA /* Social Setting.app */;
 			productType = "com.apple.product-type.application";
@@ -247,6 +273,9 @@
 				Base,
 			);
 			mainGroup = 241829572638F3C40022AEAA;
+			packageReferences = (
+				2486DA7426596B6200478925 /* XCRemoteSwiftPackageReference "iTextField" */,
+			);
 			productRefGroup = 241829612638F3C40022AEAA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -290,12 +319,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				2418296D2638F3C40022AEAA /* Persistence.swift in Sources */,
+				2486DA78265A0E5E00478925 /* ReplyView.swift in Sources */,
 				241FF8A3263BAC3D005B12BA /* ProfileView.swift in Sources */,
+				2486DA732659655100478925 /* CommentsView.swift in Sources */,
 				241829642638F3C40022AEAA /* Social_SettingApp.swift in Sources */,
 				241829A42639ACAD0022AEAA /* SocialButton.swift in Sources */,
+				24B64023264C697D007C4FBB /* TintColorView.swift in Sources */,
 				241829AF2639BB390022AEAA /* SignUpView.swift in Sources */,
 				2418299F2639A39D0022AEAA /* Theme.swift in Sources */,
+				24B64025264C781A007C4FBB /* ThemeSettingsController.swift in Sources */,
 				246DC4C52649D65F00533324 /* StoryItem.swift in Sources */,
+				24294E9B265B221E00AD486A /* ProfileImage.swift in Sources */,
+				24DD6F30264B2B90003D2B8E /* SettingsView.swift in Sources */,
+				24DD6F2E264B26EB003D2B8E /* MainTabView.swift in Sources */,
 				241829972638F52B0022AEAA /* MainView.swift in Sources */,
 				241FF895263B644D005B12BA /* SignInView.swift in Sources */,
 				246DC4C32649CBA800533324 /* MainFeedView.swift in Sources */,
@@ -620,6 +656,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2486DA7426596B6200478925 /* XCRemoteSwiftPackageReference "iTextField" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/benjaminsage/iTextField.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2486DA7526596B6200478925 /* iTextField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2486DA7426596B6200478925 /* XCRemoteSwiftPackageReference "iTextField" */;
+			productName = iTextField;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		2418296E2638F3C40022AEAA /* Social_Setting.xcdatamodeld */ = {

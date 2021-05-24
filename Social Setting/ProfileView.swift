@@ -10,30 +10,36 @@ import SwiftUI
 struct ProfileView: View {
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color.dynamicBackground.ignoresSafeArea(edges: .all)
-                ScrollView {
-                    VStack {
-                        HeaderView()
-                            .padding(.horizontal, 16)
-                        
-                        LazyVStack {
-                            Color.separatorOpaque
-                                .frame(height: 1, alignment: .center)
-                                .opacity(0.5)
-                            PostView()
-                            Color.separatorOpaque
-                                .frame(height: 1, alignment: .center)
-                                .opacity(0.5)
-                            PostView()
-                        }
+        ZStack {
+            Color.dynamicBackground.ignoresSafeArea(edges: .all)
+            ScrollView {
+                VStack {
+                    HeaderView()
+                        .padding(.horizontal, 16)
+                    
+                    LazyVStack {
+                        Color.separatorOpaque
+                            .frame(height: 1, alignment: .center)
+                            .opacity(0.5)
+                        PostView()
+                        Color.separatorOpaque
+                            .frame(height: 1, alignment: .center)
+                            .opacity(0.5)
+                        PostView()
+                        Color.separatorOpaque
+                            .frame(height: 1, alignment: .center)
+                            .opacity(0.5)
+                        PostView()
+                        Color.separatorOpaque
+                            .frame(height: 1, alignment: .center)
+                            .opacity(0.5)
+                        PostView()
                     }
-                    .padding(.top, 16)
                 }
+                .padding(.top, 16)
             }
-            .navigationBarTitle("@Jon_Coder", displayMode: .inline)
         }
+        .navigationBarTitle("@Jon_Coder", displayMode: .inline)
     }
 }
 
@@ -52,9 +58,9 @@ struct ProfileView_Previews: PreviewProvider {
 
 
 extension UIScreen{
-   static let screenWidth = UIScreen.main.bounds.size.width
-   static let screenHeight = UIScreen.main.bounds.size.height
-   static let screenSize = UIScreen.main.bounds.size
+    static let screenWidth = UIScreen.main.bounds.size.width
+    static let screenHeight = UIScreen.main.bounds.size.height
+    static let screenSize = UIScreen.main.bounds.size
 }
 
 struct HeaderView: View {

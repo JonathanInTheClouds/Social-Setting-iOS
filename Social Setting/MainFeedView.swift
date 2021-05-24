@@ -26,11 +26,31 @@ struct MainFeedView: View {
                                 StoryItem(username: "jon.d")
                                 
                                 StoryItem(username: "u2luve")
-                                
                             }
                             .padding(.horizontal, 16)
                             .padding(.top, 5)
                         }
+                        
+                        Color.separatorOpaque
+                            .frame(height: 1, alignment: .center)
+                            .opacity(0.5)
+                            .padding(.top, 16)
+                        
+                        PostView()
+                        
+                        Color.separatorOpaque
+                            .frame(height: 1, alignment: .center)
+                            .opacity(0.5)
+                            .padding(.top, 16)
+                        
+                        PostView()
+                        
+                        Color.separatorOpaque
+                            .frame(height: 1, alignment: .center)
+                            .opacity(0.5)
+                            .padding(.top, 16)
+                        
+                        PostView()
                         
                         Color.separatorOpaque
                             .frame(height: 1, alignment: .center)

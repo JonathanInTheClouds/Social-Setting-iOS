@@ -9,11 +9,14 @@ import SwiftUI
 
 @main
 struct Social_SettingApp: App {
+    
+    let themeController = ThemeSettingsController()
+    
     let persistenceController = PersistenceController.shared
     
     var body: some Scene {
         WindowGroup {
-            MainFeedView()
+            MainTabView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
