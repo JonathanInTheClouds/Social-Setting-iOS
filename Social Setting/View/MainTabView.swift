@@ -13,7 +13,7 @@ struct MainTabView: View {
     
     var body: some View {
         TabView {
-            MainFeedView()
+            MainFeedView(viewModel: FeedViewModel())
                 .environmentObject(themeController)
                 .accentColor(themeController.mainTint)
                 .tabItem {

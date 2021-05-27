@@ -21,19 +21,19 @@ struct ProfileView: View {
                         Color.separatorOpaque
                             .frame(height: 1, alignment: .center)
                             .opacity(0.5)
-                        PostView()
-                        Color.separatorOpaque
-                            .frame(height: 1, alignment: .center)
-                            .opacity(0.5)
-                        PostView()
-                        Color.separatorOpaque
-                            .frame(height: 1, alignment: .center)
-                            .opacity(0.5)
-                        PostView()
-                        Color.separatorOpaque
-                            .frame(height: 1, alignment: .center)
-                            .opacity(0.5)
-                        PostView()
+//                        PostView()
+//                        Color.separatorOpaque
+//                            .frame(height: 1, alignment: .center)
+//                            .opacity(0.5)
+//                        PostView()
+//                        Color.separatorOpaque
+//                            .frame(height: 1, alignment: .center)
+//                            .opacity(0.5)
+//                        PostView()
+//                        Color.separatorOpaque
+//                            .frame(height: 1, alignment: .center)
+//                            .opacity(0.5)
+//                        PostView()
                     }
                 }
                 .padding(.top, 16)

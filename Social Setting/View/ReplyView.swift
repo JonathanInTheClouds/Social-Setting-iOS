@@ -27,7 +27,7 @@ struct ReplyView: View {
                     .padding()
                 
                 VStack {
-                    PostViewHeader()
+                    PostViewHeader(post: posts[0])
                     Text("I recently understood the words of my friend Jacond West about music")
                 }
                 .padding(.bottom, 16)

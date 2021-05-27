@@ -31,6 +31,9 @@
 		24B64025264C781A007C4FBB /* ThemeSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B64024264C781A007C4FBB /* ThemeSettingsController.swift */; };
 		24DD6F2E264B26EB003D2B8E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6F2D264B26EB003D2B8E /* MainTabView.swift */; };
 		24DD6F30264B2B90003D2B8E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6F2F264B2B90003D2B8E /* SettingsView.swift */; };
+		24F2BF3D265FBBC200EC6A78 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2BF3C265FBBC200EC6A78 /* PostModel.swift */; };
+		24F2BF40265FC5F100EC6A78 /* LoremSwiftum in Frameworks */ = {isa = PBXBuildFile; productRef = 24F2BF3F265FC5F100EC6A78 /* LoremSwiftum */; };
+		24F2BF42265FE64E00EC6A78 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2BF41265FE64E00EC6A78 /* FeedViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,8 @@
 		24B64024264C781A007C4FBB /* ThemeSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSettingsController.swift; sourceTree = "<group>"; };
 		24DD6F2D264B26EB003D2B8E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		24DD6F2F264B2B90003D2B8E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		24F2BF3C265FBBC200EC6A78 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		24F2BF41265FE64E00EC6A78 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24F2BF40265FC5F100EC6A78 /* LoremSwiftum in Frameworks */,
 				2486DA7626596B6200478925 /* iTextField in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,6 +181,7 @@
 		247D0BF7265F3C3B00E16980 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				24F2BF3C265FBBC200EC6A78 /* PostModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,6 +205,7 @@
 		247D0BF9265F3C4900E16980 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				24F2BF41265FE64E00EC6A78 /* FeedViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -273,6 +281,7 @@
 			name = "Social Setting";
 			packageProductDependencies = (
 				2486DA7526596B6200478925 /* iTextField */,
+				24F2BF3F265FC5F100EC6A78 /* LoremSwiftum */,
 			);
 			productName = "Social Setting";
 			productReference = 241829602638F3C40022AEAA /* Social Setting.app */;
@@ -347,6 +356,7 @@
 			mainGroup = 241829572638F3C40022AEAA;
 			packageReferences = (
 				2486DA7426596B6200478925 /* XCRemoteSwiftPackageReference "iTextField" */,
+				24F2BF3E265FC5F100EC6A78 /* XCRemoteSwiftPackageReference "LoremSwiftum" */,
 			);
 			productRefGroup = 241829612638F3C40022AEAA /* Products */;
 			projectDirPath = "";
@@ -391,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2418296D2638F3C40022AEAA /* Persistence.swift in Sources */,
+				24F2BF3D265FBBC200EC6A78 /* PostModel.swift in Sources */,
 				2486DA78265A0E5E00478925 /* ReplyView.swift in Sources */,
 				241FF8A3263BAC3D005B12BA /* ProfileView.swift in Sources */,
 				2486DA732659655100478925 /* CommentsView.swift in Sources */,
@@ -403,6 +414,7 @@
 				246DC4C52649D65F00533324 /* StoryItemButton.swift in Sources */,
 				24294E9B265B221E00AD486A /* ProfileImage.swift in Sources */,
 				24DD6F30264B2B90003D2B8E /* SettingsView.swift in Sources */,
+				24F2BF42265FE64E00EC6A78 /* FeedViewModel.swift in Sources */,
 				24DD6F2E264B26EB003D2B8E /* MainTabView.swift in Sources */,
 				241829972638F52B0022AEAA /* WelcomeView.swift in Sources */,
 				241FF895263B644D005B12BA /* SignInView.swift in Sources */,
@@ -738,6 +750,14 @@
 				minimumVersion = 0.0.8;
 			};
 		};
+		24F2BF3E265FC5F100EC6A78 /* XCRemoteSwiftPackageReference "LoremSwiftum" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lukaskubanek/LoremSwiftum.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -745,6 +765,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2486DA7426596B6200478925 /* XCRemoteSwiftPackageReference "iTextField" */;
 			productName = iTextField;
+		};
+		24F2BF3F265FC5F100EC6A78 /* LoremSwiftum */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24F2BF3E265FC5F100EC6A78 /* XCRemoteSwiftPackageReference "LoremSwiftum" */;
+			productName = LoremSwiftum;
 		};
 /* End XCSwiftPackageProductDependency section */
 

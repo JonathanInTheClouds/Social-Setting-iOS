@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import LoremSwiftum
 
 struct MainFeedView: View {
+    @ObservedObject var viewModel: FeedViewModel
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -30,15 +33,18 @@ struct MainFeedView: View {
                             .padding(.horizontal, 16)
                             .padding(.top, 5)
                         }
-                        ForEach(1...200, id: \.self) { i in
+                        ForEach(viewModel.postArray, id: \.self) { post in
                             Color.separatorOpaque
                                 .frame(height: 1, alignment: .center)
                                 .opacity(0.5)
                                 .padding(.top, 16)
-                                .id(i)
                             
-                            PostView()
+                            PostView(post: post)
+                                .onTapGesture {
+                                    viewModel.postArray.append(PostModel(name: "\(Lorem.firstName)", username: Lorem.lastName, timeAgo: "\(Int.random(in: 1...9))h ago", liked: false, bookMarked: false, likes: Int.random(in: 1...420), comments: Int.random(in: 1...420), details: Lorem.tweet, postType: .photo))
+                                }
                         }
+                        
                     }
                     
                 }
@@ -51,9 +57,9 @@ struct MainFeedView: View {
 struct MainFeedView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MainFeedView().preferredColorScheme(.light)
+            MainFeedView(viewModel: FeedViewModel()).preferredColorScheme(.light)
             
-            MainFeedView().preferredColorScheme(.dark)
+            MainFeedView(viewModel: FeedViewModel()).preferredColorScheme(.dark)
         }
     }
 }

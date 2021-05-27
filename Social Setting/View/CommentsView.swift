@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CommentsView: View {
     
+    @Binding var post: PostModel
+    
     @State var text = ""
     
     var body: some View {
@@ -16,7 +18,7 @@ struct CommentsView: View {
             Color.dynamicBackground.ignoresSafeArea(edges: .all)
             ScrollView {
                 LazyVStack {
-                    CommentHeadView()
+                    CommentHeadView(post: $post)
                         .padding(.top, 32)
                     Color.separatorOpaque
                         .frame(height: 1, alignment: .center)
@@ -47,12 +49,12 @@ struct CommentsView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NavigationView {
-                CommentsView()
+                CommentsView(post: .constant(posts[0]))
                     .preferredColorScheme(.light)
             }
             
             NavigationView {
-                CommentsView()
+                CommentsView(post: .constant(posts[0]))
                     .preferredColorScheme(.dark)
             }
         }
@@ -234,9 +236,11 @@ struct CommentHeadView: View {
     
     @State var isPresented = false
     
+    @Binding var post: PostModel
+    
     var body: some View {
         LazyVStack {
-            HStack(alignment: .top) {
+            HStack(alignment: .top, spacing: 10) {
                 NavigationLink(
                     destination: Text("Destination"),
                     label: {
@@ -245,21 +249,20 @@ struct CommentHeadView: View {
                             .frame(width: 32, height: 32, alignment: .center)
                             .cornerRadius(32/2)
                     })
-                    .padding(.trailing, 5)
                     .padding(.top, 5)
                 
-                VStack(spacing: 10) {
+                VStack(alignment: .leading, spacing: 10) {
                     Button(action: {}, label: {
-                        Text("@joshua_I   ").bold() + Text("I recently understood the words of my friend Jacob West about music.")
+                        Text("@\(post.username)   ").bold() + Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempor lacinia aliquam. Quisque semper gravida tellus vel accumsan. Sed nec risus.")
                     })
                     .foregroundColor(Color.labelPrimary)
                     
                     HStack {
-                        Text("2h")
+                        Text("\(post.timeAgo)")
                             .foregroundColor(Color.labelSecondary)
                             .font(.subheadline)
                         Button(action: {
-                            isPresented = true
+                            post.liked.toggle()
                         }, label: {
                             Text("Reply")
                                 .bold()
@@ -288,7 +291,7 @@ struct CommentItem: View {
     
     var body: some View {
         LazyVStack {
-            HStack(alignment: .top) {
+            HStack(alignment: .top, spacing: 10) {
                 NavigationLink(
                     destination: Text("Destination"),
                     label: {
@@ -297,10 +300,9 @@ struct CommentItem: View {
                             .frame(width: 32, height: 32, alignment: .center)
                             .cornerRadius(32/2)
                     })
-                    .padding(.trailing, 5)
                     .padding(.top, 5)
                 
-                VStack(spacing: 10) {
+                VStack(alignment: .leading, spacing: 10) {
                     Button(action: {
                         withAnimation(.spring()) {
                             expanded.toggle()
@@ -315,7 +317,6 @@ struct CommentItem: View {
                             .foregroundColor(Color.labelSecondary)
                             .font(.subheadline)
                         Button(action: {
-                            isPresented = true
                         }, label: {
                             Text("Reply")
                                 .bold()
@@ -324,6 +325,8 @@ struct CommentItem: View {
                         Spacer()
                     }
                 }
+                
+                
                 
                 Spacer()
             }

@@ -6,18 +6,17 @@
 //
 
 import SwiftUI
+import LoremSwiftum
 
 struct PostView: View {
     
-    @State var bookmarked = false
-    
-    @State var liked = false
+    @State var post: PostModel
     
     @State var reply = false
     
     var body: some View {
         VStack {
-            PostViewHeader()
+            PostViewHeader(post: post)
             
             Color.labelTertiary
                 .frame(height: 210, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -25,14 +24,14 @@ struct PostView: View {
             
             HStack(spacing: 29.5) {
                 Button(action: {
-                    liked.toggle()
+                    post.liked.toggle()
                 }, label: {
                     HStack {
-                        Image(systemName: (liked ? "heart.fill" : "heart"))
+                        Image(systemName: (post.liked ? "heart.fill" : "heart"))
                         Text("Like")
                     }
                 })
-                .foregroundColor(liked ? .accentColor : .labelSecondary)
+                .foregroundColor(post.liked ? .accentColor : .labelSecondary)
                 
                 Button(action: {
                     reply = true
@@ -47,11 +46,11 @@ struct PostView: View {
                 Spacer()
                 
                 Button(action: {
-                    bookmarked.toggle()
+                    post.bookMarked.toggle()
                 }, label: {
-                    Image(systemName: (bookmarked ? "bookmark.fill" : "bookmark"))
+                    Image(systemName: (post.bookMarked ? "bookmark.fill" : "bookmark"))
                 })
-                .foregroundColor(bookmarked ? .accentColor : .labelSecondary)
+                .foregroundColor(post.bookMarked ? .accentColor : .labelSecondary)
                 
             }
             .padding(.vertical, 16)
@@ -61,15 +60,15 @@ struct PostView: View {
                 NavigationLink(
                     destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
                     label: {
-                        Text("420")
+                        Text("\(post.likes)")
                             .bold()
                         Text("likes")
                     })
                 Text("·")
                 NavigationLink(
-                    destination: CommentsView(),
+                    destination: CommentsView(post: $post),
                     label: {
-                        Text("16")
+                        Text("\(post.comments)")
                             .bold()
                         Text("comments")
                     })
@@ -78,9 +77,13 @@ struct PostView: View {
             .foregroundColor(Color.labelPrimary)
             .padding(.horizontal, 16)
             
-            Text("I recently understood the words of my friend Jacob West about music.")
+            HStack {
+                Text(post.details)
+                    .multilineTextAlignment(.leading)
+                Spacer()
+            }
                 .padding(.vertical, 1)
-                .padding(.horizontal, 14)
+                .padding(.horizontal, 16)
         }
         .padding(.bottom)
         .sheet(isPresented: $reply, content: {
@@ -91,11 +94,14 @@ struct PostView: View {
 
 struct PostView_Previews: PreviewProvider {
     static var previews: some View {
-        PostView()
+        PostView(post: posts[0])
     }
 }
 
 struct PostViewHeader: View {
+    
+    var post: PostModel
+    
     var body: some View {
         HStack {
             NavigationLink(
@@ -111,7 +117,7 @@ struct PostViewHeader: View {
                     NavigationLink(
                         destination: ProfileView(),
                         label: {
-                            Text("Joshua Lawrance")
+                            Text(post.name)
                                 .foregroundColor(Color.labelPrimary)
                         })
                     Image(systemName: "checkmark.seal.fill")
@@ -119,9 +125,9 @@ struct PostViewHeader: View {
                 }
                 
                 HStack {
-                    Text("@joshua_l")
+                    Text("@\(post.username)")
                     Text("·")
-                    Text("2h ago")
+                    Text("\(post.timeAgo)")
                 }
                 .foregroundColor(Color.labelSecondary)
             }
