@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  WelcomeView.swift
 //  Social Setting
 //
 //  Created by Jonathan Dowdell on 4/27/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct WelcomeView: View {
     
     @State var presentingSignUpPage: Bool = false
     
@@ -127,8 +127,8 @@ struct MainView: View {
     
 }
 
-struct MainView_Previews: PreviewProvider {
+struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        WelcomeView()
     }
 }

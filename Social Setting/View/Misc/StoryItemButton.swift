@@ -1,5 +1,5 @@
 //
-//  StoryItem.swift
+//  StoryItemButton.swift
 //  Social Setting
 //
 //  Created by Jonathan Dowdell on 5/10/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StoryItem: View {
+struct StoryItemButton: View {
     
     let addingItem: Bool
     
@@ -60,6 +60,6 @@ struct StoryItem: View {
 
 struct StoryItem_Previews: PreviewProvider {
     static var previews: some View {
-        StoryItem()
+        StoryItemButton()
     }
 }

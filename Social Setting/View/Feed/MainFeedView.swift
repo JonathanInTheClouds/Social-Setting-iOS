@@ -17,15 +17,15 @@ struct MainFeedView: View {
                     LazyVStack {
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack {
-                                StoryItem(addingItem: true)
+                                StoryItemButton(addingItem: true)
                                 
-                                StoryItem(username: "jacob_w")
+                                StoryItemButton(username: "jacob_w")
                                 
-                                StoryItem(username: "mettaworldj")
+                                StoryItemButton(username: "mettaworldj")
                                 
-                                StoryItem(username: "jon.d")
+                                StoryItemButton(username: "jon.d")
                                 
-                                StoryItem(username: "u2luve")
+                                StoryItemButton(username: "u2luve")
                             }
                             .padding(.horizontal, 16)
                             .padding(.top, 5)
