@@ -30,34 +30,15 @@ struct MainFeedView: View {
                             .padding(.horizontal, 16)
                             .padding(.top, 5)
                         }
-                        
-                        Color.separatorOpaque
-                            .frame(height: 1, alignment: .center)
-                            .opacity(0.5)
-                            .padding(.top, 16)
-                        
-                        PostView()
-                        
-                        Color.separatorOpaque
-                            .frame(height: 1, alignment: .center)
-                            .opacity(0.5)
-                            .padding(.top, 16)
-                        
-                        PostView()
-                        
-                        Color.separatorOpaque
-                            .frame(height: 1, alignment: .center)
-                            .opacity(0.5)
-                            .padding(.top, 16)
-                        
-                        PostView()
-                        
-                        Color.separatorOpaque
-                            .frame(height: 1, alignment: .center)
-                            .opacity(0.5)
-                            .padding(.top, 16)
-                        
-                        PostView()
+                        ForEach(1...200, id: \.self) { i in
+                            Color.separatorOpaque
+                                .frame(height: 1, alignment: .center)
+                                .opacity(0.5)
+                                .padding(.top, 16)
+                                .id(i)
+                            
+                            PostView()
+                        }
                     }
                     
                 }

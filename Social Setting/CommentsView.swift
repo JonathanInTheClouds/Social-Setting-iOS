@@ -35,7 +35,7 @@ struct CommentsView: View {
                     CommentItem()
                         .padding(.top, 10)
                 }
-                .padding(.bottom)
+                .padding(.bottom, 100)
             }
         }
         .navigationBarTitleDisplayMode(.inline)
