@@ -19,6 +19,16 @@ struct ReplyView: View {
     
     @Binding var opened: Bool
     
+    let name: String
+    
+    let username: String
+    
+    let timeAgo: String
+    
+    let text: String
+    
+    let action: () -> ()
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -26,9 +36,10 @@ struct ReplyView: View {
                     .navigationBarTitleDisplayMode(.inline)
                     .padding()
                 
-                VStack {
-                    PostViewHeader(post: posts[0])
-                    Text("I recently understood the words of my friend Jacond West about music")
+                VStack(alignment: .leading) {
+                    PostViewHeader(name: name, username: username, timeAgo: timeAgo)
+                    Text(text)
+                        .padding(.horizontal, 16)
                 }
                 .padding(.bottom, 16)
             }
@@ -42,7 +53,7 @@ struct ReplyView: View {
                 }
                 
                 ToolbarItem(placement: ToolbarItemPlacement.primaryAction) {
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Button(action: action, label: {
                         Text("Reply")
                     })
                 }
@@ -68,10 +79,14 @@ struct ReplyView: View {
 struct ReplyView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ReplyView(opened: .constant(false))
+            ReplyView(opened: .constant(false), name: posts[0].user.name, username: posts[0].user.username, timeAgo: posts[0].timeAgo, text: posts[0].text, action: {
+                
+            })
                 .preferredColorScheme(.light)
             
-            ReplyView(opened: .constant(false))
+            ReplyView(opened: .constant(false), name: posts[0].user.name, username: posts[0].user.username, timeAgo: posts[0].timeAgo, text: posts[0].text, action: {
+                
+            })
                 .preferredColorScheme(.dark)
         }
     }

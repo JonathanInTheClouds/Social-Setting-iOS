@@ -1,22 +1,22 @@
 //
-//  PostView.swift
+//  PhotoPostView.swift
 //  Social Setting
 //
-//  Created by Jonathan Dowdell on 5/7/21.
+//  Created by Jonathan Dowdell on 5/27/21.
 //
 
 import SwiftUI
-import LoremSwiftum
 
-struct PostView: View {
+struct PhotoPostView: View {
     
-    @State var post: PostModel
+    @Binding var post: PostModel
     
-    @State var reply = false
+    @Binding var reply: Bool
     
     var body: some View {
+        
         VStack {
-            PostViewHeader(post: post)
+            PostViewHeader(name: post.user.name, username: post.user.username, timeAgo: post.timeAgo)
             
             Color.labelTertiary
                 .frame(height: 210, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -66,7 +66,7 @@ struct PostView: View {
                     })
                 Text("·")
                 NavigationLink(
-                    destination: CommentsView(post: $post),
+                    destination: CommentsView(viewModel: CommentViewModel(), post: $post),
                     label: {
                         Text("\(post.comments)")
                             .bold()
@@ -78,69 +78,20 @@ struct PostView: View {
             .padding(.horizontal, 16)
             
             HStack {
-                Text(post.details)
+                Text(post.text)
                     .multilineTextAlignment(.leading)
                 Spacer()
             }
                 .padding(.vertical, 1)
                 .padding(.horizontal, 16)
         }
-        .padding(.bottom)
-        .sheet(isPresented: $reply, content: {
-            ReplyView(opened: $reply)
-        })
+        
     }
 }
 
-struct PostView_Previews: PreviewProvider {
+
+struct PhotoPostView_Previews: PreviewProvider {
     static var previews: some View {
-        PostView(post: posts[0])
-    }
-}
-
-struct PostViewHeader: View {
-    
-    var post: PostModel
-    
-    var body: some View {
-        HStack {
-            NavigationLink(
-                destination: ProfileView(),
-                label: {
-                    Image("User")
-                        .resizable()
-                        .frame(width: 40, height: 40, alignment: .center)
-                })
-            
-            VStack(alignment: .leading, spacing: 2) {
-                HStack(alignment: .center) {
-                    NavigationLink(
-                        destination: ProfileView(),
-                        label: {
-                            Text(post.name)
-                                .foregroundColor(Color.labelPrimary)
-                        })
-                    Image(systemName: "checkmark.seal.fill")
-                        .foregroundColor(.accentColor)
-                }
-                
-                HStack {
-                    Text("@\(post.username)")
-                    Text("·")
-                    Text("\(post.timeAgo)")
-                }
-                .foregroundColor(Color.labelSecondary)
-            }
-            
-            Spacer()
-            
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                Image(systemName: "ellipsis")
-                    .foregroundColor(Color.labelSecondary)
-                    .padding(.all, 5)
-            })
-        }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 12)
+        PhotoPostView(post: .constant(posts[0]), reply: .constant(false))
     }
 }

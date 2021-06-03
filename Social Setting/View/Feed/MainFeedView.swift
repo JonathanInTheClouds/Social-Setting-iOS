@@ -11,6 +11,8 @@ import LoremSwiftum
 struct MainFeedView: View {
     @ObservedObject var viewModel: FeedViewModel
     
+    @State var opened = false
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -40,13 +42,10 @@ struct MainFeedView: View {
                                 .padding(.top, 16)
                             
                             PostView(post: post)
-                                .onTapGesture {
-                                    viewModel.postArray.append(PostModel(name: "\(Lorem.firstName)", username: Lorem.lastName, timeAgo: "\(Int.random(in: 1...9))h ago", liked: false, bookMarked: false, likes: Int.random(in: 1...420), comments: Int.random(in: 1...420), details: Lorem.tweet, postType: .photo))
-                                }
                         }
                         
                     }
-                    
+                    .padding(.bottom, 30)
                 }
                 .fixFlickering()
             }

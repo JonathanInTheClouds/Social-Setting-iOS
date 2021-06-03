@@ -63,6 +63,10 @@ extension Color {
     public static var teal: Color {
         return Color("Teal")
     }
+    
+    public static var offWhite: Color {
+        return Color("Off White")
+    }
 }
 
 extension Color {

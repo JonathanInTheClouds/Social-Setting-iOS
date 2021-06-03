@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CommentsView: View {
     
+    @ObservedObject var viewModel: CommentViewModel
+    
     @Binding var post: PostModel
     
     @State var text = ""
@@ -25,17 +27,10 @@ struct CommentsView: View {
                         .opacity(0.5)
                         .padding(.top, 16)
                     
-                    CommentItem()
-                        .padding(.top, 10)
-                    
-                    CommentItem()
-                        .padding(.top, 10)
-                    
-                    CommentItem()
-                        .padding(.top, 10)
-                    
-                    CommentItem()
-                        .padding(.top, 10)
+                    ForEach(viewModel.commentsArray, id: \.self) { comment in
+                        CommentItem(comment: comment)
+                            .padding(.top, 10)
+                    }
                 }
                 .padding(.bottom, 100)
             }
@@ -49,12 +44,12 @@ struct CommentsView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NavigationView {
-                CommentsView(post: .constant(posts[0]))
+                CommentsView(viewModel: CommentViewModel(), post: .constant(posts[0]))
                     .preferredColorScheme(.light)
             }
             
             NavigationView {
-                CommentsView(post: .constant(posts[0]))
+                CommentsView(viewModel: CommentViewModel(), post: .constant(posts[0]))
                     .preferredColorScheme(.dark)
             }
         }
@@ -253,7 +248,7 @@ struct CommentHeadView: View {
                 
                 VStack(alignment: .leading, spacing: 10) {
                     Button(action: {}, label: {
-                        Text("@\(post.username)   ").bold() + Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempor lacinia aliquam. Quisque semper gravida tellus vel accumsan. Sed nec risus.")
+                        Text("@\(post.user.username)   ").bold() + Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempor lacinia aliquam. Quisque semper gravida tellus vel accumsan. Sed nec risus.")
                     })
                     .foregroundColor(Color.labelPrimary)
                     
@@ -275,8 +270,9 @@ struct CommentHeadView: View {
             }
             .padding(.horizontal, 16)
             .sheet(isPresented: $isPresented, content: {
-                ReplyView(opened: $isPresented)
-                
+                ReplyView(opened: $isPresented, name: post.user.name, username: post.user.username, timeAgo: post.timeAgo, text: post.text) {
+                    
+                }
             })
         }
     }
@@ -288,6 +284,8 @@ struct CommentItem: View {
     @State var isPresented = false
     
     @State var expanded = false
+    
+    let comment: CommentModel
     
     var body: some View {
         LazyVStack {
@@ -308,12 +306,12 @@ struct CommentItem: View {
                             expanded.toggle()
                         }
                     }, label: {
-                        Text("@joshua_I   ").bold() + Text("I recently understood the words of my friend Jacob West about music.")
+                        Text("@\(comment.user.username) ").bold() + Text(comment.text)
                     })
                     .foregroundColor(Color.labelPrimary)
                     
                     HStack {
-                        Text("2h")
+                        Text(comment.timeAgo)
                             .foregroundColor(Color.labelSecondary)
                             .font(.subheadline)
                         Button(action: {
@@ -332,13 +330,14 @@ struct CommentItem: View {
             }
             .padding(.horizontal, 16)
             .sheet(isPresented: $isPresented, content: {
-                ReplyView(opened: $isPresented)
-                
+                ReplyView(opened: $isPresented, name: comment.user.name, username: comment.user.username, timeAgo: comment.timeAgo, text: comment.text) {
+                    
+                }
             })
             
             if expanded {
                 ForEach((1...Int.random(in: 1...4)), id: \.self) { _ in
-                    CommentItem()
+                    CommentItem(comment: commentsArray[0])
                         .padding(.leading, 50)
                 }
             }
