@@ -32,7 +32,6 @@ struct PostView: View {
                 })
         } else if post.postType == .share {
             SharePostView(post: $post, reply: $reply)
-                .padding(.bottom)
                 .sheet(isPresented: $reply, content: {
                     ReplyView(opened: $reply, name: post.user.name, username: post.user.username, timeAgo: post.timeAgo, text: post.text, action: {
                         post.comments += 1
