@@ -40,6 +40,7 @@ struct ReplyView: View {
                     PostViewHeader(name: name, username: username, timeAgo: timeAgo)
                     Text(text)
                         .padding(.horizontal, 16)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
                 .padding(.bottom, 16)
             }

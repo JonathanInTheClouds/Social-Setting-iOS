@@ -15,29 +15,22 @@ struct PostView: View {
     @State var reply = false
     
     var body: some View {
-        if post.postType == .photo {
-            PhotoPostView(post: $post, reply: $reply)
-                .padding(.bottom)
-                .sheet(isPresented: $reply, content: {
-                    ReplyView(opened: $reply, name: post.user.name, username: post.user.username, timeAgo: post.timeAgo, text: post.text, action: {
-                        post.comments += 1
-                    })
-                })
-        } else if post.postType == .regular {
-            RegularPostView(post: $post, reply: $reply)
-                .sheet(isPresented: $reply, content: {
-                    ReplyView(opened: $reply, name: post.user.name, username: post.user.username, timeAgo: post.timeAgo, text: post.text, action: {
-                        post.comments += 1
-                    })
-                })
-        } else if post.postType == .share {
-            SharePostView(post: $post, reply: $reply)
-                .sheet(isPresented: $reply, content: {
-                    ReplyView(opened: $reply, name: post.user.name, username: post.user.username, timeAgo: post.timeAgo, text: post.text, action: {
-                        post.comments += 1
-                    })
-                })
+        ZStack {
+            switch post.postType {
+            case .photo:
+                PhotoPostView(post: $post, reply: $reply)
+                    .padding(.bottom)
+            case .regular:
+                RegularPostView(post: $post, reply: $reply)
+            case .share:
+                SharePostView(post: $post, reply: $reply)
+            }
         }
+        .sheet(isPresented: $reply, content: {
+            ReplyView(opened: $reply, name: post.user.name, username: post.user.username, timeAgo: post.timeAgo, text: post.text, action: {
+                post.comments += 1
+            })
+        })
     }
     
 }
